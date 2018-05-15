@@ -4,23 +4,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zjy.cloudnote.dao.UserDao">
     <select id="queryUser" resultType="com.zjy.cloudnote.entity.User">
-        SELECT userid,username,password
-        FROM USER
-        ORDER BY userid
+        SELECT user_id,group_id,login_name,password,username,mobile,email,gen_time,last_login_time,count
+        FROM cn_user
+        ORDER BY user_id
         DESC
     </select>
     <select id="queryUserById" resultType="com.zjy.cloudnote.entity.User" >
         SELECT userid,username,password
-        FROM USER
+        FROM cn_user
         WHERE userid = #{userId}
     </select>
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="userId" keyColumn="userid"
             parameterType="com.zjy.cloudnote.entity.User">
-        INSERT INTO user(username,password)
+        INSERT INTO cn_user(username,password)
         VALUES (#{username},#{password})
     </insert>
     <update id="updateUser" parameterType="com.zjy.cloudnote.entity.User">
-        UPDATE USER
+        UPDATE cn_user
         <set>
             <!--<if test="userId!=null">userid=#{userId}</if>-->
             <if test="username!=null">username=#{username},</if>
@@ -29,7 +29,7 @@
         WHERE userid = #{userId}
     </update>
     <delete id="deleteUser">
-      DELETE FROM USER
+      DELETE FROM cn_user
       WHERE userid = #{userId}
     </delete>
 </mapper>

@@ -21,7 +21,7 @@ public class UserDaoTest {
     @Test
     public void queryUser() {
         List<User> list = userDao.queryUser();
-        assertEquals(1,list.size());
+        assertEquals(2,list.size());
     }
 
     @Test
