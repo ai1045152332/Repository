@@ -5,6 +5,7 @@ import com.zjy.cloudnote.entity.User;
 import com.zjy.cloudnote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,18 +25,35 @@ public class UserServiceImpl implements UserService{
         return userDao.queryUserById(userId);
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
-    public int insertUser(User user) {
-        return userDao.insertUser(user);
+    public boolean insertUser(User user) {
+        //可以写判断用户名等是否为空
+        //可以设置最后登录时间  创建时间
+         userDao.insertUser(user);
+         //判断返回值是否为1   是1   影响1行成功
+
+        //可以抛出异常
+
+        //    throw new RuntimeException("插入失败"+e.getMessage());
+        return true;
     }
 
     @Override
-    public int updateUser(User user) {
-        return userDao.updateUser(user);
+    public boolean updateUser(User user) {
+        //可以写判断用户名等是否为空
+        //可以设置最后登录时间  创建时间
+        userDao.updateUser(user);
+        //判断返回值是否为1   是1   影响1行成功
+        return true;
     }
 
     @Override
-    public int deleteUser(int userId) {
-        return userDao.deleteUser(userId);
+    public boolean deleteUser(int userId) {
+        //可以写判断用户名等是否为空
+        //可以设置最后登录时间  创建时间
+        userDao.deleteUser(userId);
+        //判断返回值是否为1   是1   影响1行成功
+        return true;
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserService {
     List<User> queryUser();
     User queryUserById(int userId);
-    int insertUser(User user);
-    int updateUser(User user);
-    int deleteUser(int userId);
+    boolean insertUser(User user);
+    boolean updateUser(User user);
+    boolean deleteUser(int userId);
 }
