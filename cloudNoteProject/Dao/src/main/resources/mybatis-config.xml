@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!-- -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias type="com.test.entity.Employee" alias="Employee"/>
+        <typeAlias type="com.test.entity.Customer" alias="Customer"/>
+    </typeAliases>
+
+    <environments default="local">
+        <environment id="local">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/orcl"/>
+                <property name="username" value="username"/>
+                <property name="password" value="password"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+        <mapper resource="com/test/data/employee-mapper.xml"/>
+        <mapper resource="com/test/data/customer-mapper.xml"/>
+    </mappers>
+</configuration>
