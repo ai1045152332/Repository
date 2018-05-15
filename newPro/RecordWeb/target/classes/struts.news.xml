@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <package name="news" namespace="/news" extends="frontend-default">
+                <action name="News_*" class="com.honghe.recordweb.action.frontend.news.NewsAction" method="{1}">
+                        <result name="index">/pages/frontend/news/editor/index.jsp</result>
+                        <result name="newsmanage">/pages/frontend/news/news.jsp</result>
+                        <result name="selectPolicy">/pages/frontend/news/selectPolicy.jsp</result>
+                        <result name="richNewsList">/pages/frontend/news/rich_news.jsp</result>
+                        <result name="myrichnews">/pages/frontend/news/myrichnews.jsp</result>
+                        <result name="authorityDeny">/deny.jsp</result>
+                </action>
+                <action name="Page_*" class="com.honghe.recordweb.action.frontend.news.PageAction" method="{1}">
+                        <result name="program" type="redirect">
+                                /msgResource/${uid}/${proName}/previewSingle/projectP.html?uuid=${uuid}
+                        </result>
+                        <result name="publishprogram" type="redirect">
+                                /msgResource/publish/${proName}/preview/project.html?uuid=${uuid}
+                        </result>
+                        <result name="templateprogram" type="redirect">
+                                /msgResource/template/${proName}/preview/project.html?uuid=${uuid}
+                        </result>
+                        <result name="programpreview" type="redirect">
+                                /msgResource/${uid}/${proName}/preview/project.html?uuid=${uuid}
+                        </result>
+                        <result name="authorityDeny">/deny.jsp</result>
+                </action>
+                <action name="Item_*" class="com.honghe.recordweb.action.frontend.news.ItemAction" method="{1}">
+                        <result name="authorityDeny">/deny.jsp</result>
+                </action>
+                <action name="ResourceFile_*" class="com.honghe.recordweb.action.frontend.news.ResourceFileAction" method="{1}">
+                        <result name="home">/pages/frontend/news/home.jsp</result>
+                        <result name="authorityDeny">/deny.jsp</result>
+                </action>
+        </package>
+</struts>

@@ -1,0 +1,12 @@
+
+.editItem1 {
+    width: 287px;
+    height: 142px;
+    overflow: hidden;
+    transform-origin : top left;
+    -webkit-transform-origin : top left;
+}
+.editItem1 .IMG_COMP_img {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="../../css/property_2.css" type="text/css" rel="stylesheet">
+	
+	<script type="text/javascript">
+	    // 右上角的用户信息显示
+		function getUrlParameter( name ){
+			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regexS = "[\\?&]"+name+"=([^&#]*)";
+			var regex = new RegExp( regexS );
+			var results = regex.exec(window.parent.location.href );
+			if(results == null)return "";  
+			else {
+			   return results[1];
+			}
+		} 
+		function checkAccordionSimplePos(){
+			var quick=getUrlParameter('quick');
+		   	if(quick=='1'){
+		    	var pos = document.getElementById("pos");
+		    	pos.style.display = 'none';
+		    }
+		    
+		    var index=window.setInterval('setpptpath()', 300);
+		    document.getElementById('indexpo').value = index;
+		}
+		
+		function setpptpath(){
+			var ppath = document.getElementById("ppt_path");
+			var imgList = document.getElementById("imgList");
+		    document.getElementById("imgsum").innerHTML = imgList.children.length;
+		    if(ppath.getAttribute("src")== ''){
+		     	ppath.setAttribute("src",imgList.children[0].children[0].currentSrc); 
+		    }else{
+		    	var index = document.getElementById('indexpo').value;
+				window.clearInterval(index); //移除定时器
+		    }
+		}
+    </script>
+</head>
+<body onload="checkAccordionSimplePos()">
+<input type="hidden" id="indexpo"> <!-- 发布时的定时器 -->
+<container>
+    <header>
+        <span  class="scrollImg_comp_prpt"></span><label>轮播图</label>
+    </header>
+    <section class="pos_size" id='pos'>
+        <nav class="prpt_nav">
+            <span></span><label>位置大小</label>
+        </nav>
+        <container>
+            <ul>
+                <li><span>X</span><input type="text" id="xVal" name="valEl" /></li>
+                <li><span>Y</span><input type="text" id="yVal" name="valEl" /></li>
+            </ul>
+            <ul>
+                <li><span>W</span><input type="text" id="wVal" name="valEl" /></li>
+                <li><span>H</span><input type="text" id="hVal" name="valEl" /></li>
+            </ul>
+        </container>
+    </section>
+    <section class="check prpt_set">
+        <nav class="prpt_nav">
+            <span></span><label>属性</label>
+        </nav>
+        <container>
+            <div class="play_prpt_input_text">
+            	<label>总页数 : </label><label id='imgsum'></label><br>
+				<label>注:翻页时长1秒</label><br>
+                <label>每页播放时长</label>
+              	<input type="text" id="tm_during" name="valEl" style="width:40px;"  onblur="checkTh()"  value='2'>
+                <label>秒</label>
+            </div> 
+            <div id="imgList_outer" style="display: none;" class="imgList_outer">
+                <div id="imgList" class="imgList">
+                </div>
+                <div class="scroll_item">
+                    <img src="" class="scroll_item_img" />
+                    <div style="display:none;">
+                        <input type="text" class="scroll_title_input" />
+                    </div>
+                    <div class="scroll_item_opr">
+                        <span class="scroll_item_moveUp"></span>
+                        <span class="scroll_item_moveDwn"></span>
+                        <span class="scroll_item_del"></span>
+                    </div>
+                </div>
+            </div>
+             <div class="prpt_input_text">
+                <label>文档：</label>
+                <img src="../../images/cList_bg.png" id="ppt_path"/>
+            </div>
+        </container>
+    </section>
+
+
+</container>
+<script src="../../js/view/propertyBar/commonPrpty.js"></script>
+<script type="text/javascript">
+function checkTh(){
+			if(document.getElementById("tm_during").value == 0 
+				|| document.getElementById("tm_during").value == '' 
+					|| document.getElementById("tm_during").value == '0' ){
+				document.getElementById("tm_during").value = 2;
+			}
+			else{
+				var ss = document.getElementById("tm_during").value.replace(/[^\d]/g,'');
+		        if(ss=='')ss=2;
+		        ss = parseInt(ss,10);
+		        if(ss<3)ss=2;
+		        else if(ss>86400)ss=86400;
+		        document.getElementById("tm_during").value = ss;
+			}
+		}
+		function clearNoNum(obj){   
+			 obj.value = obj.value.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符  
+		 	 obj.value = obj.value.replace(/^\./g,"");  //验证第一个字符是数字而不是. 
+			 obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个. 清除多余的.   
+			 obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+		}
+</script>
+</body>
+</html>

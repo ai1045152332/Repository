@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="htprojector" namespace="/htprojector" extends="frontend-default">
+        <action name="HTProjector_*" class="com.honghe.recordweb.action.frontend.htprojector.HTProjectorAction" method="{1}">
+            <result name="dmanager">/pages/frontend/htprojector/htprojector.jsp</result>
+            <result name="htplist">/pages/frontend/htprojector/htplist.jsp</result>
+            <result name="htplist9">/pages/frontend/htprojector/htplist9.jsp</result>
+        </action>
+    </package>
+</struts>

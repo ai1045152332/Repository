@@ -1,0 +1,25 @@
+<div id="@#+bid+#@" class="item" style="left:@#+x+#@px;top:@#+y+#@px;transform:scale(@#+scX+#@,@#+scY+#@);-webkit-transform:scale(@#+scX+#@,@#+scY+#@);z-index:@#+idx+#@;" params='{"during":@#+during+#@}'>
+    <div class="scroll_wander_box">
+        <div class="scroll_wdr_show">
+            <div class="scroll_wdr_show_inner">
+                <div class="scroll_wdr_show_img">
+                </div>
+                <div class="scroll_wdr_show_title"></div>
+            </div>
+        </div>
+        <div class="scroll_wdr_film">
+            <div class="scroll_wdr_film_mask">
+                <ul class="swiper-wrapper">
+                    @@##<li class="swiper-slide" title="$%!+title+!%$"><img src="$%!+path+!%$" /></li>##@@
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@#+bid+#@_wander_bigImg" class="item" style="z-index:9000;">
+	<div class="wander_bigImg_wrapper">
+		<ul>
+			
+		</ul>
+	</div>
+</div>

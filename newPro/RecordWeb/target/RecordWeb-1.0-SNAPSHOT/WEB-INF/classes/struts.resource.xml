@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="resource" namespace="/resource" extends="frontend-default">
+        <action name="Resource_*" class="com.honghe.recordweb.action.frontend.resource.ResourceAction" method="{1}">
+            <result name="resourcelist">/pages/frontend/resource/resource.jsp</result>
+            <result name="resourcesearch">/pages/frontend/resource/resource.jsp</result>
+            <result name="resourceupdate">/pages/frontend/resource/resource_update.jsp</result>
+            <result name="resourcelistnew">/pages/frontend/resource/resource_dir.jsp</result>
+            <result name="resourcesearchbyip">/pages/frontend/resource/resource_ip.jsp</result>
+            <result name="resourcelistbyip">/pages/frontend/resource/resource_ip.jsp</result>
+        </action>
+    </package>
+</struts>

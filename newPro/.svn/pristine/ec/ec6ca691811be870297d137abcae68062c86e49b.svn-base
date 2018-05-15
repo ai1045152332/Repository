@@ -1,0 +1,7 @@
+log4j.rootLogger=ERROR,DailyTxtFile
+
+log4j.appender.DailyTxtFile=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.DailyTxtFile.File=../../log/hhtc.log
+log4j.appender.DailyTxtFile.DatePattern='_'yyyy-MM-dd'.log'
+log4j.appender.DailyTxtFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.DailyTxtFile.layout.ConversionPattern=[%p][%d{yyyy-MM-dd HH\:mm\:ss,SSS}][%c]%m%n

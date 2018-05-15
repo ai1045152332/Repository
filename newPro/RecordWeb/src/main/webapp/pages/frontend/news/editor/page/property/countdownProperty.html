@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="../../css/property_2.css" type="text/css" rel="stylesheet">
+    <script src="../../js/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript">
+	    // 右上角的用户信息显示
+		function getUrlParameter( name ){
+			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regexS = "[\\?&]"+name+"=([^&#]*)";
+			var regex = new RegExp( regexS );
+			var results = regex.exec(window.parent.location.href );
+			if(results == null)return "";  
+			else {
+			   return results[1];
+			}
+		} 
+		function checReckPos(){
+			var quick=getUrlParameter('quick');
+		   	if(quick=='1'){
+		    	var pos = document.getElementById("pos");
+		    	pos.style.display = 'none';
+		    }
+		}
+		function changeTimeType(objid){
+			if(objid == 0){
+				document.getElementById("tymdval").disabled = false;
+				document.getElementById("tymdhmsval").disabled = true;
+			}else if(objid == 1){
+				document.getElementById("tymdhmsval").disabled = false;
+				document.getElementById("tymdval").disabled = true;
+			} 
+		}
+		// 设置日期  年月日
+		function showTiymd(dp){
+		 	var endDate = dp.cal.getDateStr();
+			var date=new Date();
+			var year="",month="" ,day="";
+			year=date.getFullYear();
+			month=add_zero(date.getMonth()+1);
+			day=add_zero(date.getDate());
+			var array = endDate.split("/");
+			var endTime = new Date(parseInt(array[0]), parseInt(array[1]), parseInt(array[2]));
+			var nowTime = new Date(parseInt(year), parseInt(month), parseInt(day));
+			var day = (Number(endTime) - Number(nowTime)) / (1000 * 60 * 60 * 24);
+			var d = day;
+			if(day < 1 ){
+				alert("小于最低可倒计时天数1，请重新设置。");
+				document.getElementById("tymdval").value='';
+ 				document.getElementById("tymdval").disabled = false;
+			}else if(d > 999){
+				alert("已超过最大可倒计时天数999，请重新设置。");
+				document.getElementById("tymdval").value='';
+ 				document.getElementById("tymdval").disabled = false;
+			}else{
+//				alert(' 距今已过 ' + day + ' 天');
+			}            
+		}
+		// 设置日期  年月日时分秒
+		function showTiymdhms(dp){
+		 	var endDate = dp.cal.getDateStr();
+		 	var array = endDate.split("/");
+			endDate = array[0]+"/"+array[1]+"/"+array[2];  // IE 火狐 只认  yyyy/MM/dd 
+			var d2 = new Date(Date.parse(endDate));
+			var date=new Date();
+			var s = Math.floor((date - d2) /-1000);
+			if(s > -1){
+				hour = Math.floor(s/3600);
+				min = Math.floor(s/60)-hour*60;
+				sec = s-(hour*60*60+min*60);
+				day = parseInt(hour / 24);
+				if(day > 999) {
+                    alert("已超过最大可倒计时天数999，请重新设置。");
+                    //document.getElementById("d233").value = '';
+                    document.getElementById("tymdhmsval").value='';
+                    document.getElementById("tymdhmsval").disabled = false;
+                }else if(day < 1){
+					alert("小于最低可倒计时天数1，请重新设置。");
+					document.getElementById("tymdhmsval").value='';
+	 				document.getElementById("tymdhmsval").disabled = false;
+				}else{
+					if (day > 0) { hour = hour - 24 * day; }
+					   	t = day + ":";
+					if(hour < 10){t += "0";} 
+					    t += hour + ":";
+					if(min < 10){t += "0";}
+					    t += min + ":";
+					if(sec < 10){t += "0";}
+					    t += sec;
+				}
+			}else{
+				alert("小于最低可倒计时天数1，请重新设置。");
+				document.getElementById("tymdhmsval").value='';
+ 				document.getElementById("tymdhmsval").disabled = false;
+			}
+		}
+		function add_zero(temp){
+		    if(temp<10) return "0"+temp;
+		    else return temp;
+	    }
+    </script>
+
+</head>
+<body onload="checReckPos()">
+<container>
+    <header>
+        <span  class="rect_comp_prpt"></span><label>倒计时</label>
+    </header>
+    <section class="pos_size" id='pos'>
+        <nav class="prpt_nav">
+            <span></span><label>位置大小</label>
+        </nav>
+        <container>
+            <ul>
+                <li><span>X</span><input type="text" id="xVal" name="valEl" /></li>
+                <li><span>Y</span><input type="text" id="yVal" name="valEl" /></li>
+            </ul>
+            <ul>
+                <li><span>W</span><input type="text" id="wVal" name="valEl" /></li>
+                <li><span>H</span><input type="text" id="hVal" name="valEl" /></li>
+            </ul>
+        </container>
+    </section>
+    <section class="check prpt_set">
+        <nav class="prpt_nav">
+            <span></span><label>属性</label>
+        </nav>
+        <container>
+        	<input type="hidden" id="compType" name="valEl" />
+        	<!-- 选择倒计时时间  start -->
+            <div class="timertype_select">
+              	<label>选择倒计时时间</label>
+                <span class="color_current" style="display:none;"></span>
+                <div class="clear"></div>
+                <label>
+                	<input type="radio" name='valEl' id='tymd' value='0' onclick="changeTimeType(0)" checked="checked" >设置倒数日期
+               		<input type="text" name='valEl' id="tymdval" style='width:130px' class="Wdate" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy/MM/dd',onpicked:function(dp){showTiymd(dp);}})"/>
+                </label>
+                <label>
+                	<input type="radio" name='valEl' id='tymdhms' value='1' onclick="changeTimeType(1)">设置倒数时间
+                	<input type="text" name='valEl' id="tymdhmsval" style='width:130px' class="Wdate" disabled="disabled" onFocus="WdatePicker({onpicked:function(dp){showTiymdhms(dp);},dateFmt:'yyyy/MM/dd HH:mm:ss',readOnly:true})"/>
+        		</label>
+            </div>
+        	<!-- 选择倒计时时间  end -->
+        	
+            <!-- 字体颜色 start -->
+            <div class="color_select" >
+                <label>字体颜色</label>
+                <span class="color_current" style="display:none;"></span>
+                <div class="clear"></div>
+                <ul class="color_select_list" id=fontcolor name="valEl" >
+                    <li class="item color_item_1"><span ></span></li>
+                    <li class="item color_item_2"><span></span></li>
+                    <li class="item color_item_3"><span></span></li>
+                    <li class="item color_item_4"><span></span></li>
+                    <li class="item color_item_5"><span></span></li>
+                    <li class="item color_item_6"><span></span></li>
+                    <li class="item color_item_7"><span></span></li>
+                    <li class="item color_item_8"><span></span></li>
+                    <li class="item color_item_9"><span></span></li>
+                    <li class="item color_item_10"><span></span></li>
+                    <li class="color_item_11">
+                        <span class="more_color_select_btn">更多...</span>
+                        <div class="more_color_select_panel">
+                            <ul>
+                                <li>
+                                    <div  class="item" ><span style="background-color:#ffffff"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#ffffff"></span></li>
+                                        <li class="item"><span style="background-color:#F2F2F2"></span></li>
+                                        <li class="item"><span style="background-color:#D8D8D8"></span></li>
+                                        <li class="item"><span style="background-color:#BFBFBF"></span></li>
+                                        <li class="item"><span style="background-color:#8C8C8C"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#969696"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#969696"></span></li>
+                                        <li class="item"><span style="background-color:#7F7F7F"></span></li>
+                                        <li class="item"><span style="background-color:#5A5A5A"></span></li>
+                                        <li class="item"><span style="background-color:#282828"></span></li>
+                                        <li class="item"><span style="background-color:#0C0C0C"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#1E467D"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#C8D7F0"></span></li>
+                                        <li class="item"><span style="background-color:#8CB4E1"></span></li>
+                                        <li class="item"><span style="background-color:#558CD2"></span></li>
+                                        <li class="item"><span style="background-color:#1E467D"></span></li>
+                                        <li class="item"><span style="background-color:#14375F"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#BEB4D7"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#BEB4D7"></span></li>
+                                        <li class="item"><span style="background-color:#A091C8"></span></li>
+                                        <li class="item"><span style="background-color:#7D6EB9"></span></li>
+                                        <li class="item"><span style="background-color:#5F52A0"></span></li>
+                                        <li class="item"><span style="background-color:#46328C"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#B4DCE6"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#DCEBF5"></span></li>
+                                        <li class="item"><span style="background-color:#B4DCE6"></span></li>
+                                        <li class="item"><span style="background-color:#91CDDC"></span></li>
+                                        <li class="item"><span style="background-color:#32879B"></span></li>
+                                        <li class="item"><span style="background-color:#19505F"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#F19149"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#FFF45C"></span></li>
+                                        <li class="item"><span style="background-color:#F8B551"></span></li>
+                                        <li class="item"><span style="background-color:#F19149"></span></li>
+                                        <li class="item"><span style="background-color:#EB6100"></span></li>
+                                        <li class="item"><span style="background-color:#E61912"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <!-- 字体颜色 end -->
+            
+            <!-- 数字颜色 begin -->
+            <!-- <div class="color_select" >
+                <label>数字颜色</label>
+                <span class="color_current" style="display:none;"></span>
+                <div class="clear"></div>
+                <ul class="color_select_list" id="numbercolor" name="valEl" >
+                    <li class="item color_item_1"><span ></span></li>
+                    <li class="item color_item_2"><span></span></li>
+                    <li class="item color_item_3"><span></span></li>
+                    <li class="item color_item_4"><span></span></li>
+                    <li class="item color_item_5"><span></span></li>
+                    <li class="item color_item_6"><span></span></li>
+                    <li class="item color_item_7"><span></span></li>
+                    <li class="item color_item_8"><span></span></li>
+                    <li class="item color_item_9"><span></span></li>
+                    <li class="item color_item_10"><span></span></li>
+                    <li class="color_item_11">
+                        <span class="more_color_select_btn">更多...</span>
+                        <div class="more_color_select_panel">
+                            <ul>
+                                <li>
+                                    <div  class="item" ><span style="background-color:#ffffff"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#ffffff"></span></li>
+                                        <li class="item"><span style="background-color:#F2F2F2"></span></li>
+                                        <li class="item"><span style="background-color:#D8D8D8"></span></li>
+                                        <li class="item"><span style="background-color:#BFBFBF"></span></li>
+                                        <li class="item"><span style="background-color:#8C8C8C"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#969696"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#969696"></span></li>
+                                        <li class="item"><span style="background-color:#7F7F7F"></span></li>
+                                        <li class="item"><span style="background-color:#5A5A5A"></span></li>
+                                        <li class="item"><span style="background-color:#282828"></span></li>
+                                        <li class="item"><span style="background-color:#0C0C0C"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#1E467D"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#C8D7F0"></span></li>
+                                        <li class="item"><span style="background-color:#8CB4E1"></span></li>
+                                        <li class="item"><span style="background-color:#558CD2"></span></li>
+                                        <li class="item"><span style="background-color:#1E467D"></span></li>
+                                        <li class="item"><span style="background-color:#14375F"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#BEB4D7"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#BEB4D7"></span></li>
+                                        <li class="item"><span style="background-color:#A091C8"></span></li>
+                                        <li class="item"><span style="background-color:#7D6EB9"></span></li>
+                                        <li class="item"><span style="background-color:#5F52A0"></span></li>
+                                        <li class="item"><span style="background-color:#46328C"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#B4DCE6"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#DCEBF5"></span></li>
+                                        <li class="item"><span style="background-color:#B4DCE6"></span></li>
+                                        <li class="item"><span style="background-color:#91CDDC"></span></li>
+                                        <li class="item"><span style="background-color:#32879B"></span></li>
+                                        <li class="item"><span style="background-color:#19505F"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#F19149"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#FFF45C"></span></li>
+                                        <li class="item"><span style="background-color:#F8B551"></span></li>
+                                        <li class="item"><span style="background-color:#F19149"></span></li>
+                                        <li class="item"><span style="background-color:#EB6100"></span></li>
+                                        <li class="item"><span style="background-color:#E61912"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div> -->
+            <!-- 数字颜色 end -->
+        </container>
+    </section>
+
+
+</container>
+<script src="../../js/util/util.js" type="text/javascript"></script>
+<script src="../../js/view/ScrollBar.js" type="text/javascript"></script>
+<script src="../../js/view/ColorSet.js" type="text/javascript"></script>
+<script src="../../js/view/propertyBar/commonPrpty.js"></script>
+</body>
+</html>

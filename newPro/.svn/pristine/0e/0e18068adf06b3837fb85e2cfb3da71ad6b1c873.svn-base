@@ -1,0 +1,3 @@
+<div id="@#+bid+#@" class="item" style="left:@#+x+#@px;top:@#+y+#@px;z-index:@#+idx+#@;">
+	<div class="editItem6" style="width: @#+w+#@px;border-top-width:@#+h+#@px;border-top-style: @#+bdS+#@;border-top-color:@#+bdC+#@;"></div>
+</div>

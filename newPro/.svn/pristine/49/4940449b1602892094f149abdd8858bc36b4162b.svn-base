@@ -1,0 +1,12 @@
+
+.editItem2 {
+    background-color: transparent;
+    overflow: hidden;
+    transform-origin : top left;
+    -webkit-transform-origin : top left;
+}
+
+.editItem2 .VIDEO_COMP_video {
+    height: 100%;
+    width: 100%;
+}

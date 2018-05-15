@@ -1,0 +1,174 @@
+.ztree li span.button.add {
+	margin-left: 10px;
+	margin-right: 6px;
+	/* background-position: -144px 0; */
+	vertical-align: middle;
+	background: url("../../images/device/plus2.png");
+}
+
+.ztree li span.addHeader {
+	width: 17px;height: 17px;
+	margin-left: 54px;
+	margin-right: -6px;
+	/* background-position: -144px 0; */
+	vertical-align: middle;
+	background: url("../../images/device/plus2.png");
+	margin-top: 6px;
+}
+
+.ztree li span.button.edit {
+	margin-right: 6px;
+	/* background-position: -110px -48px; */
+	vertical-align: middle;
+	background: url(../../images/device/edit.png) ;
+}
+
+.ztree li span.button.remove {
+	margin-right: 2px;
+	/* background-position: -110px -64px; */
+	vertical-align: middle;
+	background: url(../../images/device/remove.png) ;
+}
+
+.ztree * {
+	font-size: 17px;
+	font-family: "Microsoft Yahei"
+}
+
+.ztree li ul {
+	margin: 0;
+	padding: 0
+}
+
+.ztree li {
+	line-height: 30px;
+}
+
+.ztree li a {
+	width: 100%;
+	height: 34px;
+	padding-top: 0px;
+	border-bottom: 1px solid lightgray;
+	padding:5px 0px 2px 0px;
+}
+
+.ztree li a.level0 {
+	width: 100%;
+	height: 34px;
+	padding: 5px 0px 2px;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.ztree li a.level1 {
+	padding: 5px 0px 2px 0px;
+	/* border-bottom: 2px solid lightgray; */
+	height: 34px;
+	width: 100%;
+}
+
+/* .ztree li a.level2 {
+	height: 25px;
+	border-bottom: 1px solid lightgray;
+	padding: 0px 0px 5px 0px;
+} */
+
+.ztree li a:hover {
+	text-decoration: none;
+}
+
+.ztree li a span.button.switch {
+	visibility: hidden
+}
+
+.ztree.showIcon li a span.button.switch {
+	visibility: visible;
+}
+
+.ztree li a.level0.curSelectedNode {
+	background-color: rgb(203,225,153);
+	border: 0;
+	height: 34px;
+	padding: 5px 0px 2px 0px;
+	width: 100%;
+}
+.ztree li a.level1.curSelectedNode {
+	background: rgb(203,225,153);
+	border: 0;
+	height: 34px;
+	padding: 5px 0px 2px 0px;
+}
+
+.ztree li a.curSelectedNode {
+	background: rgb(203,225,153);
+	height: 34px;
+	border: 0px;
+	border-bottom: 1px solid lightgray;
+	padding: 5px 0px 2px 0px;
+}
+
+.ztree li span,.ztree li a {
+	line-height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.ztree li #treeDemo_1_a span{
+	vertical-align: top;
+}
+
+/*
+.ztree ul.level0 li a.level1 span.switch.button {
+	background-position: 0px 0px;
+	background-image: url("../images/resources/device_add_one.png");
+	margin-top: 8px;
+}*/
+
+.ztree li span.button.switch {
+	/*width: 16px;
+	 height: 16px; */
+}
+
+.ztree li span.button.switch.level0 {
+	visibility: hidden;
+	width: 0px;
+}
+
+.ztree li ul.level0 {
+	padding: 0;
+	background: none;
+}
+
+.ztree li ul.level0 li { /*padding: 5px 0px 0px 0px;*/
+	
+}
+
+.ztree li ul.level0 li a:hover {
+	background: rgb(203,225,153);
+	color:white;
+	.ztree li span.button.noline_open{
+	background:url("./img/minus.png");
+	height: 13px;
+	width: 13px;
+	margin-left: 2px;
+	margin-top: -2px;
+	margin-right: 3px;
+	}
+}
+
+.ztree li ul.level0 li a span {
+	font-size: 15px;
+}
+
+.ztree li ul.level0 li a span.pic {
+	display: inline-block;
+	height: 18px;
+	width: 18px;
+	float: right;
+	margin-top: 7px;
+}
+
+.ztree {
+	padding: 0px;
+	margin: 0px 20px;
+}

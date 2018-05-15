@@ -1,0 +1,288 @@
+.public{
+    min-height: 100%;
+    height: auto;
+}
+
+.function_bar{
+    width: 100%;
+    height: 56px;
+}
+.function_bar ul{
+    float: left;
+    width: 100%;
+    margin-left: 25px;
+    padding-left: -25px;
+}
+.function_bar ul li{
+    display: inline-block;
+    float: left;
+    margin-top: 20px;
+    margin-right: 32px;
+}
+.function_bar ul li span{
+    display: inline-block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    background: url(../image/frontend/global_icon.png) no-repeat;
+}
+.function_bar ul li a{
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    line-height: 16px;
+    color: #333333;
+}
+.function_bar ul li a:hover{
+    color: #28b779;
+}
+.function_bar ul li span.function_bar_modify{
+    background-position: -20px -52px;
+}
+.function_bar ul li span.function_bar_clear{
+    background-position: 0 -52px;
+}
+.function_bar ul li span.function_bar_download{
+    background-position: 0 -34px;
+}
+.function_bar ul li span.function_bar_schedule{
+    background-position: -20px -34px;
+}
+.function_bar ul li span.function_bar_aler{
+    border:1px solid #000;
+}
+.function_bar ul li.function_bar_save{
+    float: right;
+    margin-top: 10px;
+    margin-right: 32px;
+}
+.function_bar ul li.function_bar_save button{
+    width: 82px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 10px;
+    background: #28b779;
+    color: white;
+    padding: 0;
+    border: 0;
+}
+.function_bar ul li.function_bar_save button.btn_disable{
+    background: #a0a0a0;
+}
+
+
+/* 课表--导入excel文件之前 */
+.schedule{
+    width: 100%;
+    min-height: 500px;
+}
+.schedule_no_data{
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 99px;
+}
+.schedule_no_data img{
+    width: 201px;
+    height: 162px;
+}
+.schedule_no_data span{
+    font-size: 18px;
+    color: #333333;
+    line-height: 60px;
+}
+
+
+/* 授权页面--身份识别 */
+.user_identity{
+    width: 538px;
+    height: 310px;
+    border: 1px solid #dbdbdb;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 200px;
+}
+.user_identity_inner{
+    width: 518px;
+    height: 250px;
+    border: 1px dashed #dbdbdb;
+    margin: 0 auto;
+    margin-top: 10px;
+}   
+.identity_content{
+    width: 280px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.identity_content h1{
+    font-size: 14px;
+    color: #212121;
+    font-weight: 500;
+}
+.identity_content h1 span{
+    color: #28b779;
+}
+.identity_status{
+    position: relative;
+    width: 100%;
+    height: 47px;
+    margin-top: 29px;
+}
+.identity_status img{
+    float: left;
+}
+.identity_status_pass{
+    margin: 15px 10px 0 32px;
+}
+.identity_status span{
+    float: left;
+    height: 47px;
+    line-height: 47px;
+    font-size: 12px;
+    color: #28b779;
+}
+.identity_content p{
+    font-size: 12px;
+    color: #212121;
+    line-height: 20px;
+}
+.identity_content p span{
+    font-weight: 500;
+}
+.identity_content p.device_number{
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+p.identity_thanks{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #333333;
+    line-height: 50px;
+}
+
+/* 第一次导入 设置课表类型选择 */
+.select_type{
+    width: 328px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 56px;
+}
+.select_type p{
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #212121;
+    margin-bottom: 20px;
+}
+.select_type p.current_schedule_type{
+    font-size: 12px;
+    margin-bottom: 40px;
+}
+.select_type p span{
+    color: #28b779;
+    font-weight: 500;
+}
+button.btn_schedule_week{
+    float: left;
+    font-size: 18px;
+    border-radius: 5px;
+}
+button.btn_schedule_course{
+    float: right;
+    font-size: 18px;
+    border-radius: 5px;
+}
+button.schedule_unselected{
+    width: 146px;
+    height: 46px;
+    border: 1px solid #28b779;
+    background: #ffffff;
+    font-size: 18px;
+    color: #28b779;
+    font-weight: 600;
+}
+button.schedule_selected{
+    width: 148px;
+    height: 48px;
+    background: #28b779;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    border: 0;
+}
+button.schedule_selected span{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    background: url(../image/frontend/global_icon.png) -56px -34px no-repeat;
+}
+.schedule_tag{
+    clear: both;
+}
+.schedule_week_tag, .schedule_course_tag{
+    float: left;
+    width: 148px;
+    height: 79px;
+    margin-top: 17px;
+    background: url(../image/schedule/schedule_tag.png) no-repeat;
+    overflow: hidden;
+}
+.schedule_course_tag{
+    float: right;
+}
+.schedule_week_tag p, .schedule_course_tag p{
+    width: 135px;
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 7px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #212121;
+}
+
+/* 课表选择确认弹窗 */
+.schedule_confirm{
+    clear: both;
+    width: 270px;
+    height: 110px;
+    margin: 0 auto;
+    padding: 23px 18px 18px 18px;
+    background: #fff;
+}
+.schedule_confirm p{
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+.schedule_confirm p span{
+    color: #28b779;
+    font-weight: 500;
+}
+.schedule_buttons{
+    padding-top: 10px;
+}
+.schedule_buttons button{
+    float: right;
+    font-size: 12px;
+    border-radius: 5px;
+}
+.schedule_buttons button.btn_schedule_confirm{
+    width: 78px;
+    height: 28px;
+    background: #28b779;
+    color: #ffffff;
+    border: 0;
+}
+.schedule_buttons button.btn_schedule_cancel{
+    width: 76px;
+    height: 26px;
+    color: #333333;
+    border: 1px solid #c4c4c4;
+    background: #fff;
+    margin-right: 15px;
+}
+

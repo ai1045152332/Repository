@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title></title> 
+	<link href="../../css/property_2.css" type="text/css" rel="stylesheet" />
+	<link href="../../css/property_3.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript">
+	    // 右上角的用户信息显示
+		function getUrlParameter( name ){
+			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regexS = "[\\?&]"+name+"=([^&#]*)";
+			var regex = new RegExp( regexS );
+			var results = regex.exec(window.parent.location.href );
+			if(results == null)return "";  
+			else {
+			   return results[1];
+			}
+		} 
+		function checkWeatherPos(){
+			var quick=getUrlParameter('quick');
+		   	if(quick=='1'){
+		    	var pos = document.getElementById("pos");
+		    	pos.style.display = 'none';
+		    }
+		}
+    </script>
+</head> 
+<body onload="checkWeatherPos()">
+<container>
+	<header>
+        <span class="text_comp_prpt"></span><label>天气</label>
+    </header>
+    <section class="pos_size" id='pos'>
+        <nav class="prpt_nav">
+            <span></span><label>位置大小</label>
+        </nav>
+        <container>
+            <ul>
+                <li><span>X</span><input type="text" id="xVal" name="valEl" /></li>
+                <li><span>Y</span><input type="text" id="yVal" name="valEl" /></li>
+            </ul>
+            <ul>
+                <li><span>W</span><input type="text" id="wVal" name="valEl" /></li>
+                <li><span>H</span><input type="text" id="hVal" name="valEl" /></li>
+            </ul>
+        </container>
+    </section>
+	<section class="check prpt_set">
+        <nav class="prpt_nav">
+            <span></span><label>属性</label>
+        </nav>
+        <container>
+			<input type="hidden" id="compType" name="valEl" />
+			<div class="citySlect">
+				当前城市:<input type="text" id="city" placeholder="输入城市名" class="currCity" name="valEl" />
+				<div class="arrow-outer">
+					<span class="arrow-inner"></span>
+				</div>
+				<div class="cityList" id="cityList">
+					<!--<a href="javascript:;" title="北京">北京</a>
+					<a href="javascript:;" title="上海">上海</a>
+					<a href="javascript:;" title="广州">广州</a>
+					<a href="javascript:;" title="深圳">深圳</a>-->
+				</div>
+			</div>
+			<div id="backColorWrap">
+				<div>背景颜色</div>
+				<div id="bg_color" class="color_select_list" name="valEl"></div>
+			</div>
+			<div id="opacitySetWrap">
+				<div class="opacitySet">
+					<div>透明度</div>
+					<div>
+						<div id="bg_opacity" name="valEl" class="bgOpacity">
+							<span class="count">100</span>%
+							<div class="sliderRail">
+								<div class="sliderProgress" id="sliderPos"></div>
+								<span class="slider"></span>
+							</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="fontColorWrap">
+				<div>字体颜色</div>
+				<div id="font_color" class="color_select_list" name="valEl"></div>
+			</div>
+			<div id="borderSetWrap">
+				边框粗细:<select class="borderWidthSet" id="bd_width" name="valEl">
+							<option value="0">无</option>
+							<option value="2" selected="selected">细</option>
+							<option value="3">中等</option>
+							<option value="4">粗</option>
+							<option value="5">特粗</option>
+						 </select>
+				<div>边框颜色</div>
+				<div id="bd_color" class="color_select_list" name="valEl"></div>
+			</div>
+		</container>
+    </section>
+</container>
+<script src="../../js/util/util.js" type="text/javascript"></script>
+<script src="../../js/view/CreateCityList.js" type="text/javascript"></script>
+<script src="../../js/view/ScrollBar.js" type="text/javascript"></script>
+<script src="../../js/view/ColorSet.js" type="text/javascript"></script>
+<script src="../../js/view/propertyBar/commonPrpty.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

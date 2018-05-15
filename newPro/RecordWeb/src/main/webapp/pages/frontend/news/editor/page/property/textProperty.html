@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="../../css/property_2.css" type="text/css" rel="stylesheet">
+
+
+</head>
+<body  unselectable="on">
+<container unselectable="on">
+    <header>
+        <span  class="text_comp_prpt"></span><label>文本</label>
+    </header>
+    <section class="pos_size">
+        <nav class="prpt_nav">
+            <span></span><label>位置大小</label>
+        </nav>
+        <container>
+            <ul>
+                <li><span>X</span><input type="text" id="xVal" name="valEl" /></li>
+                <li><span>Y</span><input type="text" id="yVal" name="valEl" /></li>
+            </ul>
+            <ul>
+                <li><span>W</span><input type="text" id="wVal" name="valEl" /></li>
+                <li><span>H</span><input type="text" id="hVal" name="valEl" /></li>
+            </ul>
+        </container>
+    </section>
+    <section class="check prpt_set" unselectable="on">
+        <nav class="prpt_nav">
+            <span></span><label>属性</label>
+        </nav>
+        <container unselectable="on">
+            <div class="font_style_select" unselectable="on">
+                <div class="font_family_select"  unselectable="on">
+                    <select  id="txt_font_family" name="fValEl" unselectable="on">
+                        <option value="宋体" selected>宋体</option>
+                        <option value="微软雅黑">微软雅黑</option>
+                    </select>
+                </div>
+                <div class="font_size_select">
+                    <select  id="txt_font_size" name="fValEl" unselectable="on">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="color_select" >
+                <label>字体颜色</label>
+                <div class="clear"></div>
+                <ul class="color_select_list" id="txt_font_color" name="fValEl" >
+                    <li class="item color_item_1"><span ></span></li>
+                    <li class="item color_item_2"><span></span></li>
+                    <li class="item color_item_3"><span></span></li>
+                    <li class="item color_item_4"><span></span></li>
+                    <li class="item color_item_5"><span></span></li>
+                    <li class="item color_item_6"><span></span></li>
+                    <li class="item color_item_7"><span></span></li>
+                    <li class="item color_item_8"><span></span></li>
+                    <li class="item color_item_9"><span></span></li>
+                    <li class="item color_item_10"><span></span></li>
+                    <li class="color_item_11">
+                        <span class="more_color_select_btn">更多...</span>
+                        <div class="more_color_select_panel">
+                            <ul>
+                                <li>
+                                    <div  class="item" ><span style="background-color:#ffffff"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#ffffff"></span></li>
+                                        <li class="item"><span style="background-color:#F2F2F2"></span></li>
+                                        <li class="item"><span style="background-color:#D8D8D8"></span></li>
+                                        <li class="item"><span style="background-color:#BFBFBF"></span></li>
+                                        <li class="item"><span style="background-color:#8C8C8C"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#969696"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#969696"></span></li>
+                                        <li class="item"><span style="background-color:#7F7F7F"></span></li>
+                                        <li class="item"><span style="background-color:#5A5A5A"></span></li>
+                                        <li class="item"><span style="background-color:#282828"></span></li>
+                                        <li class="item"><span style="background-color:#0C0C0C"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#1E467D"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#C8D7F0"></span></li>
+                                        <li class="item"><span style="background-color:#8CB4E1"></span></li>
+                                        <li class="item"><span style="background-color:#558CD2"></span></li>
+                                        <li class="item"><span style="background-color:#1E467D"></span></li>
+                                        <li class="item"><span style="background-color:#14375F"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#BEB4D7"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#BEB4D7"></span></li>
+                                        <li class="item"><span style="background-color:#A091C8"></span></li>
+                                        <li class="item"><span style="background-color:#7D6EB9"></span></li>
+                                        <li class="item"><span style="background-color:#5F52A0"></span></li>
+                                        <li class="item"><span style="background-color:#46328C"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#B4DCE6"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#DCEBF5"></span></li>
+                                        <li class="item"><span style="background-color:#B4DCE6"></span></li>
+                                        <li class="item"><span style="background-color:#91CDDC"></span></li>
+                                        <li class="item"><span style="background-color:#32879B"></span></li>
+                                        <li class="item"><span style="background-color:#19505F"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div  class="item"><span style="background-color:#F19149"></span></div>
+                                    <ul>
+                                        <li class="item"><span style="background-color:#FFF45C"></span></li>
+                                        <li class="item"><span style="background-color:#F8B551"></span></li>
+                                        <li class="item"><span style="background-color:#F19149"></span></li>
+                                        <li class="item"><span style="background-color:#EB6100"></span></li>
+                                        <li class="item"><span style="background-color:#E61912"></span></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+
+            <!--<div class="opacity_select">
+                 <label>透明度</label>
+                 <input type="range" class="opacity_select_range" min="1" max="100" />
+            </div>
+-->
+            <div class="font_other_select">
+                <label>样式</label>
+                <ul class="font_other_style_select">
+                    <li class="font_style_bold" id="txt_font_bold"  name="fValEl"  unselectable="on" >B</li>
+                    <li class="font_style_italic" id="txt_font_italic" name="fValEl" unselectable="on" >I</li>
+                    <li class="font_style_line" id="txt_font_underline" name="fValEl" unselectable="on" >U</li>
+                </ul>
+                <ul class="font_align_select">
+                    <li class="font_align_left" id="txt_font_align_left"  name="fValEl" unselectable="on" ></li>
+                    <li class="font_align_center" id="txt_font_align_center"  name="fValEl" unselectable="on" ></li>
+                    <li class="font_align_right" id="txt_font_align_right"  name="fValEl" unselectable="on" ></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+
+            <div class="text_scroll_style_select">
+                <label>文字滚动</label>
+                <div class="text_scroll_dim">
+                    <label>方向</label>
+                    <select class="text_scroll_dim_select" id="text_scroll_dim_select" >
+                        <option value="0">无滚动</option>
+                        <option value="left">向左</option>
+                        <option value="right">向右</option>
+                    </select>
+                </div>
+                <div class="text_scroll_speed">
+                    <label>速度</label>
+                    <select class="text_scroll_speed_select" id="text_scroll_speed_select_1" >
+                    </select>
+                    <select class="text_scroll_speed_select" id="text_scroll_speed_select_2" style="display:none;">
+                        <option value="1">慢</option>
+                        <option value="2">中</option>
+                        <option value="4">快</option>
+                    </select>
+                </div>
+            </div>
+        </container>
+    </section>
+</container>
+
+
+<script src="../../js/view/propertyBar/commonPrpty.js"></script>
+</body>
+</html>

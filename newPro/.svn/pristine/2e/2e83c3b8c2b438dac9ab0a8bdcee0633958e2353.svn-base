@@ -1,0 +1,41 @@
+<div id="@#+bid+#@" class="item" style="left:@#+x+#@px;top:@#+y+#@px;transform:scale(@#+scX+#@,@#+scY+#@);-webkit-transform:scale(@#+scX+#@,@#+scY+#@);z-index:@#+idx+#@;">
+	<div class="courseList_wrap" style="width:240px;height:120px;">
+		<div class="courseWrap" course-id="@#+cListID+#@" data-ip="@#+serverIp+#@">
+			<div class="coursePop">
+				<ul>
+					<li>
+						<div class="label">当前课程：</div>
+						<div class="swiper-container">
+							<div class="swiper-wrapper">
+							  <div class="swiper-slide">无</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="label">下节课程：</div>
+						<div class="swiper-container">
+							<div class="swiper-wrapper">
+							  <div class="swiper-slide">无</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="@#+bid+#@_courseList" style="z-index:9000;">
+	<div class="courseListWrap" default-data='@#+cData+#@'>
+		<img src="@#+bgImg+#@" class="courseListBg" />
+		<div class="courseTable">
+			<table class="courseList"></table>
+		</div>
+		<aside class="eWork_footerc" style="display: block;position:absoulte;z-index:5555;">
+			<div class="eWork_ctrlLayerc">
+				<div class="eWork_ctrlBtnc">
+						<span class="eWork_goBackc"></span> 
+				</div>
+			</div>
+		</aside>
+	</div>
+</div>

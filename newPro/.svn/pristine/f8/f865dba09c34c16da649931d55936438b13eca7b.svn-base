@@ -1,0 +1,23 @@
+
+body{font-family: "Microsoft YaHei",Arial,simsun,tahoma,Srial,helvetica,sans-serif;}
+body, ul, li{ margin:0; padding:0; list-style:none;}
+.coursePop{ min-width:160px; padding:15px 10px; background-color:transparent; /* border:2px solid #93969B;  */border-radius:3px;}
+.coursePop li{ width:100%; height:42px; line-height:42px; /* border-bottom:2px solid #CBCDCF; */ color:#fff; font-size:16px; cursor:pointer;}
+.coursePop li .label{ padding:0 10px; float:left; }
+.coursePop li:last-child{border:none;}
+.swiper-container{overflow:hidden;}
+.swiper-container .swiper-wrapper{position:static;}
+.swiper-container .swiper-slide{ float:left; white-space:nowrap;}
+.courseListWrap{width:100%; height:100%; background:#f0f0f0;overflow:hidden; text-align:center; position:absolute; left:0; top:0; /* z-index:999; */display:none;} 
+ .courseListBg{ width: 100%; height: 100%; position:absolute; z-index:1000; left:0;  }
+.courseTable{ width: 92%; height: 80%; position:absolute; z-index:1001; left:4%; top:8%; overflow:hidden;}
+.courseList{width:100%; margin:0px; font-size:14px; background-color:#FEFEFE; table-layout:fixed;border-collapse:collapse;}
+.courseList caption{font-size:20px; height:45px; padding: 15px 0px 0px 0px; line-height:15px; background-color:#FEFEFE; border:2px solid #CECECE; border-bottom-style: none;}
+.courseList tbody{ -moz-box-shadow:0 0 10px #bbb;-webkit-box-shadow:0 0 10px #bbb;box-shadow:0 0 10px #bbb;}
+.courseList tr{height:45px;}
+.courseList th{color:#424242;border:2px solid #CECECE;}
+.courseList td{ overflow:hidden; color:#555; text-align:center; border:2px solid #CECECE;}
+.eWork_footerc{width:100%; height:42px; text-align:center; position: absolute; left:0; bottom:-4px; z-index:102; overflow:hidden;}
+.eWork_footerc  .eWork_ctrlLayerc{display: inline-block; width: 100px; height:42px; background-color:#C7DECC; border-radius:6px 6px 0 0; padding:4px; padding-bottom:0;} 
+.eWork_ctrlLayerc  .eWork_ctrlBtnc{ padding:0 7px; background-color:#748377; border-radius:6px 6px 0 0; overflow:hidden; height:42px;}
+.eWork_ctrlBtnc span{width: 24px;height: 19px;background: url(../images/icon_goback.gif) no-repeat center;padding: 1px 50px 20px;}

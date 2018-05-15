@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!--<package name="programme" namespace="/programme" extends="frontend-default">-->
+        <!--<action name="Programme_*" class="com.honghe.recordweb.action.frontend.programme.ProgrammeAction" method="{1}">-->
+            <!--<result name="programmeList">/pages/frontend/programme/programme.jsp</result>-->
+            <!--<result name="authorityDeny">/pages/frontend/404.jsp</result>-->
+        <!--</action>-->
+    <!--</package>-->
+</struts>

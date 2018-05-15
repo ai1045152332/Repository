@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="device" namespace="/device" extends="frontend-default">
+        <action name="Device_*" class="com.honghe.recordweb.action.frontend.device.DeviceAction" method="{1}">
+            <result name="cameralist">/pages/frontend/device/device_cameralist.jsp</result>
+            <result name="addcameralist">/pages/frontend/device/device_addCamera.jsp</result>
+            <result name="cameraInfo">/pages/frontend/device/device_cameraInfo.jsp</result>
+            <result name="authorityDeny">/deny.jsp</result>
+        </action>
+    </package>
+</struts>

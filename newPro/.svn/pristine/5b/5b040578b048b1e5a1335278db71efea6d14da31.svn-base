@@ -1,0 +1,78 @@
+.scroll_3D_box{
+    width:300px;
+    height: 150px;
+}
+.scroll_3D_slider {
+    width: 300px;
+    height: 185px;
+    overflow: hidden;
+    position: relative;
+}
+.scroll_3D_box img{
+    border:none;display:block;
+}
+.scroll_3D_box ul{
+    list-style-type: none;
+}
+.scroll_3D_wp {
+    position: relative;
+    margin: 5px auto;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 0 20px 6px 10px;
+    _padding: 0 20px 2px 10px;
+    height: 22px;
+    width: 180px;
+    display:none;
+}
+.scroll_3D_wp .scroll_3D_nav {
+    background: #ccc;
+    height: 28px;
+    border-radius: 4px;
+    float: left;
+    padding-right: 10px;
+}
+.scroll_3D_nav li {
+    float: left;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: tahoma;
+    color: #22739e;
+    cursor: pointer;
+    height: 22px;
+}
+.scroll_3D_nav li.cur{color: #ff7a00}
+.scroll_3D_next {
+    padding: 4px 8px;
+    color: #ff7a00;
+    background: #ccc;
+    height: 20px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    margin-left: 10px;
+}
+.scroll_3D_bigImg_wrapper{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+    top: 0;
+	left: 0;
+	display: none;
+	overflow:hidden;
+	background-color:#333;
+	text-align:center;
+}
+
+.scroll_3D_bigImg_wrapper ul{
+	overflow: hidden;
+}
+.scroll_3D_bigImg_wrapper li{
+	float: left;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}

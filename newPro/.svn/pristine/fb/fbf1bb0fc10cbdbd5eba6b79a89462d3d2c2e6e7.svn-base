@@ -1,0 +1,2 @@
+singletime=com.honghe.recordweb.util.StringToTimestamp
+createtime=com.honghe.recordweb.util.StringToTimestamp

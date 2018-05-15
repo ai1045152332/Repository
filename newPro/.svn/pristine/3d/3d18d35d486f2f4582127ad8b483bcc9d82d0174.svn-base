@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="viewclass" namespace="/viewclass" extends="frontend-default">
+        <action name="Viewclass_*" class="com.honghe.recordweb.action.frontend.viewclass.ViewClassAction" method="{1}">
+            <result name="viewclass">/pages/frontend/viewclass/viewclass.jsp</result>
+            <result name="directorview">/pages/frontend/viewclass/directorview.jsp</result>
+            <result name="directorviewtip">/pages/frontend/viewclass/directorviewtip.jsp</result>
+            <result name="viewclass4">/pages/frontend/viewclass/viewclass_4.jsp</result>
+            <result name="viewclass9">/pages/frontend/viewclass/viewclass_9.jsp</result>
+
+            <result name="authorityDeny">/deny.jsp</result>
+            <result name="split0">/pages/frontend/viewclass/split_screen0.jsp</result>
+            <result name="split1">/pages/frontend/viewclass/split_screen1.jsp</result>
+            <result name="split2">/pages/frontend/viewclass/split_screen2.jsp</result>
+            <result name="split3">/pages/frontend/viewclass/split_screen3.jsp</result>
+            <result name="split4">/pages/frontend/viewclass/split_screen4.jsp</result>
+            <result name="split5">/pages/frontend/viewclass/split_screen5.jsp</result>
+            <result name="split6">/pages/frontend/viewclass/split_screen6.jsp</result>
+            <result name="split7">/pages/frontend/viewclass/split_screen7.jsp</result>
+            <result name="split8">/pages/frontend/viewclass/split_screen8.jsp</result>
+            <result name="split9">/pages/frontend/viewclass/split_screen9.jsp</result>
+            <result name="cameraInfo">/pages/frontend/viewclass/split_cameraInfo.jsp</result>
+        </action>
+    </package>
+    <package name="upload" namespace="/upload" extends="default">
+        <action name="Viewclass_*" class="com.honghe.recordweb.action.frontend.viewclass.ViewClassAction" method="{1}">
+        </action>
+    </package>
+</struts>

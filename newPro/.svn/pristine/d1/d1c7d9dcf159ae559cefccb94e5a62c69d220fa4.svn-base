@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+        <package name="tresource" namespace="/tresource" extends="frontend-default">
+                <action name="Tresource_*" class="com.honghe.recordweb.action.frontend.tresource.TresourceAction" method="{1}">
+                        <result name="home">/pages/frontend/tresource/home.jsp</result>
+                        <result name="subfloder" type="redirectAction">
+                                <param name="actionName">Tresource_home</param>
+                                <param name="module">Resource</param>
+                                <param name="virtualPreView">${virtualPreView}</param>
+                                <param name="fatherPathId">${fatherPathId}</param>
+                        </result>
+                        <result name="authorityDeny">/pages/frontend/404.jsp</result>
+                </action>
+                <action name="TresourceUploadByUploadify_*" class="com.honghe.recordweb.action.frontend.tresource.TresourceUploadByUploadifyAction" method="{1}">
+                        <result name="authorityDeny">/pages/frontend/404.jsp</result>
+                </action>
+                <action name="ResourceUpload_*" class="com.honghe.recordweb.action.frontend.tresource.ResourceUploadAction" method="{1}">
+                        <result name="refresh" type="redirect">Tresource_home.do?module=Resource</result>
+                        <result name="authorityDeny">/pages/frontend/404.jsp</result>
+                </action>
+        </package>
+</struts>
+

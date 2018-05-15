@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <package name="devicelog" namespace="/devicelog" extends="frontend-default">
+                <action name="DeviceLog_*" class="com.honghe.recordweb.action.frontend.devicelog.DeviceLogAction" method="{1}">
+                        <result name="devicelog">/pages/frontend/devicelog/devicelog.jsp</result>
+                        <result name="deviceloglist">/pages/frontend/devicelog/deviceloglist.jsp</result>
+                        <result name="authorityDeny">/deny.jsp</result>
+                </action>
+        </package>
+</struts>

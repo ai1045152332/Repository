@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="RecordWeb:war">
+    <output-path>$PROJECT_DIR$/RecordWeb/target</output-path>
+    <root id="archive" name="RecordWeb-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="RecordWeb:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="timeplan" namespace="/timeplan" extends="frontend-default">
+        <action name="Timeplan_*" class="com.honghe.recordweb.action.frontend.timeplan.TimeplanAction" method="{1}">
+            <result name="timeplan">/pages/frontend/timeplan/timeplan.jsp</result>
+            <result name="timeplanlist">/pages/frontend/timeplan/timeplanlist.jsp</result>
+            <!--<result name="addclasstime">/pages/frontend/timeplan/classtimeadd.jsp</result>-->
+            <result name="classtimeploy" type="redirect">/settings/Settings_timeploy.do</result>
+            <result name="authorityDeny">/deny.jsp</result>
+        </action>
+        <!--add by xinye-->
+        <action name="Tempplan_*" class="com.honghe.recordweb.action.frontend.tempplan.TemporaryplanAction" method="{1}">
+            <result name="tempplanlist">/pages/frontend/timeplan/tempplanlist.jsp</result>
+            <result name="host_list">/pages/frontend/timeplan/tempplan_popup.jsp</result>
+        </action>
+        <!--add by xinye end-->
+        <!--<action name="Classtime_add" class="com.honghe.recordweb.action.frontend.timeplan.ClasstimeAction" method="add">-->
+            <!--<result name="classtimeadd">/pages/frontend/timeplan/classtimeadd.jsp</result>-->
+            <!--<result name="authorityDeny">/deny.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="Classtime_*" class="com.honghe.recordweb.action.frontend.timeplan.ClasstimeAction" method="{1}">-->
+            <!--<result name="classtimemanager">/pages/frontend/timeplan/classtimemanager.jsp</result>-->
+            <!--<result name="classtimeadd">/pages/frontend/timeplan/classtimeadd.jsp</result>-->
+            <!--<result name="authorityDeny">/deny.jsp</result>-->
+        <!--</action>-->
+    </package>
+</struts>

@@ -1,0 +1,61 @@
+
+.panel-title {
+	color: #fff;
+	font-size: 16px;
+	height: 32px;
+	line-height: 32px;
+	text-indent: 12px;
+	background: #212121;
+}
+.select-content-device {
+margin: 20px 25px 15px 25px;
+border: 1px solid lightgray;
+padding: 9px 0px 0px 13px;
+height: 280px;
+overflow: auto;
+}
+.panel-body {
+/*background-color: white;*/
+}
+.select-note{
+	font-size: 15px;
+}
+
+.ztree li a {
+width: 345px;
+height: 27px;
+padding-top: 0px;
+border-bottom: 1px solid lightgray;
+}
+.ztree ul.level0 li a {
+	width:100%;
+height: 27px;
+padding-top: 0px;
+border-bottom: 1px solid lightgray;
+}
+
+.ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:middle; *vertical-align:middle}
+.ztree li span.button.edit {margin-right:2px; background-position:-110px -48px; vertical-align:middle; *vertical-align:middle}
+.ztree li span.button.remove {margin-right:2px; background-position:-110px -64px; vertical-align:middle; *vertical-align:middle}
+.ztree * {font-size: 10pt;font-family:"Microsoft Yahei",Verdana,Simsun,"Segoe UI Web Light","Segoe UI Light","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","Helvetica Neue",Arial}
+.ztree li ul{ margin:0; padding:0}
+.ztree li {line-height:30px;}
+.ztree li a:hover {text-decoration:none; }
+.ztree.showIcon li a span.button.switch {visibility:visible}
+.ztree li a.curSelectedNode {background-color:red;border:0;height:30px;}
+.ztree li span {line-height:30px;}
+.ztree li span.button {margin-top: -7px;}
+.ztree li span.button.switch {width: 16px;height: 16px;}
+.ztree li ul.level0 {padding:0; background:none;}
+
+.ztree li span.ico_docu.button {
+vertical-align: middle;
+}
+.select-content-device li {
+margin-top: 10px;
+margin-left: 20px;
+}
+
+#file_upload{
+	margin: 30px 0px 0px 150px;
+}

@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+	===================================================
+	2014-09-24  16:44
+	集控后台样式表--添加 修改 删除
+	amd表示add modify  delete
+	===================================================
+*/
+
+
+
+/*
+	集控后台样式表--添加 修改 删除     amd表示add modify  delete
+	集控后台样式表--表格处理    table表示
+
+*/
+.amd{
+	background: url(../../image/project/n_icon_140924.png) 0 0 no-repeat;
+	height: 27px;
+	margin-left: 15px;
+}
+.amd_avarage{
+	color: #333;
+	display: block;
+	float: left;
+	line-height: 27px;
+	text-align: center;
+	width: 63px;
+}
+.table{
+	border-top:1px solid #808080;
+	border-bottom:1px solid #808080;
+	margin-top: 20px;
+	width: 100%;
+}
+.table_head{
+	background: #fff;
+	border-bottom:1px solid #808080;
+	height: 35px;
+	line-height: 35px;
+	width: 100%;
+}
+.table_recycle{
+	height: 35px;
+	line-height: 35px;
+	width: 100%;
+}
+.table_recycle_ebebeb{background: #ebebeb;}
+.table_recycle_fff{background: #fff;}
+

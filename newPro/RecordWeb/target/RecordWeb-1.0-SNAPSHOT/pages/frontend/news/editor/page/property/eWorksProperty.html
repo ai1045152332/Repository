@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title></title> 
+	<link href="../../css/property_2.css" type="text/css" rel="stylesheet" />
+	<link href="../../css/property_3.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript">
+	    // 右上角的用户信息显示
+		function getUrlParameter( name ){
+			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regexS = "[\\?&]"+name+"=([^&#]*)";
+			var regex = new RegExp( regexS );
+			var results = regex.exec(window.parent.location.href );
+			if(results == null)return "";  
+			else {
+			   return results[1];
+			}
+		} 
+		function checkEworkos(){
+			var quick=getUrlParameter('quick');
+		   	if(quick=='1'){
+		    	var pos = document.getElementById("pos");
+		    	pos.style.display = 'none';
+		    }
+		}
+    </script>
+</head> 
+<body onload="checkEworkos()">
+<container>
+	<header>
+        <span class="text_comp_prpt eWork_comp_prpt"></span><label>优秀作品</label>
+    </header>
+    <section class="pos_size" id='pos'>
+        <nav class="prpt_nav">
+            <span></span><label>位置大小</label>
+        </nav>
+        <container>
+            <ul>
+                <li><span>X</span><input type="text" id="xVal" name="valEl" /></li>
+                <li><span>Y</span><input type="text" id="yVal" name="valEl" /></li>
+            </ul>
+            <ul>
+                <li><span>W</span><input type="text" id="wVal" name="valEl" /></li>
+                <li><span>H</span><input type="text" id="hVal" name="valEl" /></li>
+            </ul>
+        </container>
+    </section>
+	<section class="check prpt_set">
+        <nav class="prpt_nav">
+            <span></span><label>属性</label>
+        </nav>
+        <container>
+			<div class="commonProp">
+				<dl>
+					<dt><img id="backPic" class="details_bg" src="" title="添加详情页背景图" /></dt>
+					<dd>
+						<label>标题:</label>
+						<input type="text" class="workType" id="work_type" name="valEl" placeholder="如：优秀作文" />
+					</dd>
+				</dl>
+			</div>
+			<div id="eWorksWrap" class="imgList_outer">
+				<div id="eWorksInner" class="imgList">
+					
+				</div>
+				<div class="scroll_item">
+					<div class="eWorksProp">
+						<div class="uploadFile"><img class="fileSrc" width="80px" height="94px" src="" /></div>
+						<div class="worksInfo">
+							<label>作品名称:</label>
+							<input type="text" class="workName" name="valEl" placeholder="如：生命的礼赞" />
+							<label>作者:</label>
+							<input type="text" class="authorInfo" name="valEl" placeholder="如：三年级一班 张三" />
+						</div>
+					</div> 
+					<div class="scroll_item_opr">
+                        <span class="scroll_item_moveUp"></span>
+                        <span class="scroll_item_moveDwn"></span>
+                        <span class="scroll_item_del"></span>
+                    </div>
+				</div>
+			</div>
+			<div id="add_eWrok" class="newImg" title="添加作品"><span></span></div>
+		</container>
+    </section>
+</container>
+<script src="../../js/view/propertyBar/commonPrpty.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

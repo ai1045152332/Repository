@@ -1,0 +1,38 @@
+.resource-progressbar{
+	height:48px;
+	width:100%;
+	background-image:url(../../../image/frontend/resources/progressbar.gif);
+}
+.resource-successbar{
+	height:48px;
+	width:100%;
+	background:#3F9;
+}
+.resourceUpload-cancel{
+	height:48px;
+	width:50px;
+	float:left;
+	background-image:url(../../../image/frontend/resources/resourceUpload-cancel.png);
+	background-repeat: no-repeat;
+    background-position: center top;
+	
+}
+.resourceUpload-ok{
+	height:48px;
+	width:80px;
+	float:left;
+	background-image:url(../../../image/frontend/resources/resourceUpload-ok.png);
+	background-repeat: no-repeat;
+    background-position: center top;
+	
+}
+.resource-progressbar-ok{
+	background:#3F9;
+	
+}
+.loading{
+	height:32px;
+	width:32px;
+	float:left;
+	background:url(../../../image/frontend/resources/load.gif) left top no-repeat;
+}

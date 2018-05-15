@@ -1,0 +1,638 @@
+﻿/*
+	===================================================
+	2014-09-24  12:22
+	集控后台样式表--全局公用部分
+	===================================================
+*/
+HTML, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,
+pre, form, fieldset, table, th, td {
+	margin:0px 0px;
+	padding:0px 0px;
+	font-size:14px;
+	font-family:"宋体","微软雅黑","黑体";
+	}
+input::-ms-clear{display:none;}
+input::-ms-reveal{display:none;}
+img{
+	border:none;
+	}
+a:link{
+	color:#333333;
+	text-decoration:none;
+	}
+a:visited{
+	color:#333333;
+	text-decoration:none;
+	}
+a:hover{
+	color:#333333;
+	text-decoration:none;
+	}
+a:active{
+	color:#333333;
+	text-decoration:none;
+	}
+li{
+	list-style-type:none;
+	}
+/*
+	===================================================
+	2014-09-24  12:22
+	集控后台样式表--公用部分
+	===================================================
+*/
+.public{
+	margin:0 auto;
+	min-width: 1200px;
+	width: 100%;
+	overflow: hidden;
+	}
+.public_head{
+	border-bottom:2px solid #28b779;
+	background: #333333;
+	float: left;
+	height: 70px;
+	position: relative;
+	width: 100%;
+	}
+.public_head_logo{
+	background: url(../../image/project/logo.png) 0 0 no-repeat;
+	height: 31px;
+	margin: 20px auto 0 auto;
+	width: 316px;
+	}
+.public_adminout{
+	color: #fff;
+	height:18px;
+	line-height: 18px;
+	position: absolute;
+	right: 30px;
+	top: 30px;
+}
+.public_admin{
+	border-right:1px solid #fff;
+	margin-right: 10px;
+	padding-right:10px;
+	}
+.public_left{
+	float: left;
+	min-height: 636px;
+	position: relative;
+	width: 258px;
+	}
+.public_right{
+	border-left:2px solid #28b779;
+	background: #f2f2f2;
+	min-height: 636px;
+	position: relative;
+	}
+.public_right_center{
+	/*height: 550px;*/
+	margin: 0 auto;
+	min-width: 845px;
+	padding-top: 20px;
+	width: 100%;
+	}
+.foot{
+	border-top:2px solid #28b779;
+	background: #333333;
+	/*float: left;*/
+	height: 30px;
+	min-width: 1200px;
+	width: 100%;
+	}
+.foot_center{
+	color: #fff;
+	line-height: 30px;
+	height: 30px;
+	left: 50%;
+	margin-left:-300px;
+	position: relative;
+	text-align: center;
+	width: 600px;
+}
+/*
+	===================================================
+	2014-09-24  12:22
+	集控后台样式表--登录页面
+	===================================================
+*/
+.public_head_login{
+	border-bottom:2px solid #28b779;
+	background: #333333;
+	float: left;
+	height: 204px;
+	position: relative;
+	width: 100%;
+	}
+.public_head_logo_login{
+	background: url(../../image/project/logo_login.png) left top no-repeat;
+	height: 51px;
+	margin: 68px auto 0 auto;
+	width: 568px;
+	}
+.public_login_form{
+	float: left;
+	min-height: 466px;
+	position: relative;
+	width: 100%;
+	}
+.public_login_form_center{
+	height: 190px;
+	margin: 125px auto 0 auto;
+	width: 386px;
+	}
+.public_login_input{
+	border:1px solid #28b779;
+	height: 35px;
+	margin-bottom: 30px;
+	text-indent: 18px;
+	width: 358px;
+	}
+.public_login_btn{
+	border:none;
+	background: #28b779;
+	border-radius: 3px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 24px;
+	float: right;
+	height: 35px;
+	line-height: 35px;
+	outline: none;
+	text-align: center;
+	text-indent: 0;
+	width: 100px;
+	}
+/*
+	===================================================
+	2014-09-24  12:22
+	集控后台样式表--树形菜单
+	===================================================
+*/
+.tree_title{
+	border-bottom: 1px solid #e4e4e4;
+	cursor:pointer;
+	float: left;
+	line-height:33px;
+	text-indent: 25px;
+	width:260px;
+	}
+.tree_titlea{
+	cursor:pointer;
+	float: left;
+	height: 33px;
+	line-height:33px;
+	overflow: hidden;
+	text-indent: 25px;
+	width:260px;
+	}
+.tree_title_close{background: url(../../image/project/n_icon_140924.png) 12px -79px no-repeat;}
+.tree_title_open{background: url(../../image/project/n_icon_140924.png) -173px -27px no-repeat;}
+.tree_content{
+	display:none;
+	float: left;
+	width:260px;
+	}
+.tree_content a{
+	display:block;
+	float:left;
+	line-height:33px;
+	width:260px;
+	}
+.tree_selected{
+	color:#fff;
+	cursor: pointer;
+	display:block;
+	float:left;
+	line-height:33px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	width:260px;
+	}	
+/*
+	===================================================
+	2014-09-24  12:22
+	集控后台样式表--checkbox菜单  美化
+	===================================================
+*/	
+label{
+	float: left;
+	position: relative;
+	}
+.bg{
+	background: url(../../image/project/radio.gif) 0 0 no-repeat;
+	float:left;
+	height: 18px;
+	width: 18px;
+	}
+.bged{
+	background: url(../../image/project/radio.gif)0 -35px no-repeat;
+	float:left;
+	height: 18px;
+	width: 18px;
+	}
+.checkall_head,.check_head{
+	line-height: 18px;
+	height: 18px;
+	width: 18px;
+	}
+/*.check_all{
+	margin-top: 20px;
+	overflow-y:scroll ;
+	overflow-x: hidden;
+	}*/
+/*
+	===================================================
+	2014-09-24  12:22
+	集控后台样式表--分页
+	===================================================
+*/
+.page_prev,.page_next,.page_center{
+	padding: 0 5px;
+}
+.page{
+	background:#fff;
+	border: 1px solid #dbdbdb;
+	color: #333;
+	float: left;
+	line-height: 22px;
+	min-width: 23px;
+	margin-top: 1px;
+	margin: 0 5px;
+	text-align: center;
+	width: auto;
+}
+
+.previous{
+	float: left;
+}
+/*
+	===================================================
+	2014-10-11  08:18
+	集控前台样式表--弹窗样式
+	===================================================
+*/
+.win520{
+	border:1px solid #6c7073;
+	background: #fff;
+	float: left;
+	width: 520px;
+}
+.win360{
+	border:1px solid #6c7073;
+	background: #fff;
+	float: left;
+	width: 360px;
+}
+.win320{
+	border:1px solid #6c7073;
+	background: #fff;
+	float: left;
+	width: 310px;
+}
+.win410{
+	border:1px solid #6c7073;
+	background: #fff;
+	float: left;
+	width: 410px;
+}
+.win_head{
+	background: #212121;
+	float: left;
+	height: 40px;
+	position: relative;
+	width: 100%;
+}
+.win_head_text{
+	color: #fff;
+	float: left;
+	line-height: 40px;
+	width: 80%;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	text-indent: 15px;
+	white-space:nowrap;
+}
+.win_close{
+	background:url(../../image/frontend/n_icon_141009.png) 0 -98px no-repeat;
+	cursor: pointer;
+	float: right;
+	height: 17px;
+	margin: 10px 10px 0 0;
+	width: 17px;
+}
+.win_content{
+	float: left;
+	height: 350px;
+	margin: 20px 0 0 35px;
+	width: 325px;
+}
+.win800{
+    border:1px solid #6c7073;
+    background: #fff;
+    float: left;
+    width: 800px;
+}
+.win_content800{
+    float: left;
+    min-height: 250px;
+    width: 800px;
+    border:1px solid green
+}
+.win_content800_left{
+    float: left;
+    margin:20px 0 0 35px;
+    min-height: 180px;
+    width:350px;
+}
+.win_content800_right{
+    float: right;
+    margin:20px 35px 0 0;
+    min-height: 180px;
+    width:350px;
+}
+.win_content_text{
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	width: 130px;
+}
+.win_content_space{
+	float: left;
+	height: 25px;
+	width: 65px;
+}
+.win_content_space_arrow{
+	background:url(../../image/frontend/n_icon_141009.png) -39px -100px no-repeat;
+	height: 16px;
+	margin: 125px 0 0 13px;
+	width: 35px;
+}
+#win_lists{
+	border:1px solid #212121;
+	float: left;
+	height: 250px;
+	position:relative;
+	overflow:hidden;
+	width: 128px;
+}
+#win_lists1{
+	border:1px solid #212121;
+	float: left;
+	height: 250px;
+	position:relative;
+	overflow:hidden;
+	width: 128px;
+}
+#win_moveto{
+	border:1px solid #212121;
+	float: left;
+	height: 255px;
+	margin-left: 20px;
+	position:relative;
+	overflow:hidden;
+	width: 258px;
+}
+.win_moveto_list{
+	float: left;
+	width: 258px;
+}
+.win_list{
+	float: left;
+	width: 128px;
+}
+.win_list ul a{
+	display: block;
+	float: left;
+	height: 28px;
+	position: relative;
+	width: 100%;
+}
+.win_list ul a:hover{ background: #dbdbdb;}
+.win_list ul li{
+	background:url(../../image/frontend/n_icon_141009.png) -99px -99px no-repeat;
+	float: left;
+	height: 28px;
+	line-height: 27px;
+	text-indent: 23px;
+	width: 100%;
+}
+.win_list_close{
+	background:url(../../image/frontend/n_icon_141009.png) -84px -108px no-repeat;
+	display: block;
+	float: left;
+	height: 9px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 9px;
+}
+.win_btn{
+	float: left;
+	height: 30px;
+	margin-top: 25px;
+	width: 100%;
+}
+.win_btn_create{
+	border-radius: 5px;
+	border:1px solid #28B779;
+	background:#28b779;
+	cursor: pointer;
+	color: #fff;
+	float: right;
+	font-size: 12px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	width: 125px;
+}
+.win_btn_sure{
+	border-radius: 5px;
+	border:1px solid #28B779;
+	background:#28b779;
+	cursor: pointer;
+	color: #fff;
+	float: right;
+	font-size: 12px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	width: 75px;
+}
+.win_btn_done{
+	border-radius: 5px;
+	border:1px solid #c4c4c4;
+	cursor: pointer;
+	color: #5f6568;
+	float: right;
+	font-size: 12px;
+	height: 26px;
+	line-height: 26px;
+	margin-right: 15px;
+	text-align: center;
+	width: 78px;
+}
+.win520_content{
+	border-bottom:1px solid #dbdbdb;
+	background: #fff;
+	float: left;
+	min-height: 320px;
+	width: 100%;
+}
+.win360_content{
+	background: #fff;
+	float: left;
+	height: 145px;
+	width: 100%;
+}
+.win360_content_text{
+	float: left;
+	line-height: 25px;
+	margin:14px 0 0 20px;
+	width: 320px;
+}
+.win360_content_input{
+	border:1px solid #dbdbdb;
+	border-radius: 5px;
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	margin-left:20px;
+	text-indent: 10px;
+	width: 320px;
+}
+.win360_content_date{
+	float: left;
+	height: 26px;
+	width: 125px;
+}
+/*
+	===================================================
+	2014-10-11  13:22
+	集控前台样式表--设备管理tab菜单--设备管理弹窗
+	===================================================
+*/
+.tabs{
+	background: #fff;
+	width:100px;
+	height:320px;
+	float:left;
+	}
+.tabs ul li{
+	border-left: 5px solid #f2f2f2;
+	border-bottom: 1px solid #dbdbdb;
+	color: #333;
+	width:94px;
+	height:45px;
+	line-height:45px;
+	text-align:center;
+	float:left;
+	list-style-type:none;
+	cursor:pointer;
+	}
+.tab_content{
+	background: #f2f2f2;
+	width:420px;
+	height:320px;
+	float:left;
+	position:absolute;
+	left: 100px;
+	z-index: -1;
+	}
+.c_selected{
+	z-index: 1;
+	}
+.t_selected{
+	background: #f2f2f2;
+	border-left: 5px solid #28b779;
+	color:#333;
+	}
+.tab_content_list{
+	float: left;
+	min-height: 30px;
+	margin-top: 10px;
+	width: 100%;
+	}
+.tab_content_listtext{
+	float: left;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	width: 150px;
+	}
+.tab_content_listtext_gray{
+	color: #bdbdbd;
+	float: left;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	width: 150px;
+	}
+.tab_content_listtext_black{
+	float: left;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 2px;
+	margin-left: 10px;
+	width: 180px;
+	}
+.tab_content_listinput{
+	border:1px solid #dbdbdb;
+	background: #fff;
+	float: left;
+	font-size: 12px;
+	height: 26px;
+	line-height: 26px;
+	text-indent: 2px;
+	margin-left: 10px;
+	outline: none;
+	width: 180px;
+	}
+
+#linkpage{
+	float: left;
+	width: 100%;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+/*
+	===============================================
+	2014-7-24 10:02
+	错误信息
+	===============================================
+*/
+.error{
+    height: 335px;
+    margin: auto auto;
+    width: 495px;
+}
+.error_text{
+    color: #e77624;
+    font-size: 20px;
+    float: left;
+    height: 35px;
+    line-height: 35px
+}
+.error_pic{
+    background: url(../../image/frontend/error.png) left top no-repeat;
+    float: left;
+    height: 335px;
+    position: relative;
+    width: 495px;
+}
+.error_pictext{
+    color: #8c8c8c;
+    font-size: 21px;
+    float: right;
+    line-height: 42px;
+    margin: 60px 30px 0 0;
+    width: 210px
+}
+
+
+

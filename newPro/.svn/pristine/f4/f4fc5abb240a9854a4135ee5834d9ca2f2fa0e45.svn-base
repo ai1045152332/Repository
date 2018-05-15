@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title></title> 
+	<link href="../../css/property_2.css" type="text/css" rel="stylesheet" />
+	<link href="../../css/property_3.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript">
+	    // 右上角的用户信息显示
+		function getUrlParameter( name ){
+			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regexS = "[\\?&]"+name+"=([^&#]*)";
+			var regex = new RegExp( regexS );
+			var results = regex.exec(window.parent.location.href );
+			if(results == null)return "";  
+			else {
+			   return results[1];
+			}
+		} 
+		function checkCoursePos(){
+			var quick=getUrlParameter('quick');
+		   	if(quick=='1'){
+		    	var pos = document.getElementById("pos");
+		    	pos.style.display = 'none';
+		    }
+		}
+    </script>
+</head> 
+<body onload="checkCoursePos() ">
+<container>
+	<header>
+        <span class="text_comp_prpt"></span><label>课程表</label>
+    </header>
+    <section class="pos_size" id='pos'>
+        <nav class="prpt_nav">
+            <span></span><label>位置大小</label>
+        </nav>
+        <container>
+            <ul>
+                <li><span>X</span><input type="text" id="xVal" name="valEl" /></li>
+                <li><span>Y</span><input type="text" id="yVal" name="valEl" /></li>
+            </ul>
+            <ul>
+                <li><span>W</span><input type="text" id="wVal" name="valEl" /></li>
+                <li><span>H</span><input type="text" id="hVal" name="valEl" /></li>
+            </ul>
+        </container>
+    </section>
+	<section class="check prpt_set">
+        <nav class="prpt_nav">
+            <span></span><label>属性</label>
+        </nav>
+        <container>
+			<div class="courseSlect">
+				选择课程表:<select class="courseName" id="cListID" name="valEl"></select>
+			</div>
+			<div>添加背景图:</div>
+			<div class="newImg add_Bg">
+				<em class="resetBg"></em>
+				<img id="bgImg" class="courseList_bg" src="" title="添加课程表背景图" />
+			</div>
+		</container>
+    </section>
+</container>
+<script src="../../js/view/propertyBar/commonPrpty.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

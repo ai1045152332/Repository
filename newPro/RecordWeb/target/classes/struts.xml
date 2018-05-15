@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 配置action的访问路径为.do的 -->
+    <constant name="struts.action.extension" value="do"></constant>
+    <!-- struts配置文件改动后，是否重新加载 -->
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <!-- 设置浏览器是否缓存静态内容 -->
+    <constant name="struts.serve.static.browserCache" value="false" />
+    <!-- 配置struts开发模式为true，方便调试 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 配置每次HTTP请求系统都重新加载资源文件，有助于开发 -->
+    <constant name="struts.i18n.reload" value="true" />
+    <!-- 文件上传最大值,默认限制为2M,此设置为:1000*1024*1024即1000M -->
+    <constant name="struts.multipart.maxSize" value="1048576000" />
+    <!-- 配置请求参数的编码方式 -->
+    <constant name="struts.i18n.encoding" value="utf-8" />
+    <!-- 配置系统的多语言支持 ，多语言支持将会是动态的配置语言支持，只需添加相应语言的配置文件 -->
+    <constant name="struts.custom.i18n.resources" value="language" />
+    <!-- 指定Struts 2默认的ObjectFactory Bean - 交给Spring管理 -->
+    <constant name="struts.objectFactory.spring.autoWire.alwaysRespect" value="true" />
+
+    <!-- 系统首页面 -->
+    <include file="struts.authority.xml" />
+    <include file="struts.role.xml" />
+    <include file="struts.device.xml" />
+    <include file="struts.devicecode.xml" />
+    <include file="struts.deviceview.xml" />
+    <include file="struts.hostgroup.xml" />
+    <include file="struts.dmanager.xml" />
+    <include file="struts.timeplan.xml" />
+    <include file="struts.liveplan.xml" />
+    <include file="struts.viewclass.xml" />
+    <include file="struts.user.xml" />
+    <include file="struts.resource.xml" />
+    <include file="struts.project.xml" />
+    <include file="struts.dtype.xml" />
+    <include file="struts.userback.xml" />
+    <include file="struts.roleback.xml" />
+    <include file="struts.devicelog.xml" />
+    <include file="struts.syslog.xml" />
+    <include file="struts.news.xml" />
+    <include file="struts.policy.xml" />
+    <include file="struts.report.xml" />
+    <include file="struts.place.xml" />
+    <!--<include file="struts.ringbell.xml" />-->
+    <!--<include file="struts.signalplan.xml" />-->
+    <include file="struts.monitor.xml" />
+    <include file="struts.restorbackups.xml" />
+    <include file="struts.video.xml" />
+    <include file="struts.settings.xml" />
+    <include file="struts.install.xml" />
+    <!--<include file="struts.programme.xml"/>-->
+    <include file="struts.tresource.xml"/>
+    <include file="struts.deviceview.xml"/>
+    <include file="struts.hhtwhiteboard.xml"/>
+    <!--报表统计action-->
+    <include file="struts.onlinetime.xml"/>
+    <include file="struts.htprojector.xml"/>
+    <include file="struts.hnetdetecttool.xml"/>
+    <!--<package name="default" extends="struts-default">-->
+        <!--<default-action-ref name="notFound" />-->
+        <!--<action name="notFound">-->
+            <!--<result>/pages/frontend/404.jsp</result>-->
+        <!--</action>-->
+    <!--</package>-->
+    <package name="default" extends="struts-default">
+        <default-action-ref name="notFound" />
+        <global-results>
+            <result name="allException">/pages/frontend/404.jsp</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping result="allException" exception="java.lang.Exception" />
+        </global-exception-mappings>
+
+        <action name="notFound">
+            <result>/pages/frontend/404.jsp</result>
+        </action>
+    </package>
+    <!--拦截器-->
+    <package name="frontend-default" abstract="true" extends="struts-default">
+        <interceptors>
+            <interceptor name="authority" class="com.honghe.recordweb.interceptor.SessionCheckInterceptor"/>
+            <interceptor-stack name="controlInterceptor">
+                <interceptor-ref name="authority"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="controlInterceptor"></default-interceptor-ref>
+        <default-action-ref name="default">
+        </default-action-ref>
+        <global-results>
+            <result name="login">/login.jsp</result>
+            <result name="none">/pages/frontend/404.jsp</result>
+            <result name="error">/pages/frontend/404.jsp</result>
+        </global-results>
+        <action name="default" >
+            <result >/pages/frontend/404.jsp</result>
+        </action>
+    </package>
+    <package name="backend-default" abstract="true" extends="struts-default">
+        <interceptors>
+            <interceptor name="backend-authority" class="com.honghe.recordweb.interceptor.BackendSessionCheckInterceptor"/>
+            <interceptor-stack name="backend-controlInterceptor">
+                <interceptor-ref name="backend-authority"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="backend-controlInterceptor"></default-interceptor-ref>
+        <default-action-ref name="defaultAction"></default-action-ref>
+        <global-results>
+            <result name="login">/pages/project/login.jsp</result>
+            <result name="none">/pages/project/404.jsp</result>
+            <result name="error">/pages/project/404.jsp</result>
+        </global-results>
+        <action name="defaultAction" >
+            <result >/pages/project/404.jsp</result>
+        </action>
+    </package>
+</struts>

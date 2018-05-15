@@ -1,0 +1,35 @@
+<div id="@#+bid+#@" class="item" style="left:@#+x+#@px;top:@#+y+#@px;z-index:@#+idx+#@;">
+	<div class="editItem11" style="width: @#+w+#@px;height:@#+h+#@px;">
+		<!-- <object class="FLASH_COMP_src" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+			<param name="movie" value="@#+path+#@" />
+			<param name="quality" value="high" />
+			<param name="play" value="true" />
+			<param name="loop" value="true" />
+			<param name="wmode" value="transparent" />
+			<param name="scale" value="showall" />
+			<param name="menu" value="false" />
+			<embed class="FLASH_COMP_src" src="@#+path+#@" quality="high" play="true" loop="true" wmode="transparent" scale="showall" menu="false" type="application/x-shockwave-flash"></embed>
+		</object> -->
+	
+	<object  class="FLASH_COMP_src" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%">
+	  <param name="movie" value="@#+path+#@" />
+	  <param name="quality" value="high" />
+	  <param name="wmode" value="transparent" />
+	  <param name="swfversion" value="6.0.65.0" />
+	  <!-- 此 param 标签提示使用 Flash Player 6.0 r65 和更高版本的用户下载最新版本的 Flash Player。如果您不想让用户看到该提示，请将其删除。 -->
+	  <param name="expressinstall" value="Scripts/expressInstall.swf" />
+	  <!-- 下一个对象标签用于非 IE 浏览器。所以使用 IECC 将其从 IE 隐藏。 -->
+	  <!--[if !IE]>-->
+	  <object type="application/x-shockwave-flash" data="@#+path+#@" width="100%" height="100%">
+	    <!--<![endif]-->
+	    <param name="quality" value="high" />
+	    <param name="wmode" value="transparent" />
+	    <param name="swfversion" value="6.0.65.0" />
+	    <param name="expressinstall" value="Scripts/expressInstall.swf" />
+	    <!-- 浏览器将以下替代内容显示给使用 Flash Player 6.0 和更低版本的用户。 -->
+	    <!--[if !IE]>-->
+    </object>
+	  <!--<![endif]-->
+  </object>
+	</div>
+</div>

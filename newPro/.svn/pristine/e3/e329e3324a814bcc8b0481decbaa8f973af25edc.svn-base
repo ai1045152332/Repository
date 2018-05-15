@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="project" namespace="/project" extends="backend-default">
+        <action name="Spec_*" class="com.honghe.recordweb.action.project.device.SpecAction" method="{1}">
+            <result name="sepclist">/pages/project/speclist.jsp</result>
+            <result name="specupdate">/pages/project/specupdate.jsp</result>
+            <result name="specadd">/pages/project/specadd.jsp</result>
+            <result name="authorityDeny">/deny.jsp</result>
+        </action>
+        <action name="Devicecomm_*" class="com.honghe.recordweb.action.project.device.DevicecommAction" method="{1}">
+            <result name="commandlist">/pages/project/commandlist.jsp</result>
+            <result name="commadd">/pages/project/commadd.jsp</result>
+            <result name="authorityDeny">/deny.jsp</result>
+        </action>
+    </package>
+</struts>

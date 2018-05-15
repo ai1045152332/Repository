@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: honghe:hdevice_sdk:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/honghe/hdevice_sdk/1.0-SNAPSHOT/hdevice_sdk-1.0-20180418.052444-155.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/honghe/hdevice_sdk/1.0-SNAPSHOT/hdevice_sdk-1.0-20180418.052444-155-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/honghe/hdevice_sdk/1.0-SNAPSHOT/hdevice_sdk-1.0-20180418.052444-155-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

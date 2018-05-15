@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="policy" namespace="/policy" extends="frontend-default">
+        <action name="Policy_*" class="com.honghe.recordweb.action.frontend.policy.PolicyAction" method="{1}">
+            <result name="policyList">/pages/frontend/policy/policy.jsp</result>
+            <result name="authorityDeny">/pages/frontend/404.jsp</result>
+        </action>
+        <action name="Signalplan_*" class="com.honghe.recordweb.action.frontend.schedule.SignalplanAction" method="{1}">
+            <result name="signalplanList">/pages/frontend/policy/signalplan.jsp</result>
+            <result name="authorityDeny">/pages/frontend/404.jsp</result>
+        </action>
+        <action name="Programme_*" class="com.honghe.recordweb.action.frontend.programme.ProgrammeAction" method="{1}">
+            <result name="programmeList">/pages/frontend/policy/programme.jsp</result>
+            <result name="authorityDeny">/pages/frontend/404.jsp</result>
+        </action>
+        <action name="Ringbell_*" class="com.honghe.recordweb.action.frontend.schedule.RingbellAction" method="{1}">
+            <result name="ringbellList">/pages/frontend/policy/ringbell.jsp</result>
+            <result name="authorityDeny">/pages/frontend/404.jsp</result>
+        </action>
+        <action name="Touchscreen_*" class="com.honghe.recordweb.action.frontend.schedule.TouchscreenAction" method="{1}">
+            <result name="touchscreenList">/pages/frontend/policy/touchscreen.jsp</result>
+            <result name="authorityDeny">/pages/frontend/404.jsp</result>
+        </action>
+    </package>
+</struts>

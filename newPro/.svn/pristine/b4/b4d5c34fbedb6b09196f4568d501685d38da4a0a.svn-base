@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="../../css/property_2.css" type="text/css" rel="stylesheet">
+    <style>
+	input[type="button"]{
+	    font-size: 14px;
+	    border: 0px none;
+	    border-radius: 3px;
+	    background-color: #DDD;
+	    color: #000;
+	    line-height: normal;
+	    padding: 5px 10px;
+	    transition: all 0.5s ease 0s;
+	}
+	input[type="button"]:hover {
+	    border-radius: 50px;
+	    box-shadow: 0px 2px 5px #DDD inset;
+	}
+    </style>
+    <script type="text/javascript" src="../../js/view/nicEdit.js"></script>
+    <script type="text/javascript" src="../../js/view/uedit/ueditor.config.js"></script>
+    <script type="text/javascript" src="../../js/view/uedit/ueditor.all.js"></script>
+    <script type="text/javascript" src="../../js/view/uedit/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript">
+       var ab;
+	    bkLib.onDomLoaded(function() {
+	    	ab = new nicEditor({maxHeight : 100, buttonList : ['fontSize','fontFamily','bold','italic','underline','forecolor']}).panelInstance('text_area');
+	    });
+       var ue = UE.getEditor('editor');
+	    // 右上角的用户信息显示
+		function getUrlParameter( name ){
+			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regexS = "[\\?&]"+name+"=([^&#]*)";
+			var regex = new RegExp( regexS );
+			var results = regex.exec(window.parent.location.href );
+			if(results == null)return "";  
+			else {
+			   return results[1];
+			}
+		} 
+		function checkTextPos(){
+			var quick=getUrlParameter('quick');
+		   	if(quick=='1'){
+		    	var pos = document.getElementById("pos");
+		    	pos.style.display = 'none';
+		    }
+		}
+		
+		
+    </script>
+</head>
+<body  unselectable="on" onload="checkTextPos()">
+<container unselectable="on">
+    <header>
+        <span  class="text_comp_prpt"></span><label>文本</label>
+    </header>
+    <section class="pos_size" id='pos'>
+        <nav class="prpt_nav">
+            <span></span><label>位置大小</label>
+        </nav>
+        <container>
+            <ul>
+                <li><span>X</span><input type="text" id="xVal" name="valEl" /></li>
+                <li><span>Y</span><input type="text" id="yVal" name="valEl" /></li>
+            </ul>
+            <ul>
+                <li><span>W</span><input type="text" id="wVal" name="valEl" /></li>
+                <li><span>H</span><input type="text" id="hVal" name="valEl" /></li>
+            </ul>
+        </container>
+    </section>
+    <section class="check prpt_set" unselectable="on">
+        <nav class="prpt_nav">
+            <span></span><label>属性</label>
+        </nav>
+        <container unselectable="on">
+        
+        <div class="font_text2_select" >
+            <label>文字设置</label>
+            <ul class="font_text2_style_select">
+                <div style="display: none"><textarea id="text_area" style="height:100px;" cols="22"></textarea></div>
+                <div>
+                    <script id="editor" type="text/plain" style="width:190px;height:500px;"></script>
+                </div>
+            </ul>
+            <ul class="font_text2_button_style_select">
+                <input id="text_apply" type="button" value="应用" title="提交文字设置"/>
+            </ul>
+        </div>
+        
+            <div class="text_scroll_style_select">
+                <label>文字滚动</label>
+                <div class="text_scroll_dim">
+                    <label>方向</label>
+                    <select class="text_scroll_dim_select" id="text2_scroll_dim_select" >
+                        <option value="0">无滚动</option>
+                        <option value="left">向左</option>
+                        <option value="right">向右</option>
+                        <option value="up">向上</option>
+                        <option value="down">向下</option>
+                    </select>
+                </div>
+                <div class="text_scroll_speed">
+                    <label>速度</label>
+                    <select class="text_scroll_speed_select" id="text2_scroll_speed_select_1" >
+                    </select>
+                    <select class="text_scroll_speed_select" id="text2_scroll_speed_select_2" style="display:none;">
+                        <option value="1">慢</option>
+                        <option value="2">中</option>
+                        <option value="4">快</option>
+                    </select>
+                </div>
+            </div>
+        </container>
+    </section>
+</container>
+
+
+<script src="../../js/view/propertyBar/commonPrpty.js"></script>
+</body>
+</html>

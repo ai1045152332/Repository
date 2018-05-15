@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="../../css/property_2.css" type="text/css" rel="stylesheet">
+
+
+</head>
+<body>
+<container>
+    <header>
+        <span  class="webPage_comp_prpt"></span><label>流媒体</label>
+    </header>
+    <section class="pos_size">
+        <nav class="prpt_nav">
+            <span></span><label>位置大小</label>
+        </nav>
+        <container>
+            <ul>
+                <li><span>X</span><input type="text" id="xVal" name="valEl" /></li>
+                <li><span>Y</span><input type="text" id="yVal" name="valEl" /></li>
+            </ul>
+            <ul>
+                <li><span>W</span><input type="text" id="wVal" name="valEl" /></li>
+                <li><span>H</span><input type="text" id="hVal" name="valEl" /></li>
+            </ul>
+        </container>
+    </section>
+    <section class="check prpt_set">
+        <nav class="prpt_nav">
+            <span></span><label>属性</label>
+        </nav>
+        <container>
+        	<div class="prpt_input_text">
+                <label>流媒体类型：</label>
+                <label><input type="radio" id="thirdstream" name="valEl"  value='2'  checked="checked"/> 第三方流媒体</label>
+               <!--  <label><input type="radio" id="honghestream" name="valEl"  value='1'/> 鸿合流媒体</label> -->
+            </div>
+            <div class="prpt_input_text">
+                <label>流媒体源地址：</label>
+                <input type="text" id="url" name="valEl" />
+            </div>
+        </container>
+     </section>
+
+
+</container>
+<script src="../../js/view/propertyBar/commonPrpty.js"></script>
+</body>
+</html>
