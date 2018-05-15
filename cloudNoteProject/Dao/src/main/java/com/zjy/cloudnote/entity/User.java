@@ -1,10 +1,19 @@
-package com.zjy.cloudnote.bean;
+package com.zjy.cloudnote.entity;
 
 
 public class User {
 
+    private int userId;
     private String username;
     private String password;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getUsername() {
         return username;
