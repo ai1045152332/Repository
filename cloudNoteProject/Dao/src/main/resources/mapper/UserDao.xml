@@ -9,27 +9,37 @@
         ORDER BY user_id
         DESC
     </select>
+	<select id="loginCheck" resultType="com.zjy.cloudnote.entity.User" >
+		SELECT user_id,group_id,login_name,password,username,mobile,email,gen_time,last_login_time,count
+		FROM cn_user
+		WHERE login_name = #{loginName} AND password = #{password}
+	</select>
     <select id="queryUserById" resultType="com.zjy.cloudnote.entity.User" >
-        SELECT userid,username,password
+        SELECT user_id,group_id,login_name,password,username,mobile,email,gen_time,last_login_time,count
         FROM cn_user
-        WHERE userid = #{userId}
+        WHERE user_id = #{userId}
     </select>
-    <insert id="insertUser" useGeneratedKeys="true" keyProperty="userId" keyColumn="userid"
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="userId" keyColumn="user_id"
             parameterType="com.zjy.cloudnote.entity.User">
-        INSERT INTO cn_user(username,password)
-        VALUES (#{username},#{password})
+        INSERT INTO cn_user(group_id,login_name,password,username,mobile,email,gen_time,last_login_time,count)
+        VALUES (#{groupId},#{loginName},#{password},#{username},#{mobile},#{email},#{genTime},#{lastLoginTime},#{count})
     </insert>
     <update id="updateUser" parameterType="com.zjy.cloudnote.entity.User">
         UPDATE cn_user
         <set>
-            <!--<if test="userId!=null">userid=#{userId}</if>-->
-            <if test="username!=null">username=#{username},</if>
-            <if test="password!=null">password=#{password}</if>
+            <if test="groupId!=null">group_id=#{groupId},</if>
+	        <if test="loginName!=null">login_name=#{loginName},</if>
+	        <if test="password!=null">password=#{password},</if>
+	        <if test="username!=null">username=#{username},</if>
+	        <if test="mobile!=null">mobile=#{mobile},</if>
+	        <if test="email!=null">email=#{email},</if>
+	        <if test="lastLoginTime!=null">last_login_time=#{lastLoginTime},</if>
+	        <if test="count!=null">count=#{count}</if>
         </set>
-        WHERE userid = #{userId}
+        WHERE user_id = #{userId}
     </update>
     <delete id="deleteUser">
       DELETE FROM cn_user
-      WHERE userid = #{userId}
+      WHERE user_id = #{userId}
     </delete>
 </mapper>

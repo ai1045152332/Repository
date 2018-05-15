@@ -1,4 +1,4 @@
-package com.zjy.cloudnote.controller;
+package com.zjy.cloudnoteweb;
 
 import com.zjy.cloudnote.entity.User;
 import com.zjy.cloudnote.service.UserService;
@@ -14,7 +14,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-  /*  @Autowired
+    @Autowired
     private UserService userService;
 
     @RequestMapping(value="/userList",method = RequestMethod.GET)
@@ -37,5 +37,5 @@ public class UserController {
         User user = userService.queryUserById(userId);
         map.put("user",user);
         return map;
-    }*/
+    }
 }

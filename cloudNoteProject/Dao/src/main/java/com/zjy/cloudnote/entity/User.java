@@ -5,13 +5,13 @@ import java.util.Date;
 public class User {
     private Integer userId;
     private Integer groupId;
-    private String loginName;
-    private String password;
-    private String username;
+    private String loginName;//用户名
+    private String password;//密码
+    private String username;//姓名
     private String mobile;
     private String email;
-    private Date genTime;
-    private Date lastLoginTime;
+    private Date genTime;//创建时间
+    private Date lastLoginTime;//最后登录时间
     private Integer count;
 
     public Integer getUserId() {

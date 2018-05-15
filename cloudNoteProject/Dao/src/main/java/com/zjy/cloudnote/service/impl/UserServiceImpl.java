@@ -56,4 +56,15 @@ public class UserServiceImpl implements UserService{
         //判断返回值是否为1   是1   影响1行成功
         return true;
     }
+
+    @Override
+    public boolean loginCheck(String username, String password) {
+        User user = userDao.loginCheck(username, password);
+        if(user==null){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
 }

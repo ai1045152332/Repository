@@ -1,5 +1,7 @@
 package com.zjy.cloudnote.controller;
 
+import com.zjy.cloudnote.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -7,11 +9,15 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/cloudnote")
 public class LoginController {
 
+    @Autowired
+    private UserService userService;
+
     @PostMapping(value="/login")
     public String sayHello(@RequestParam("username") String username,
                            @RequestParam("password") String password,
                            @RequestParam("code") String text){
-        return "hello "+username+password+text;
+        boolean flag = userService.loginCheck(username, password);
+        return "hello "+username+password+text + flag;
     }
 
     @GetMapping(value="/login2")
