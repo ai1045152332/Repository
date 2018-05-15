@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Dao/cloudnote.iml" filepath="$PROJECT_DIR$/Dao/cloudnote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudnoteWeb/cloudnoteweb.iml" filepath="$PROJECT_DIR$/cloudnoteWeb/cloudnoteweb.iml" />
+    </modules>
+  </component>
+</project>
