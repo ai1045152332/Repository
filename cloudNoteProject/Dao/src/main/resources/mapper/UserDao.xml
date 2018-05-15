@@ -22,7 +22,8 @@
     <update id="updateUser" parameterType="com.zjy.cloudnote.entity.User">
         UPDATE USER
         <set>
-            <if test="username!=null">username=#{username}</if>
+            <!--<if test="userId!=null">userid=#{userId}</if>-->
+            <if test="username!=null">username=#{username},</if>
             <if test="password!=null">password=#{password}</if>
         </set>
         WHERE userid = #{userId}
