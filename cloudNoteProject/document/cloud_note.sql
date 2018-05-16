@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
-Source Server Version : 50720
+Source Server         : localhostZJY
+Source Server Version : 50640
 Source Host           : localhost:3306
 Source Database       : cloud_note
 
 Target Server Type    : MYSQL
-Target Server Version : 50720
+Target Server Version : 50640
 File Encoding         : 65001
 
-Date: 2018-05-15 21:07:18
+Date: 2018-05-16 08:45:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -46,11 +46,12 @@ CREATE TABLE `cn_user` (
   `gen_time` datetime DEFAULT NULL,
   `last_login_time` datetime DEFAULT NULL,
   `count` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `login_name_unique` (`login_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cn_user
 -- ----------------------------
 INSERT INTO `cn_user` VALUES ('1001', null, 'zhaojianyu', '123456', null, null, null, null, null, null);
-INSERT INTO `cn_user` VALUES ('1002', null, 'zhaojianyu', '123456', null, null, null, null, null, null);
+INSERT INTO `cn_user` VALUES ('1002', null, 'admin', '123456', null, null, null, null, null, null);

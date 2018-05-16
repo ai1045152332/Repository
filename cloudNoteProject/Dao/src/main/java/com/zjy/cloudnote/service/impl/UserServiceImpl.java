@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -22,15 +23,26 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User queryUserById(int userId) {
-        return userDao.queryUserById(userId);
+        User user =userDao.queryUserById(userId);
+        if(user==null){
+            throw new RuntimeException("没有找到这个用户"+userId);
+        }else{
+            return user;
+        }
     }
 
     @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean insertUser(User user) {
-        //可以写判断用户名等是否为空
-        //可以设置最后登录时间  创建时间
-         userDao.insertUser(user);
+        int result = -1;
+        if(user.getLoginName()==null||user.getPassword()==null){
+            throw new RuntimeException("用户名或密码不能为空");
+        }else{
+            //设置创建时间
+            user.setGenTime(new Date());
+            result = userDao.insertUser(user);
+        }
+
          //判断返回值是否为1   是1   影响1行成功
 
         //可以抛出异常
@@ -57,13 +69,18 @@ public class UserServiceImpl implements UserService{
         return true;
     }
 
+
     @Override
-    public boolean loginCheck(String username, String password) {
-        User user = userDao.loginCheck(username, password);
-        if(user==null){
-            return false;
+    public String loginCheck(String loginName, String password) {
+        User user = userDao.loginCheck(loginName, password);
+        if(user==null||null==user.getLoginName()){
+            //用户没找到或用户名为空
+            return null;
         }else{
-            return true;
+            /*
+            登录次数加一        最后一次登录时间++
+             */
+            return user.getLoginName();
         }
 
     }
