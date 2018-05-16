@@ -3,6 +3,7 @@ package com.zjy.cloudnote.controller;
 import com.zjy.cloudnote.entity.User;
 import com.zjy.cloudnote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,13 +12,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 @RestController
-@RequestMapping("/user")
+@RequestMapping("cloudnote/user")
 public class UserController {
-  /*  @Autowired
+    @Autowired
     private UserService userService;
 
-    @RequestMapping(value="/userList",method = RequestMethod.GET)
+    @RequestMapping(value="/userlist",method = RequestMethod.GET)
     private Map<String ,Object> listUser(){
         Map<String,Object> map = new HashMap<>();
         List list = userService.queryUser();
@@ -25,7 +27,7 @@ public class UserController {
         return map;
     }
     @RequestMapping(value="/getuserbyid",method = RequestMethod.GET)
-    private Map<String ,Object> getUserById(Integer userId){
+    private Map<String ,Object> getUserById(int userId){
         Map<String,Object> map = new HashMap<>();
         User user = userService.queryUserById(userId);
         map.put("user",user);
@@ -37,5 +39,5 @@ public class UserController {
         User user = userService.queryUserById(userId);
         map.put("user",user);
         return map;
-    }*/
+    }
 }

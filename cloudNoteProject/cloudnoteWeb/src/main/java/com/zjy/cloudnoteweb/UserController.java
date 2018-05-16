@@ -14,28 +14,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    @Autowired
-    private UserService userService;
+    UserService userService;
 
-    @RequestMapping(value="/userList",method = RequestMethod.GET)
-    private Map<String ,Object> listUser(){
-        Map<String,Object> map = new HashMap<>();
-        List list = userService.queryUser();
-        map.put("userList",list);
-        return map;
-    }
-    @RequestMapping(value="/getuserbyid",method = RequestMethod.GET)
-    private Map<String ,Object> getUserById(Integer userId){
-        Map<String,Object> map = new HashMap<>();
-        User user = userService.queryUserById(userId);
-        map.put("user",user);
-        return map;
-    }
-    @RequestMapping(value="/adduser",method = RequestMethod.POST)
-    private Map<String ,Object> addUser(Integer userId){
-        Map<String,Object> map = new HashMap<>();
-        User user = userService.queryUserById(userId);
-        map.put("user",user);
-        return map;
-    }
 }
