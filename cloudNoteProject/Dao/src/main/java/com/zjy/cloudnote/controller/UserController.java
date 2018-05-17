@@ -14,7 +14,7 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("cloudnote/user")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;

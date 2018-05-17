@@ -9,16 +9,15 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/cloudnote")
 public class MainController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/index")
+    @RequestMapping(value="index", method=RequestMethod.GET)
     public String index(){
         System.out.println("ni hao ");
-        return "index";
+        return "d/index";
     }
     @RequestMapping("/login")
     public String login(){
@@ -30,23 +29,23 @@ public class MainController {
         model.addAttribute("model", "model:你被支持吗?");
         return "admin/img";
     }
-//    @PostMapping(value="/login")
-//    @ResponseBody
-//    public String sayHello(@RequestParam("username") String loginName,
-//                           @RequestParam("password") String password,
-//                           @RequestParam("code") String text,
-//                           HttpSession session){
-//        String returnLoginName = userService.loginCheck(loginName, password);
-//        if(returnLoginName!=null){
-//            System.out.println(session);
-//            session.setAttribute("loginName",returnLoginName);
-//            session.setAttribute("id",11);
-//            return "hello "+loginName+password+text + returnLoginName;
-//        }else{
-//            return "login over";
-//        }
-//
-//    }
+    @PostMapping(value="/login")
+    @ResponseBody
+    public String sayHello(@RequestParam("username") String loginName,
+                           @RequestParam("password") String password,
+                           @RequestParam("code") String text,
+                           HttpSession session){
+        String returnLoginName = userService.loginCheck(loginName, password);
+        if(returnLoginName!=null){
+            System.out.println(session);
+            session.setAttribute("loginName",returnLoginName);
+            session.setAttribute("id",11);
+            return "hello "+loginName+password+text + returnLoginName;
+        }else{
+            return "login over";
+        }
+
+    }
 
     @GetMapping("/logout")
     public String logout(HttpSession session){
