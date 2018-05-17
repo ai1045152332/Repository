@@ -17,17 +17,17 @@ public class MainController {
     @RequestMapping(value="index", method=RequestMethod.GET)
     public String index(){
         System.out.println("ni hao ");
-        return "d/index";
+        return "page/login/login.html";
     }
-    @RequestMapping("/login")
-    public String login(){
-        System.out.println("ni hao ");
-        return "login";
-    }
-    @RequestMapping("/initLogin")
+//    @RequestMapping("/login")
+//    public String login(){
+//        System.out.println("ni hao ");
+//        return "login";
+//    }
+    @RequestMapping("/initlogin")
     public String initLogin(Model model){
         model.addAttribute("model", "model:你被支持吗?");
-        return "admin/img";
+        return "page/error/404.jsp";
     }
     @PostMapping(value="/login")
     @ResponseBody
