@@ -25,6 +25,14 @@ public class MainController {
         return "/login/login";
     }
 
+    /**
+     * 全局错误界面
+     * @return
+     */
+    @GetMapping("/error")
+    public String errorPage(){
+        return "/page/404/404";
+    }
     @PostMapping(value="/login")
     public String sayHello(@RequestParam("username") String loginName,
                            @RequestParam("password") String password,
