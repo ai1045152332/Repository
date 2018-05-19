@@ -51,7 +51,13 @@
           <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.2" />
           <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.11" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.46" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-thymeleaf:2.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf-spring5:3.0.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:3.0.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.attoparser:attoparser:2.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.unbescape:unbescape:1.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.6.RELEASE" />
         </element>

@@ -4,30 +4,29 @@ import com.zjy.cloudnote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
+@RequestMapping("cloudnote")
 public class MainController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value="index", method=RequestMethod.GET)
-    public String index(){
+    @RequestMapping(value="/index", method=RequestMethod.GET)
+    public String index(ModelMap map){
         System.out.println("ni hao ");
-        return "page/login/login.html";
+        map.addAttribute("name", "thymeleaf-imooc");
+        return "page/login/login";
     }
-//    @RequestMapping("/login")
-//    public String login(){
-//        System.out.println("ni hao ");
-//        return "login";
-//    }
-    @RequestMapping("/initlogin")
+
+    @RequestMapping(value="/initlogin",method=RequestMethod.GET)
     public String initLogin(Model model){
         model.addAttribute("model", "model:你被支持吗?");
-        return "page/error/404.jsp";
+        return "page/error/404";
     }
     @PostMapping(value="/login")
     @ResponseBody
