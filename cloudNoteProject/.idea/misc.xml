@@ -8,7 +8,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Dao/pom.xml" />
-        <option value="$PROJECT_DIR$/cloudnoteWeb/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,450 +1,88 @@
-2018-05-17 22:30:18.834  INFO 3144 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 3144 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:30:18.877  INFO 3144 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:30:21.574  INFO 3144 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:30:21.691  INFO 3144 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:30:22.470  INFO 3144 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:30:22.472  INFO 3144 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:30:22.488  INFO 3144 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:30:22.803  INFO 3144 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:30:24.686  INFO 3144 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 6.542 seconds (JVM running for 7.509)
-2018-05-17 22:30:34.197  INFO 3144 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 22:30:50.642 ERROR 3144 --- [http-nio-80-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Circular view path [index]: would dispatch back to the current handler URL [/cloudnote/index] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)] with root cause
-
-javax.servlet.ServletException: Circular view path [index]: would dispatch back to the current handler URL [/cloudnote/index] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
-	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:209) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:147) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_111]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_111]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_111]
-
-2018-05-17 22:31:38.177  INFO 14176 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 14176 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:31:38.180  INFO 14176 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:31:40.472  INFO 14176 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:31:40.507  INFO 14176 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:31:41.114  INFO 14176 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:31:41.114  INFO 14176 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:31:41.119  INFO 14176 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:31:41.228  INFO 14176 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/cloudenote]    : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:31:42.713  INFO 14176 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 5.236 seconds (JVM running for 6.664)
-2018-05-17 22:32:39.356  INFO 6048 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 6048 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:32:39.360  INFO 6048 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:32:41.909  INFO 6048 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:32:41.950  INFO 6048 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:32:42.655  INFO 6048 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:32:42.656  INFO 6048 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:32:42.660  INFO 6048 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:32:42.795  INFO 6048 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/cloudenote]    : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:32:43.981  INFO 6048 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 5.317 seconds (JVM running for 6.405)
-2018-05-17 22:35:07.269  INFO 10612 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 10612 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:35:07.273  INFO 10612 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:35:09.324  INFO 10612 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:35:09.356  INFO 10612 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:35:09.773  INFO 10612 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:35:09.774  INFO 10612 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:35:09.777  INFO 10612 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:35:09.886  INFO 10612 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/cloudenote]    : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:35:10.998  INFO 10612 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.357 seconds (JVM running for 5.378)
-2018-05-17 22:35:55.707  INFO 13872 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 13872 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:35:55.766  INFO 13872 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:35:58.851  INFO 13872 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:35:58.878  INFO 13872 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:35:59.677  INFO 13872 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:35:59.677  INFO 13872 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:35:59.681  INFO 13872 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:35:59.815  INFO 13872 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:36:00.912  INFO 13872 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 5.748 seconds (JVM running for 6.735)
-2018-05-17 22:36:01.063  INFO 13872 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 22:36:07.357 ERROR 13872 --- [http-nio-80-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Circular view path [index]: would dispatch back to the current handler URL [/index] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)] with root cause
-
-javax.servlet.ServletException: Circular view path [index]: would dispatch back to the current handler URL [/index] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
-	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:209) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:147) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_111]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_111]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_111]
-
-2018-05-17 22:37:04.227  INFO 12740 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 12740 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:37:04.229  INFO 12740 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:37:07.693  INFO 12740 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:37:07.735  INFO 12740 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:37:08.459  INFO 12740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:37:08.459  INFO 12740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:37:08.465  INFO 12740 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:37:08.621  INFO 12740 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:37:09.739  INFO 12740 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 5.97 seconds (JVM running for 7.022)
-2018-05-17 22:37:12.129  INFO 12740 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 22:40:45.015  INFO 9632 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 9632 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:40:45.018  INFO 9632 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:40:47.088  INFO 9632 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:40:47.116  INFO 9632 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:40:47.645  INFO 9632 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:40:47.646  INFO 9632 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:40:47.650  INFO 9632 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:40:47.785  INFO 9632 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:40:48.889  INFO 9632 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.465 seconds (JVM running for 5.437)
-2018-05-17 22:40:54.162  INFO 9632 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 22:44:02.022  INFO 11544 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 11544 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:44:02.025  INFO 11544 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:44:03.811  INFO 11544 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:44:03.832  INFO 11544 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:44:04.243  INFO 11544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:44:04.243  INFO 11544 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:44:04.247  INFO 11544 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:44:04.352  INFO 11544 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:44:05.481  INFO 11544 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.043 seconds (JVM running for 5.13)
-2018-05-17 22:44:09.317  INFO 11544 --- [http-nio-80-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 22:45:45.679  INFO 9756 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 9756 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:45:45.682  INFO 9756 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:45:47.542  INFO 9756 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:45:47.583  INFO 9756 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:45:48.229  INFO 9756 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:45:48.230  INFO 9756 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:45:48.233  INFO 9756 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:45:48.346  INFO 9756 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:45:49.816  INFO 9756 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.651 seconds (JVM running for 5.622)
-2018-05-17 22:45:52.519  INFO 9756 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 22:46:46.511  INFO 12668 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 12668 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:46:46.516  INFO 12668 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:46:48.182  INFO 12668 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:46:48.213  INFO 12668 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:46:48.715  INFO 12668 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:46:48.715  INFO 12668 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:46:48.718  INFO 12668 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:46:48.820  INFO 12668 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:46:49.937  INFO 12668 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 3.957 seconds (JVM running for 5.364)
-2018-05-17 22:46:51.919  INFO 12668 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 22:47:00.802 ERROR 12668 --- [http-nio-80-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)] with root cause
-
-javax.servlet.ServletException: Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
-	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:209) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:147) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_111]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_111]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_111]
-
-2018-05-17 22:48:50.041  INFO 12668 --- [http-nio-80-exec-4] c.m.v.c.i.AbstractPoolBackedDataSource   : Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgfcw19vuofh58178io3n|2756c0a7, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgfcw19vuofh58178io3n|2756c0a7, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost/cloud_note?useUnicode=true&characterEncoding=GB2312&useSSL=false, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
-2018-05-17 22:48:57.881  INFO 3384 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 3384 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:48:57.888  INFO 3384 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:49:00.241  INFO 3384 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:49:00.268  INFO 3384 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:49:00.765  INFO 3384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:49:00.765  INFO 3384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:49:00.769  INFO 3384 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:49:00.877  INFO 3384 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/cloudenote]    : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:49:02.122  INFO 3384 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.718 seconds (JVM running for 5.698)
-2018-05-17 22:49:52.509  INFO 1776 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 1776 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:49:52.512  INFO 1776 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:49:54.120  INFO 1776 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:49:54.159  INFO 1776 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:49:54.820  INFO 1776 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:49:54.820  INFO 1776 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:49:54.823  INFO 1776 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:49:54.926  INFO 1776 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:49:56.067  INFO 1776 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.133 seconds (JVM running for 5.176)
-2018-05-17 22:49:58.483  INFO 1776 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 22:55:49.368  INFO 14144 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 14144 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:55:49.372  INFO 14144 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:55:52.442  INFO 14144 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:55:52.491  INFO 14144 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:55:53.364  INFO 14144 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:55:53.364  INFO 14144 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:55:53.369  INFO 14144 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:55:53.488  INFO 14144 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:55:54.744  INFO 14144 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 6.063 seconds (JVM running for 8.332)
-2018-05-17 22:57:15.102  INFO 9288 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 9288 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:57:15.108  INFO 9288 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:57:17.947  INFO 9288 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:57:17.992  INFO 9288 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:57:18.538  INFO 9288 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:57:18.538  INFO 9288 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:57:18.545  INFO 9288 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:57:18.709  INFO 9288 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:57:21.869  INFO 9288 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 7.755 seconds (JVM running for 9.066)
-2018-05-17 22:58:07.230  INFO 10124 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 10124 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:58:07.237  INFO 10124 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 22:58:10.006  INFO 10124 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 22:58:10.048  INFO 10124 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 22:58:10.610  INFO 10124 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 22:58:10.611  INFO 10124 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 22:58:10.617  INFO 10124 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 22:58:10.770  INFO 10124 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 22:58:12.767  INFO 10124 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 6.375 seconds (JVM running for 7.528)
-2018-05-17 22:58:36.955  INFO 10124 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 22:59:37.958 ERROR 10124 --- [http-nio-80-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)] with root cause
-
-javax.servlet.ServletException: Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
-	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:209) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:147) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_111]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_111]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_111]
-
-2018-05-17 22:59:38.846 ERROR 10124 --- [http-nio-80-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)] with root cause
-
-javax.servlet.ServletException: Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
-	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:209) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:147) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_111]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_111]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.31.jar:8.5.31]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_111]
-
-2018-05-17 22:59:57.872  INFO 11220 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 11220 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 22:59:57.879  INFO 11220 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 23:00:01.110  INFO 11220 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 23:00:01.149  INFO 11220 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 23:00:01.694  INFO 11220 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 23:00:01.694  INFO 11220 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 23:00:01.700  INFO 11220 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 23:00:01.844  INFO 11220 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 23:00:04.003  INFO 11220 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 7.366 seconds (JVM running for 8.94)
-2018-05-17 23:00:09.931  INFO 11220 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 23:01:06.872  INFO 12072 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 12072 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 23:01:06.882  INFO 12072 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 23:01:09.441  INFO 12072 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 23:01:09.511  INFO 12072 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 23:01:10.161  INFO 12072 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 23:01:10.161  INFO 12072 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 23:01:10.167  INFO 12072 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 23:01:10.335  INFO 12072 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 23:01:12.565  INFO 12072 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 6.598 seconds (JVM running for 8.393)
-2018-05-17 23:01:54.109  INFO 12072 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 23:03:19.956  INFO 512 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 512 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 23:03:19.960  INFO 512 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 23:03:23.063  INFO 512 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 23:03:23.144  INFO 512 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 23:03:23.925  INFO 512 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 23:03:23.925  INFO 512 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 23:03:23.931  INFO 512 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 23:03:24.066  INFO 512 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 23:03:25.643  INFO 512 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 6.63 seconds (JVM running for 8.144)
-2018-05-17 23:03:38.236  INFO 512 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-05-17 23:08:41.573  INFO 11948 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 11948 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
-2018-05-17 23:08:41.580  INFO 11948 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
-2018-05-17 23:08:44.106  INFO 11948 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
-2018-05-17 23:08:44.143  INFO 11948 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
-2018-05-17 23:08:44.784  INFO 11948 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-05-17 23:08:44.784  INFO 11948 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-05-17 23:08:44.791  INFO 11948 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
-2018-05-17 23:08:44.920  INFO 11948 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-05-17 23:08:47.418  INFO 11948 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 6.826 seconds (JVM running for 8.14)
-2018-05-17 23:08:52.976  INFO 11948 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-19 15:36:36.689  INFO 7768 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 7768 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
+2018-05-19 15:36:36.725  INFO 7768 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
+2018-05-19 15:36:38.806  INFO 7768 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
+2018-05-19 15:36:38.854  INFO 7768 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2018-05-19 15:36:39.546  INFO 7768 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-19 15:36:39.547  INFO 7768 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-19 15:36:39.556  INFO 7768 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
+2018-05-19 15:36:39.811  INFO 7768 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-05-19 15:36:41.437  INFO 7768 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 5.819 seconds (JVM running for 9.355)
+2018-05-19 15:37:38.591  INFO 7768 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-19 15:38:12.868  INFO 10720 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 10720 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
+2018-05-19 15:38:12.876  INFO 10720 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
+2018-05-19 15:38:15.295  INFO 10720 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2018-05-19 15:38:15.350  INFO 10720 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
+2018-05-19 15:38:16.104  INFO 10720 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-19 15:38:16.105  INFO 10720 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-19 15:38:16.109  INFO 10720 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
+2018-05-19 15:38:16.241  INFO 10720 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-05-19 15:38:17.632  INFO 10720 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 5.402 seconds (JVM running for 6.343)
+2018-05-19 15:38:23.823  INFO 10720 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-19 15:38:53.426  INFO 8988 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 8988 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
+2018-05-19 15:38:53.439  INFO 8988 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
+2018-05-19 15:38:55.543  INFO 8988 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
+2018-05-19 15:38:55.558  INFO 8988 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2018-05-19 15:38:56.318  INFO 8988 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-19 15:38:56.319  INFO 8988 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-19 15:38:56.327  INFO 8988 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
+2018-05-19 15:38:56.517  INFO 8988 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-05-19 15:38:58.189  INFO 8988 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 5.342 seconds (JVM running for 6.485)
+2018-05-19 15:39:03.421  INFO 8988 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-19 15:42:50.216  INFO 9288 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 9288 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
+2018-05-19 15:42:50.241  INFO 9288 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
+2018-05-19 15:42:51.982  INFO 9288 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
+2018-05-19 15:42:52.015  INFO 9288 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2018-05-19 15:42:52.486  INFO 9288 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-19 15:42:52.487  INFO 9288 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-19 15:42:52.491  INFO 9288 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
+2018-05-19 15:42:52.594  INFO 9288 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-05-19 15:42:54.087  INFO 9288 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.451 seconds (JVM running for 5.455)
+2018-05-19 15:42:59.045  INFO 9288 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-19 15:46:37.885  INFO 11404 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 11404 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
+2018-05-19 15:46:37.890  INFO 11404 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
+2018-05-19 15:46:40.399  INFO 11404 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
+2018-05-19 15:46:40.428  INFO 11404 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2018-05-19 15:46:40.923  INFO 11404 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-19 15:46:40.923  INFO 11404 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-19 15:46:40.927  INFO 11404 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
+2018-05-19 15:46:41.039  INFO 11404 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-05-19 15:46:42.239  INFO 11404 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.973 seconds (JVM running for 6.288)
+2018-05-19 15:46:45.381  INFO 11404 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-19 15:48:12.609  INFO 10416 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 10416 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
+2018-05-19 15:48:12.612  INFO 10416 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
+2018-05-19 15:48:14.418  INFO 10416 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
+2018-05-19 15:48:14.451  INFO 10416 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2018-05-19 15:48:14.914  INFO 10416 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-19 15:48:14.914  INFO 10416 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-19 15:48:14.918  INFO 10416 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
+2018-05-19 15:48:15.026  INFO 10416 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-05-19 15:48:16.679  INFO 10416 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.921 seconds (JVM running for 6.698)
+2018-05-19 15:48:29.425  INFO 10416 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-19 15:52:42.691  INFO 1796 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 1796 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
+2018-05-19 15:52:42.695  INFO 1796 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
+2018-05-19 15:52:44.624  INFO 1796 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
+2018-05-19 15:52:44.658  INFO 1796 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2018-05-19 15:52:45.609  INFO 1796 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-19 15:52:45.609  INFO 1796 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-19 15:52:45.619  INFO 1796 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
+2018-05-19 15:52:45.844  INFO 1796 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-05-19 15:52:48.005  INFO 1796 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 6.047 seconds (JVM running for 7.075)
+2018-05-19 15:53:13.325  INFO 1796 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-19 15:53:41.688  INFO 13564 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 13564 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
+2018-05-19 15:53:41.693  INFO 13564 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
+2018-05-19 15:53:44.243  INFO 13564 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
+2018-05-19 15:53:44.289  INFO 13564 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2018-05-19 15:53:44.934  INFO 13564 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-19 15:53:44.934  INFO 13564 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-19 15:53:44.938  INFO 13564 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
+2018-05-19 15:53:45.044  INFO 13564 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/cloudenote]    : Initializing Spring embedded WebApplicationContext
+2018-05-19 15:53:46.481  INFO 13564 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 5.361 seconds (JVM running for 6.337)
+2018-05-19 15:54:10.241  INFO 14132 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Starting CloudnoteApplication on WIN-01706051535 with PID 14132 (started by Administrator in G:\git workpace\gitRepository\ZjyRepository\cloudNoteProject)
+2018-05-19 15:54:10.244  INFO 14132 --- [main] com.zjy.cloudnote.CloudnoteApplication   : The following profiles are active: dev
+2018-05-19 15:54:11.408  INFO 14132 --- [MLog-Init-Reporter] com.mchange.v2.log.MLog                  : MLog clients using slf4j logging.
+2018-05-19 15:54:11.447  INFO 14132 --- [main] com.mchange.v2.c3p0.C3P0Registry         : Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2018-05-19 15:54:12.021  INFO 14132 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-19 15:54:12.022  INFO 14132 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-19 15:54:12.028  INFO 14132 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\app\zjy\product\12.1.0\dbhome_1\bin;G:\oracle\product\12.1.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;.;G:\java\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;"G:\apache-tomcat-8.5.23\lib;G:\apache-tomcat-8.5.23\bin";E:\Git\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;G:\框架包\apache-maven-3.5.2\bin;G:\python\Scripts\;G:\python\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;.]
+2018-05-19 15:54:12.162  INFO 14132 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/cloudenote]    : Initializing Spring embedded WebApplicationContext
+2018-05-19 15:54:14.156  INFO 14132 --- [main] com.zjy.cloudnote.CloudnoteApplication   : Started CloudnoteApplication in 4.675 seconds (JVM running for 9.139)
