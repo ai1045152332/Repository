@@ -58,7 +58,6 @@
 
 		<!-- 指定数据库表 -->
 		<table schema="" tableName="cn_group"></table>
-		<!--<table schema="" tableName="success_killed"></table>-->
 		<table tableName="cn_user">
 			<generatedKey column="user_id" sqlStatement="JDBC"/>
 		</table>
