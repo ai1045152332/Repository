@@ -16,20 +16,14 @@ public class MainController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value="/index", method=RequestMethod.GET)
+    @RequestMapping(value="", method=RequestMethod.GET)
     public String index(ModelMap map){
         System.out.println("ni hao ");
         map.addAttribute("name", "thymeleaf-imooc");
-        return "page/login/login";
+        return "/login/login";
     }
 
-    @RequestMapping(value="/initlogin",method=RequestMethod.GET)
-    public String initLogin(Model model){
-        model.addAttribute("model", "model:你被支持吗?");
-        return "page/error/404";
-    }
     @PostMapping(value="/login")
-    @ResponseBody
     public String sayHello(@RequestParam("username") String loginName,
                            @RequestParam("password") String password,
                            @RequestParam("code") String text,
@@ -39,9 +33,9 @@ public class MainController {
             System.out.println(session);
             session.setAttribute("loginName",returnLoginName);
             session.setAttribute("id",11);
-            return "hello "+loginName+password+text + returnLoginName;
+            return "page/home/home";
         }else{
-            return "login over";
+            return "login/login";
         }
 
     }
@@ -49,7 +43,7 @@ public class MainController {
     @GetMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("");
-        return "admin/index";
+        return "login/login";
     }
 
 }

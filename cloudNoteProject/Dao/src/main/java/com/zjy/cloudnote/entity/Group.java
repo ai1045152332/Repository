@@ -1,6 +1,7 @@
 package com.zjy.cloudnote.entity;
 
 public class Group {
+    /*专业组???*/
     private Integer groupId;
     private String groupName;
     private Integer schoolId;

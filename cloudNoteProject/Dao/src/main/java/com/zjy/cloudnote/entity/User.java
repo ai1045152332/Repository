@@ -1,16 +1,22 @@
 package com.zjy.cloudnote.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 public class User {
     private Integer userId;
     private Integer groupId;
     private String loginName;//用户名
+    @JsonIgnore
     private String password;//密码
     private String username;//姓名
     private String mobile;
     private String email;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="GMT+8")
     private Date genTime;//创建时间
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="GMT+8")
     private Date lastLoginTime;//最后登录时间
     private Integer count;
 
