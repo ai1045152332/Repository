@@ -16,10 +16,12 @@ public class MainController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 进入登陆页面
+     * @return
+     */
     @RequestMapping(value="", method=RequestMethod.GET)
-    public String index(ModelMap map){
-        System.out.println("ni hao ");
-        map.addAttribute("name", "thymeleaf-imooc");
+    public String index(){
         return "/login/login";
     }
 
@@ -27,12 +29,15 @@ public class MainController {
     public String sayHello(@RequestParam("username") String loginName,
                            @RequestParam("password") String password,
                            @RequestParam("code") String text,
-                           HttpSession session){
+                           HttpSession session,
+                           ModelMap map){
         String returnLoginName = userService.loginCheck(loginName, password);
         if(returnLoginName!=null){
-            System.out.println(session);
             session.setAttribute("loginName",returnLoginName);
             session.setAttribute("id",11);
+            //将信息放到th中
+            map.addAttribute("loginName", returnLoginName);
+            map.addAttribute("id",11);
             return "page/home/home";
         }else{
             return "login/login";
