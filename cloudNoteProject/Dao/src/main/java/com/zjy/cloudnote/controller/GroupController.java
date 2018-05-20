@@ -1,28 +1,24 @@
 package com.zjy.cloudnote.controller;
 
-import com.zjy.cloudnote.dao.CnGroupMapper;
-import com.zjy.cloudnote.entity.CnGroup;
+import com.zjy.cloudnote.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("cloudnote")
 public class GroupController {
     @Autowired
-    private CnGroupMapper cnGroupMapper;
+    private GroupService groupService;
 
-    @RequestMapping(value="/grouplist",method = RequestMethod.GET)
-    private Map<String ,Object> list(){
-        Map<String,Object> map = new HashMap<>();
-        Long a = 1001l;
-        CnGroup list = cnGroupMapper.selectByPrimaryKey(a);
-        map.put("groupList",list);
+    @GetMapping("/group")
+    public Map<String ,Object> groupList(){
+        Map<String ,Object> map = new HashMap<String ,Object>();
+        map.put("list",groupService.selectAll());
         return map;
     }
 }
