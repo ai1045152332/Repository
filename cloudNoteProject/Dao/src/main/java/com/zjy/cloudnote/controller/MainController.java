@@ -33,6 +33,10 @@ public class MainController {
     public String errorPage(){
         return "/page/404/404";
     }
+
+    /**
+     *登录检测
+     */
     @PostMapping(value="/login")
     public String sayHello(@RequestParam("username") String loginName,
                            @RequestParam("password") String password,
@@ -48,6 +52,9 @@ public class MainController {
             map.addAttribute("id",11);
             return "page/home/home";
         }else{
+            /**
+             * 此处应该返回用户名密码错误信息zjy
+             */
             return "login/login";
         }
 
