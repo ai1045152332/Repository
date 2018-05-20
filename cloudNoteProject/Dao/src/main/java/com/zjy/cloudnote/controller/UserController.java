@@ -25,6 +25,19 @@ public class UserController {
         map.put("userList",list);
         return map;
     }
+    @RequestMapping(value="/userlistpage",method = RequestMethod.GET)
+    private Map<String ,Object> listUserByPage(Integer page){
+
+        if(page==null){
+            page=1;
+        }
+        int pageSize = 2;//每页有2个
+
+        User user = new User();
+        Map<String,Object> map = userService.queryUserByPage(user,page,pageSize);
+        return map;
+    }
+
     @RequestMapping(value="/getuserbyid",method = RequestMethod.GET)
     private Map<String ,Object> getUserById(int userId){
         Map<String,Object> map = new HashMap<>();

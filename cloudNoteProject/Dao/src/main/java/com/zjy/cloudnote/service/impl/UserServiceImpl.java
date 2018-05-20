@@ -1,14 +1,20 @@
 package com.zjy.cloudnote.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zjy.cloudnote.dao.UserDao;
 import com.zjy.cloudnote.entity.User;
 import com.zjy.cloudnote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.thymeleaf.util.StringUtils;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -19,6 +25,21 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> queryUser() {
         return userDao.queryUser();
+    }
+
+    @Override
+    public Map<String,Object> queryUserByPage(User user, Integer page, Integer pageSize) {
+        //开始分页
+        PageHelper.startPage(page,pageSize);
+
+        List users = userDao.queryUser();
+
+        PageInfo pageInfo = new PageInfo<>(users,5);
+        //pageINfo封装了分页的详细信息，也可以指定连续显示的页数
+        Map<String,Object> map = new HashMap<>();
+        map.put("pageInfo",pageInfo);
+
+        return map;
     }
 
     @Override
