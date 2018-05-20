@@ -10,6 +10,12 @@ import java.util.Map;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    /**
+     * 全局异常处理
+     * @param req
+     * @param e
+     * @return
+     */
     @ExceptionHandler(value=Exception.class)
     @ResponseBody
     private Map<String, Object> exceptionHandler(HttpServletRequest req ,Exception e){

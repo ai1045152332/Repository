@@ -3,7 +3,6 @@ package com.zjy.cloudnote.controller;
 import com.zjy.cloudnote.entity.User;
 import com.zjy.cloudnote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +13,7 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/cloudnote")
 public class UserController {
     @Autowired
     private UserService userService;
