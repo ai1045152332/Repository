@@ -3,3 +3,5 @@
 *.log
 *.log
 *.log
+cloudNoteProject/Dao/logs/spring-boot-logging.log
+*.log
