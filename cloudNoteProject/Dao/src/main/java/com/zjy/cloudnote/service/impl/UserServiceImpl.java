@@ -116,9 +116,13 @@ public class UserServiceImpl implements UserService{
             /*
             登录次数加一        最后一次登录时间++
              */
-            user.setCount(user.getCount()+1);
+            if(user.getCount()==null){
+                user.setCount(0);
+            }else{
+                user.setCount(user.getCount()+1);
+            }
             user.setLastLoginTime(new Date());
-            userDao.updateUser(user);
+            System.out.println(userDao.updateUser(user));
             return user.getLoginName();
         }
 
