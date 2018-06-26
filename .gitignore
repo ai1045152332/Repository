@@ -113,3 +113,5 @@ cloudNoteProject/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_mod
 cloudNoteProject/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_9_5.xml
 cloudNoteProject/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_9_5.xml
 cloudNoteProject/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_5.xml
+cloudNoteProject/logs/spring-boot-logging.log
+*.log
