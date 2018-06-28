@@ -9,12 +9,15 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.stereotype.Repository;
+
 import com.zjy.blog.blog_start.domain.User;
 
 /**
  * @author zjy
  * 20180628
  */
+@Repository
 public class UserRepositoryImpl implements UserRepository {
 	//zjy 暂时存储在内存中,没用关系型数据库
 	private final ConcurrentMap<Long, User> userMap = new ConcurrentHashMap<>();
