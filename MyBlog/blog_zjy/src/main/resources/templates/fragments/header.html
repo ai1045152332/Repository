@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Thymeleaf in action</title>
+</head>
+<body>
+	<div th:fragment="header">
+		<h1>Thymeleaf in action</h1>
+		<!-- 回到首页 -->
+		<a href="/user" th:href="@{~/users}">首页</a>
+	</div>
+</body>
+</html>
