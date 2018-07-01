@@ -11,8 +11,6 @@ buildscript {
 	ext['thymeleaf-layout-dialect.version'] = '2.2.0'
 	// 自定义  Hibernate 的版本
 	ext['hibernate.version'] = '5.2.8.Final'
-	// 自定义 Elasticsearch 的版本
-	ext['elasticsearch.version'] = '5.2.2'
 	// 使用了 Maven 的中央仓库（你也可以指定其他仓库）
 	repositories {
 		//mavenCentral()
@@ -67,9 +65,16 @@ dependencies {
 	// 添加  Spring Data Elasticsearch 的依赖
 	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
 
-	// 添加  JNA 的依赖
-	compile('net.java.dev.jna:jna:4.3.0')
+	//jna依赖，否则项目启动时，会报classNotFound: native method disable的错误
+	compile("com.sun.jna:jna:3.0.9")
+	
+	// 添加 Spring Security 依赖
+	compile('org.springframework.boot:spring-boot-starter-security')
 
+	// 添加 Thymeleaf Spring Security 依赖
+	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE')
+
+	
 	// 该依赖对于编译测试是必须的，默认包含编译产品依赖和编译时依
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
