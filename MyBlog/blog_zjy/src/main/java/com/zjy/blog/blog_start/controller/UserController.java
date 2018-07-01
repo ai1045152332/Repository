@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zjy.blog.blog_start.domain.User;
-import com.zjy.blog.blog_start.repository.UserRepository;
+import com.zjy.blog.blog_start.service.UserService;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	/**
 	 * 查询所有用户
 	 * @param model
@@ -25,7 +25,7 @@ public class UserController {
 	 */
 	@GetMapping
 	public ModelAndView listUsers(Model model) {
-		model.addAttribute("userList", userRepository.findAll());
+		model.addAttribute("userList", userService.findAll());
 		model.addAttribute("title", "用户管理");
 		return new ModelAndView("users/list","userModel",model);
 	}
@@ -50,7 +50,7 @@ public class UserController {
 	@GetMapping("/form")
 	public ModelAndView createForm(Model model) {
 		model.addAttribute("title", "创建用户");
-		model.addAttribute("user", new User(null,null,null));
+		model.addAttribute("user", new User(null,null,null,null));
 		return new ModelAndView("users/form","userModel",model);
 	}
 	/**
