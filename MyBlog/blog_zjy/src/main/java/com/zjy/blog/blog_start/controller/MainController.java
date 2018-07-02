@@ -1,8 +1,12 @@
 package com.zjy.blog.blog_start.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.zjy.blog.blog_start.domain.User;
+import com.zjy.blog.blog_start.service.UserService;
 
 /**
  * 处理登陆等  主页控制器
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
+	@Autowired
+	UserService userService;
 	//显示首页
 	@GetMapping("/")
 	public String root(){
@@ -35,7 +41,8 @@ public class MainController {
 	}
 	//注册
 	@GetMapping("/register")
-	public String register(){
-		return "register";
+	public String register(User user){
+		userService.registerUser(user);
+		return "redirect:/login";
 	}
 }
