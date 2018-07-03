@@ -115,3 +115,11 @@ cloudNoteProject/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_d
 cloudNoteProject/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_5.xml
 cloudNoteProject/logs/spring-boot-logging.log
 *.log
+*.st
+*.ckp
+*.tlog
+MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/0/index/segments_u
+MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/1/index/segments_u
+MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/2/index/segments_17
+MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/3/index/segments_17
+MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/4/index/segments_17
