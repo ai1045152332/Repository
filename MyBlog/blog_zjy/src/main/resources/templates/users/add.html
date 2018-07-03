@@ -22,6 +22,41 @@
 	</div>
 
 </form>
- 
+ <script>
+		$().ready(function() {
+		// 在键盘按下并释放及提交后验证提交表单
+		  $("#signupForm").validate({
+		    rules: {
+		    	name: "required",
+		      username: {
+		        required: true,
+		        minlength: 3,
+		        maxlength: 20
+		      },
+		      password: {
+		        required: true,
+		        minlength: 5
+		      },
+		      email: {
+		        required: true,
+		        email: true
+		      }
+		    },
+		    messages: {
+		      name: "请输入您的姓名",
+		      username: {
+		        required: "请输入用户名",
+		        minlength: "账号长度至少为3",
+		        maxlength: "账号长度最多为20"
+		      },
+		      password: {
+		        required: "请输入密码",
+		        minlength: "密码长度不能小于 5 个字母"
+		      },
+		      email: "请输入一个正确的邮箱"
+		     }
+		    })
+		});
+</script>
 </div><!-- /.container -->
  
