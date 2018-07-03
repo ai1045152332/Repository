@@ -7,35 +7,80 @@
 
     <div class="container blog-content-container">
  
-		<form th:action="@{~/register}"  method="post">
+		<form th:action="@{~/register}"  method="post" id="signupForm">
 			<h2 class="form-signin-heading">注册成为博主</h2>
 			
 			<div class="form-group col-md-5">
-				<label for="username" class="col-form-label">账号</label>
+				<label for="username" class="col-form-label"><strong>账号</strong></label>
 				<input type="text" class="form-control" id="username" name="username" maxlength="50" placeholder="请输入账号，至少3个字符，至多20个">
-	 
 			</div>
 			<div class="form-group col-md-5">
-				<label for="email" class="col-form-label">邮箱</label>
+				<label for="email" class="col-form-label"><strong>邮箱</strong></label>
 				<input type="email" class="form-control" id="email" name="email" maxlength="50" placeholder="请输入邮箱">
 			</div>
 			<div class="form-group col-md-5">
-				<label for="name" class="col-form-label">姓名</label>
+				<label for="name" class="col-form-label"><strong>姓名</strong></label>
 				<input type="text" class="form-control" id="name" name="name" maxlength="20" placeholder="请输入姓名，至少2个字符，至多20个" >
 			</div>
 			<div class="form-group col-md-5">
-				<label for="password" class="col-form-label">密码</label>
+				<label for="password" class="col-form-label"><strong>密码</strong></label>
 				<input type="password" class="form-control" id="password" name="password" maxlength="30" placeholder="请输入密码，字母或特殊符号和数字结合" >
+			</div>
+			<div class="form-group col-md-5">
+				<label for="password" class="col-form-label"><strong>确认密码</strong></label>
+				<input type="password" class="form-control" id="confirm_password" name="confirm_password" maxlength="30" placeholder="请确认密码" >
 			</div>
 			<div class="form-group col-md-5">
 				<button type="submit" class="btn btn-primary">提交</button>
 			</div>
- 
 		</form>
- 
     </div> <!-- /container -->
- 
-	
 	<div th:replace="~{fragments/footer :: footer}">...</div>
     </body>
+    <script>
+		$().ready(function() {
+		// 在键盘按下并释放及提交后验证提交表单
+		  $("#signupForm").validate({
+		    rules: {
+		    	name: "required",
+		      username: {
+		        required: true,
+		        minlength: 3,
+		        maxlength: 20
+		      },
+		      password: {
+		        required: true,
+		        minlength: 5
+		      },
+		      confirm_password: {
+		        required: true,
+		        minlength: 5,
+		        equalTo: "#password"
+		      },
+		      email: {
+		        required: true,
+		        email: true
+		      }
+		    },
+		    messages: {
+		      name: "请输入您的姓名",
+		      username: {
+		        required: "请输入用户名",
+		        minlength: "账号长度至少为3",
+		        maxlength: "账号长度最多为20"
+		      },
+		      password: {
+		        required: "请输入密码",
+		        minlength: "密码长度不能小于 5 个字母"
+		      },
+		      confirm_password: {
+		        required: "请输入确认密码",
+		        minlength: "密码长度不能小于 5 个字母",
+		        equalTo: "两次密码输入不一致"
+		      },
+		      email: "请输入一个正确的邮箱"
+		     }
+		    })
+		});
+</script>
 </html>

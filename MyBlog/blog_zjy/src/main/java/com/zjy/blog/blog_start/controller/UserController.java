@@ -1,5 +1,6 @@
 package com.zjy.blog.blog_start.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.ConstraintViolationException;
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.zjy.blog.blog_start.domain.Authority;
 import com.zjy.blog.blog_start.domain.User;
+import com.zjy.blog.blog_start.service.AuthorityService;
 import com.zjy.blog.blog_start.service.UserService;
 import com.zjy.blog.blog_start.util.ConstraintViolationExceptionHandler;
 import com.zjy.blog.blog_start.vo.Response;
@@ -31,6 +34,8 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private AuthorityService authorityService;
 	/**
 	 * 查询所有用户
 	 * 
@@ -77,8 +82,13 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping
-	public ResponseEntity<Response> saveOrUpateUser(User user) {
-
+	public ResponseEntity<Response> saveOrUpateUser(User user, Long authorityId) {
+		//邮箱已经存在错误!!
+		
+        List<Authority> authorities = new ArrayList<>();
+		authorities.add(authorityService.getAuthorityById(authorityId));
+        user.setAuthorities(authorities);
+        
 		try {
 			userService.saveOrUpateUser(user);
 		} catch (ConstraintViolationException e) {

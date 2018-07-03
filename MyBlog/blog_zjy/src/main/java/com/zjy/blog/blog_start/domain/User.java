@@ -3,21 +3,23 @@
  */
 package com.zjy.blog.blog_start.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Size;
 
+import java.util.*;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
- * @author zjy 20180628 用户实体
+ * @author zjy 
+ * 20180628 用户实体
  */
 @Entity
-public class User {
+public class User implements UserDetails {
 	@Id // 主键
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 自增策略
 	private Long id; // 实体一个唯一标识
@@ -46,8 +48,14 @@ public class User {
 	@Column(length = 200)
 	private String avatar; // 头像图片地址
 
+	//用户和权限关系
+    @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), 
+        inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+    private List<Authority> authorities;
+    
+	// 防止直接使用
 	protected User() {
-		// 防止直接使用
 	}
 
 	public User(Long id, String name, String email, String username) {
@@ -110,6 +118,41 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", username=" + username + ", password="
 				+ password + ", avatar=" + avatar + "]";
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+        //  需将 List<Authority> 转成 List<SimpleGrantedAuthority>，否则前端拿不到角色列表名称
+        List<SimpleGrantedAuthority> simpleAuthorities = new ArrayList<>();
+        for(GrantedAuthority authority : this.authorities){
+            simpleAuthorities.add(new SimpleGrantedAuthority(authority.getAuthority()));
+        }
+        return simpleAuthorities;
+	}
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	//账号不过期
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+	//账号不锁
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+	//验证信息是否会过期
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
 	}
 
 }
