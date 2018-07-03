@@ -46,12 +46,6 @@ public class MainController {
 	public String login(){
 		return "login";
 	}
-	@PostMapping("/login")
-	public String login2(@PathVariable("username") String username,
-			@PathVariable("password") String password){
-		System.out.println("========="+username+password+"===========");
-		return "login";
-	}
 	//登陆失败 返回登录界面+提示信息
 	@GetMapping("/login-error")
 	public String loginError(Model model){
