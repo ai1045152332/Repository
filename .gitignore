@@ -123,3 +123,7 @@ MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/1/index/s
 MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/2/index/segments_17
 MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/3/index/segments_17
 MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/4/index/segments_17
+*.tlog
+*.ckp
+*.cfe
+*.ckp
