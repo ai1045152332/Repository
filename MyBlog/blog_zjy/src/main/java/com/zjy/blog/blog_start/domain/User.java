@@ -3,8 +3,6 @@
  */
 package com.zjy.blog.blog_start.domain;
 
-import java.util.Collection;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,14 +12,12 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * @author zjy 20180628 用户实体
  */
 @Entity
-public class User implements UserDetails {
+public class User {
 	@Id // 主键
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 自增策略
 	private Long id; // 实体一个唯一标识
@@ -50,10 +46,8 @@ public class User implements UserDetails {
 	@Column(length = 200)
 	private String avatar; // 头像图片地址
 
-	//用户和权限关系
-	
-	// 防止直接使用
 	protected User() {
+		// 防止直接使用
 	}
 
 	public User(Long id, String name, String email, String username) {
@@ -116,33 +110,6 @@ public class User implements UserDetails {
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", username=" + username + ", password="
 				+ password + ", avatar=" + avatar + "]";
-	}
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	//账号不过期
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-	//账号不锁
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-	//验证信息是否会过期
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return true;
 	}
 
 }
