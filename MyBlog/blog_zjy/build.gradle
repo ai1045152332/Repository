@@ -79,4 +79,7 @@ dependencies {
 	
 	// 该依赖对于编译测试是必须的，默认包含编译产品依赖和编译时依
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	
+	//添加markdown parser 
+	compile('es.nitaur.markdown:txtmark:0.16')
 }
