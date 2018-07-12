@@ -28,10 +28,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.zjy.blog.blog_start.domain.Blog;
-import com.zjy.blog.blog_start.domain.User;
-import com.zjy.blog.blog_start.service.BlogService;
-import com.zjy.blog.blog_start.service.UserService;
+import com.zjy.blog.blog_start.domain.*;
+import com.zjy.blog.blog_start.service.*;
 import com.zjy.blog.blog_start.util.ConstraintViolationExceptionHandler;
 import com.zjy.blog.blog_start.vo.Response;
 
@@ -84,7 +82,49 @@ public class UserspaceController {
 	    model.addAttribute("fileServerUrl", fileServerUrl);// 文件服务器的地址返回给客户端
 	    return new ModelAndView("/userspace/profile", "userModel", model);
 	}
+	/**
+	 * 获取博客展示界面
+	 * @param username
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/{username}/blogs/{id}")
+	public String getBlogById(@PathVariable("username") String username,@PathVariable("id") Long id, Model model) {
+		User principal = null;
+		Blog blog = blogService.getBlogById(id);
+		
+		// 每次读取，简单的可以认为阅读量增加1次
+		blogService.readingIncrease(id);
 
+		// 判断操作用户是否是博客的所有者
+		boolean isBlogOwner = false;
+		if (SecurityContextHolder.getContext().getAuthentication() !=null && SecurityContextHolder.getContext().getAuthentication().isAuthenticated()
+				 &&  !SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString().equals("anonymousUser")) {
+			principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
+			if (principal !=null && username.equals(principal.getUsername())) {
+				isBlogOwner = true;
+			} 
+		}
+ 
+	    // 判断操作用户的点赞情况
+	    List<Vote> votes = blog.getVotes();
+	    Vote currentVote = null; // 当前用户的点赞情况
+
+	    if (principal !=null) {
+	        for (Vote vote : votes) {
+	            vote.getUser().getUsername().equals(principal.getUsername());
+	            currentVote = vote;
+	            break;
+	        }
+	    }
+
+	    model.addAttribute("currentVote",currentVote);  
+		model.addAttribute("isBlogOwner", isBlogOwner);
+		model.addAttribute("blogModel",blog);
+		
+		return "/userspace/blog";
+	}
 	/**
 	 * 保存个人设置
 	 * @param username
@@ -191,38 +231,6 @@ public class UserspaceController {
 		return (async==true?"/userspace/u :: #mainContainerRepleace":"/userspace/u");
 	}
 
-	/**
-	 * 获取博客展示界面
-	 * @param username
-	 * @param id
-	 * @param model
-	 * @return
-	 */
-	@GetMapping("/{username}/blogs/{id}")
-	public String getBlogById(@PathVariable("username") String username,@PathVariable("id") Long id, Model model) {
-		User principal = null;
-		Blog blog = blogService.getBlogById(id);
-		
-		// 每次读取，简单的可以认为阅读量增加1次
-		blogService.readingIncrease(id);
-
-		// 判断操作用户是否是博客的所有者
-		boolean isBlogOwner = false;
-		if (SecurityContextHolder.getContext().getAuthentication() !=null && SecurityContextHolder.getContext().getAuthentication().isAuthenticated()
-				 &&  !SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString().equals("anonymousUser")) {
-			principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
-			if (principal !=null && username.equals(principal.getUsername())) {
-				isBlogOwner = true;
-			} 
-		}
- 
-		model.addAttribute("isBlogOwner", isBlogOwner);
-		model.addAttribute("blogModel",blog);
-		
-		return "/userspace/blog";
-	}
-	
-	
 	/**
 	 * 获取新增博客的界面
 	 * @param model

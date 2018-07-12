@@ -8,9 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import com.zjy.blog.blog_start.domain.Blog;
-import com.zjy.blog.blog_start.domain.Comment;
-import com.zjy.blog.blog_start.domain.User;
+import com.zjy.blog.blog_start.domain.*;
 import com.zjy.blog.blog_start.repository.BlogRepository;
 
 
@@ -79,6 +77,24 @@ public class BlogServiceImpl implements BlogService {
 	public void removeComment(Long blogId, Long commentId) {
 	    Blog originalBlog = blogRepository.findOne(blogId);
 	    originalBlog.removeComment(commentId);
+	    this.saveBlog(originalBlog);
+	}
+	@Override
+	public Blog createVote(Long blogId) {
+	    Blog originalBlog = blogRepository.findOne(blogId);
+	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
+	    Vote vote = new Vote(user);
+	    boolean isExist = originalBlog.addVote(vote);
+	    if (isExist) {
+	        throw new IllegalArgumentException("该用户已经点过赞了");
+	    }
+	    return this.saveBlog(originalBlog);
+	}
+
+	@Override
+	public void removeVote(Long blogId, Long voteId) {
+	    Blog originalBlog = blogRepository.findOne(blogId);
+	    originalBlog.removeVote(voteId);
 	    this.saveBlog(originalBlog);
 	}
 }
