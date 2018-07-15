@@ -29,15 +29,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:if="${userModel.userList.size()}==0">
-					<td colspan="6" th:text="没有找到用户" align="center"></td>
-				</tr>
+
 				<tr th:each="user : ${userModel.userList}">
 					<td th:text="${user.id}">1</td>
 					<td th:text="${user.username}">1</td>
-					<td th:text="${user.name}">默认显示</td>
-					<td th:text="${user.email}">默认显示</td>
-					<td th:text="${user.authorities}">默认显示</td>
+					<td th:text="${user.name}">waylau</td>
+					<td th:text="${user.email}">waylau</td>
+					<td th:text="${user.authorities}">waylau</td>
 					<td>
 						<div>
 							<a class="blog-edit-user" data-toggle="modal"
@@ -60,7 +58,7 @@
 	</div>
 </div>
 
-<!-- 对话框 -->
+<!-- The modal -->
 <div class="modal fade" id="flipFlop" tabindex="-1" role="dialog"
 	aria-labelledby="modalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">

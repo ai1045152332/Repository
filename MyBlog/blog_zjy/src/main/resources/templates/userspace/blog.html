@@ -67,7 +67,9 @@
 				        </div>
 				    </div>
 				    <button class="btn btn-primary float-right" id="submitComment">发表评论</button>
-                    <button class="btn btn-primary float-right">点赞</button>
+                    <button class="btn btn-primary float-right" th:if="${currentVote} == null" id="submitVote">点赞</button>
+    				<button class="btn btn-primary float-right" th:if="${currentVote}" th:attr="voteId=${currentVote.id}" id="cancelVote">取消点赞</button>
+
 				</div>
                <div class="card-block" id="mainContainer">
 

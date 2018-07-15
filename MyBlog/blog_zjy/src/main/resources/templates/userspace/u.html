@@ -3,7 +3,6 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="~{fragments/header :: header}">
-<!-- 用户个人设置 -->
 </head>
 <body>
 <!-- Page Content -->
@@ -29,8 +28,8 @@
 			<div class="row">
 			
 			    <div class="col-md-12">
-			        <h2 class="card-text" th:text="${user.name}">姓名</h2>
-			        <h4 class="card-text" th:text="${user.username}">用户名</h4>
+			        <h2 class="card-text" th:text="${user.name}">老卫</h2>
+			        <h4 class="card-text" th:text="${user.username}">waylau</h4>
 			    </div>
 			</div>
 			
@@ -38,7 +37,7 @@
 			<div class="row ">
 			    <div class="col-md-12">
 			        <h5><i class="fa fa-envelope-o" aria-hidden="true"></i>
-			            <a href="mailto:waylau521@gmail.com" th:href="'mailto:'+ ${user.email}" th:text="${user.email}">默认邮箱@qq.com</a></h5>
+			            <a href="mailto:waylau521@gmail.com" th:href="'mailto:'+ ${user.email}" th:text="${user.email}">waylau521@gmail.com</a></h5>
 			    </div>
 			</div>
 			
