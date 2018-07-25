@@ -6,10 +6,10 @@
 	<groupId>com.zjy.cloudnote</groupId>
 	<artifactId>cloudnote</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>cloudnote</name>
-	<description>Dao for cloudnote</description>
+	<description>cloudnote</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

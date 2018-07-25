@@ -1,7 +1,7 @@
 package com.zjy.cloudnote.controller;
 
+import com.zjy.cloudnote.Util.RedisOperator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class RedisController {
 
     @Autowired
-    private StringRedisTemplate stringRedisTemplate;
+    private RedisOperator redisOperator;
 
     @RequestMapping("/test")
     public String test(){
-        stringRedisTemplate.opsForValue().set("key","hello 赵健宇");
-        System.out.print(stringRedisTemplate.opsForValue().get("key"));
-        return stringRedisTemplate.opsForValue().get("key");
+        redisOperator.set("love","嘻嘻");
+//        redisOperator.del("key");
+        return redisOperator.get("love");
     }
 }
