@@ -10,6 +10,8 @@ import com.zjy.blog.blog_start.repository.CommentRepository;
 /**
  * Comment Service接口实现.
  * 
+ * @since 1.0.0 2017年6月6日
+ * @author <a href="https://waylau.com">Way Lau</a> 
  */
 @Service
 public class CommentServiceImpl implements CommentService {

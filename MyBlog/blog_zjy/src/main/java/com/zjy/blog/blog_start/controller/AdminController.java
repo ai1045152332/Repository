@@ -11,15 +11,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.zjy.blog.blog_start.vo.Menu;
 
+
 /**
  * 后台管理控制器.
  * 
+ * @since 1.0.0 2017年5月28日
+ * @author <a href="https://waylau.com">Way Lau</a> 
  */
 @Controller
 @RequestMapping("/admins")
 public class AdminController {
-
-	 /**
+ 
+    /**
      * 获取后台管理主页面
      * @param model
      * @return
@@ -28,10 +31,7 @@ public class AdminController {
     public ModelAndView listUsers(Model model) {
         List<Menu> list = new ArrayList<>();
         list.add(new Menu("用户管理", "/users"));
-        list.add(new Menu("测试管理", "#"));
         model.addAttribute("list", list);
         return new ModelAndView("/admins/index", "model", model);
     }
- 
-	 
 }

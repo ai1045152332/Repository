@@ -1,5 +1,8 @@
 package com.zjy.blog.blog_start.service;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +16,12 @@ import org.springframework.stereotype.Service;
 import com.zjy.blog.blog_start.domain.User;
 import com.zjy.blog.blog_start.repository.UserRepository;
 
+
 /**
  * 用户服务接口实现.
+ *
+ * @since 1.0.0 2017年5月29日
+ * @author <a href="https://waylau.com">Way Lau</a> 
  */
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -27,7 +34,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	public User saveOrUpateUser(User user) {
 		return userRepository.save(user);
 	}
-
 
 	@Transactional
 	@Override
@@ -54,10 +60,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return users;
 	}
 
-
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		return userRepository.findByUsername(username);
+	}
+
+	@Override
+	public List<User> listUsersByUsernames(Collection<String> usernames) {
+		return userRepository.findByUsernameIn(usernames);
 	}
 
 }

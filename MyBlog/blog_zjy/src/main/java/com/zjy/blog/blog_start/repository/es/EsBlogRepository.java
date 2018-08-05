@@ -5,17 +5,30 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 import com.zjy.blog.blog_start.domain.es.EsBlog;
+
+
 /**
- * Es资源库接口
- * @author Administrator
- *
+ * EsBlog Repository接口.
+ * 
+ * @since 1.0.0 2017年6月8日
+ * @author <a href="https://waylau.com">Way Lau</a> 
  */
 public interface EsBlogRepository extends ElasticsearchRepository<EsBlog, String> {
-	/**
-	 * 根据用户名分页查询用户列表
-	 * @param name
-	 * @param pageable
-	 * @return
-	 */
-	Page<EsBlog> findDistinctEsBlogByTitleContainingOrSummaryContainingOrContentContaining(String title, String summary, String content, Pageable pageable);
+    /**
+     * 模糊查询(去重)
+     * @param title
+     * @param Summary
+     * @param content
+     * @param tags
+     * @param pageable
+     * @return
+     */
+    Page<EsBlog> findDistinctEsBlogByTitleContainingOrSummaryContainingOrContentContainingOrTagsContaining(String title,String Summary,String content,String tags,Pageable pageable);
+
+    /**
+     * 根据 Blog 的id 查询 EsBlog
+     * @param blogId
+     * @return
+     */
+    EsBlog findByBlogId(Long blogId);
 }

@@ -1,6 +1,5 @@
---spring boot 自动导入
-INSERT INTO user (id, username, password, name, email) VALUES (1, 'admin', '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi', 'admin', '1045152332@qq.com');
-INSERT INTO user (id, username, password, name, email) VALUES (2, 'zhaojianyu', '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi', 'zhaojianyu', 'waylau@waylau.com');
+INSERT INTO user (id, username, password, name, email) VALUES (1, 'admin', '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi', '老卫', 'i@waylau.com');
+INSERT INTO user (id, username, password, name, email) VALUES (2, 'waylau', '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi', 'Way Lau', 'waylau@waylau.com');
 
 INSERT INTO authority (id, name) VALUES (1, 'ROLE_ADMIN');
 INSERT INTO authority (id, name) VALUES (2, 'ROLE_USER');

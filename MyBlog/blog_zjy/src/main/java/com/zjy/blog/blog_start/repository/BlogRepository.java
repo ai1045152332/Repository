@@ -5,11 +5,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.zjy.blog.blog_start.domain.Blog;
+import com.zjy.blog.blog_start.domain.Catalog;
 import com.zjy.blog.blog_start.domain.User;
-
 
 /**
  * Blog 仓库.
+ *
+ * @since 1.0.0 2017年6月4日
+ * @author <a href="https://waylau.com">Way Lau</a> 
  */
 public interface BlogRepository extends JpaRepository<Blog, Long>{
 
@@ -32,4 +35,12 @@ public interface BlogRepository extends JpaRepository<Blog, Long>{
 	 * @return
 	 */
 	Page<Blog> findByTitleLikeAndUserOrTagsLikeAndUserOrderByCreateTimeDesc(String title,User user,String tags,User user2,Pageable pageable);
+	
+	/**
+	 * 根据分类查询博客列表
+	 * @param catalog
+	 * @param pageable
+	 * @return
+	 */
+	Page<Blog> findByCatalog(Catalog catalog, Pageable pageable);
 }

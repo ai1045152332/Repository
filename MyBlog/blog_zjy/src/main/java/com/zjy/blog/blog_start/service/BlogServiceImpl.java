@@ -1,5 +1,4 @@
 package com.zjy.blog.blog_start.service;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,31 +7,55 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import com.zjy.blog.blog_start.domain.*;
+import com.zjy.blog.blog_start.domain.Blog;
+import com.zjy.blog.blog_start.domain.Catalog;
+import com.zjy.blog.blog_start.domain.Comment;
+import com.zjy.blog.blog_start.domain.User;
+import com.zjy.blog.blog_start.domain.Vote;
+import com.zjy.blog.blog_start.domain.es.EsBlog;
 import com.zjy.blog.blog_start.repository.BlogRepository;
 
 
 /**
  * Blog 服务.
  * 
+ * @since 1.0.0 2017年4月7日
+ * @author <a href="https://waylau.com">Way Lau</a>
  */
 @Service
 public class BlogServiceImpl implements BlogService {
 
+	@Autowired
+	private EsBlogService esBlogService;
+	
 	@Autowired
 	private BlogRepository blogRepository;
  
 	@Transactional
 	@Override
 	public Blog saveBlog(Blog blog) {
-		Blog returnBlog = blogRepository.save(blog);
-		return returnBlog;
+		boolean isNew = (blog.getId() == null);
+	    EsBlog esBlog = null;
+
+	    Blog returnBlog = blogRepository.save(blog);
+
+	    if (isNew) {
+	        esBlog = new EsBlog(returnBlog);
+	    } else {
+	        esBlog = esBlogService.getEsBlogByBlogId(blog.getId());
+	        esBlog.update(returnBlog);
+	    }
+
+	    esBlogService.updateEsBlog(esBlog);
+	    return returnBlog;
 	}
 
 	@Transactional
 	@Override
 	public void removeBlog(Long id) {
 		blogRepository.delete(id);
+	    EsBlog esblog = esBlogService.getEsBlogByBlogId(id);
+	    esBlogService.removeEsBlog(esblog.getId());
 	}
 
 	@Override
@@ -79,6 +102,7 @@ public class BlogServiceImpl implements BlogService {
 	    originalBlog.removeComment(commentId);
 	    this.saveBlog(originalBlog);
 	}
+
 	@Override
 	public Blog createVote(Long blogId) {
 	    Blog originalBlog = blogRepository.findOne(blogId);
@@ -96,5 +120,11 @@ public class BlogServiceImpl implements BlogService {
 	    Blog originalBlog = blogRepository.findOne(blogId);
 	    originalBlog.removeVote(voteId);
 	    this.saveBlog(originalBlog);
+	}
+
+	@Override
+	public Page<Blog> listBlogsByCatalog(Catalog catalog, Pageable pageable) {
+		Page<Blog> blogs = blogRepository.findByCatalog(catalog, pageable);
+	    return blogs;
 	}
 }

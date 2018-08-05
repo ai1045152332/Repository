@@ -4,12 +4,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.zjy.blog.blog_start.domain.Blog;
+import com.zjy.blog.blog_start.domain.Catalog;
 import com.zjy.blog.blog_start.domain.User;
-
 
 /**
  * Blog 服务接口.
  * 
+ * @since 1.0.0 2017年4月7日
+ * @author <a href="https://waylau.com">Way Lau</a>
  */
 public interface BlogService {
 	/**
@@ -68,6 +70,7 @@ public interface BlogService {
 	 * @return
 	 */
 	void removeComment(Long blogId, Long commentId);
+	
 	/**
 	 * 点赞
 	 * @param blogId
@@ -82,4 +85,12 @@ public interface BlogService {
 	 * @return
 	 */
 	void removeVote(Long blogId, Long voteId);
+	
+	/**
+	 * 根据分类进行查询
+	 * @param catalog
+	 * @param pageable
+	 * @return
+	 */
+	Page<Blog> listBlogsByCatalog(Catalog catalog, Pageable pageable); 
 }

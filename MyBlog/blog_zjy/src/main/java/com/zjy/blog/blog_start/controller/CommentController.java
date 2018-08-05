@@ -25,10 +25,11 @@ import com.zjy.blog.blog_start.service.CommentService;
 import com.zjy.blog.blog_start.util.ConstraintViolationExceptionHandler;
 import com.zjy.blog.blog_start.vo.Response;
 
-
 /**
  * 评论 控制器.
  * 
+ * @since 1.0.0 2017年3月8日
+ * @author <a href="https://waylau.com">Way Lau</a> 
  */
 @Controller
 @RequestMapping("/comments")

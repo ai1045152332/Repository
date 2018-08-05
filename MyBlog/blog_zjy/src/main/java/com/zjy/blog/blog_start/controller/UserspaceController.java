@@ -28,15 +28,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.zjy.blog.blog_start.domain.*;
-import com.zjy.blog.blog_start.service.*;
+import com.zjy.blog.blog_start.domain.Blog;
+import com.zjy.blog.blog_start.domain.Catalog;
+import com.zjy.blog.blog_start.domain.User;
+import com.zjy.blog.blog_start.domain.Vote;
+import com.zjy.blog.blog_start.service.BlogService;
+import com.zjy.blog.blog_start.service.CatalogService;
+import com.zjy.blog.blog_start.service.UserService;
 import com.zjy.blog.blog_start.util.ConstraintViolationExceptionHandler;
 import com.zjy.blog.blog_start.vo.Response;
-
 
 /**
  * 用户主页控制器.
  * 
+ * @since 1.0.0 2017年5月28日
+ * @author <a href="https://waylau.com">Way Lau</a> 
  */
 @Controller
 @RequestMapping("/u")
@@ -50,6 +56,9 @@ public class UserspaceController {
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
+	
+	@Autowired
+	private CatalogService catalogService;
 	
 	@Value("${file.server.url}")
 	private String fileServerUrl;
@@ -82,49 +91,7 @@ public class UserspaceController {
 	    model.addAttribute("fileServerUrl", fileServerUrl);// 文件服务器的地址返回给客户端
 	    return new ModelAndView("/userspace/profile", "userModel", model);
 	}
-	/**
-	 * 获取博客展示界面
-	 * @param username
-	 * @param id
-	 * @param model
-	 * @return
-	 */
-	@GetMapping("/{username}/blogs/{id}")
-	public String getBlogById(@PathVariable("username") String username,@PathVariable("id") Long id, Model model) {
-		User principal = null;
-		Blog blog = blogService.getBlogById(id);
-		
-		// 每次读取，简单的可以认为阅读量增加1次
-		blogService.readingIncrease(id);
 
-		// 判断操作用户是否是博客的所有者
-		boolean isBlogOwner = false;
-		if (SecurityContextHolder.getContext().getAuthentication() !=null && SecurityContextHolder.getContext().getAuthentication().isAuthenticated()
-				 &&  !SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString().equals("anonymousUser")) {
-			principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
-			if (principal !=null && username.equals(principal.getUsername())) {
-				isBlogOwner = true;
-			} 
-		}
- 
-	    // 判断操作用户的点赞情况
-	    List<Vote> votes = blog.getVotes();
-	    Vote currentVote = null; // 当前用户的点赞情况
-
-	    if (principal !=null) {
-	        for (Vote vote : votes) {
-	            vote.getUser().getUsername().equals(principal.getUsername());
-	            currentVote = vote;
-	            break;
-	        }
-	    }
-
-	    model.addAttribute("currentVote",currentVote);  
-		model.addAttribute("isBlogOwner", isBlogOwner);
-		model.addAttribute("blogModel",blog);
-		
-		return "/userspace/blog";
-	}
 	/**
 	 * 保存个人设置
 	 * @param username
@@ -208,9 +175,12 @@ public class UserspaceController {
  		
 		Page<Blog> page = null;
 		
-		if (catalogId != null && catalogId > 0) { // 分类查询
-			// TODO
-		} else if (order.equals("hot")) { // 最热查询
+		 if (catalogId != null && catalogId > 0) { // 分类查询
+	        Catalog catalog = catalogService.getCatalogById(catalogId);
+	        Pageable pageable = new PageRequest(pageIndex, pageSize);
+	        page = blogService.listBlogsByCatalog(catalog, pageable);
+	        order = "";
+		}  else if (order.equals("hot")) { // 最热查询
 			Sort sort = new Sort(Direction.DESC,"readSize","commentSize","voteSize"); 
 			Pageable pageable = new PageRequest(pageIndex, pageSize, sort);
 			page = blogService.listBlogsByTitleVoteAndSort(user, keyword, pageable);
@@ -232,12 +202,62 @@ public class UserspaceController {
 	}
 
 	/**
+	 * 获取博客展示界面
+	 * @param username
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/{username}/blogs/{id}")
+	public String getBlogById(@PathVariable("username") String username,@PathVariable("id") Long id, Model model) {
+		User principal = null;
+		Blog blog = blogService.getBlogById(id);
+		
+		// 每次读取，简单的可以认为阅读量增加1次
+		blogService.readingIncrease(id);
+
+		// 判断操作用户是否是博客的所有者
+		boolean isBlogOwner = false;
+		if (SecurityContextHolder.getContext().getAuthentication() !=null && SecurityContextHolder.getContext().getAuthentication().isAuthenticated()
+				 &&  !SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString().equals("anonymousUser")) {
+			principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
+			if (principal !=null && username.equals(principal.getUsername())) {
+				isBlogOwner = true;
+			} 
+		}
+ 
+	    // 判断操作用户的点赞情况
+	    List<Vote> votes = blog.getVotes();
+	    Vote currentVote = null; // 当前用户的点赞情况
+
+	    if (principal !=null) {
+	        for (Vote vote : votes) {
+	            vote.getUser().getUsername().equals(principal.getUsername());
+	            currentVote = vote;
+	            break;
+	        }
+	    }
+
+	    model.addAttribute("currentVote",currentVote);  
+		model.addAttribute("isBlogOwner", isBlogOwner);
+		model.addAttribute("blogModel",blog);
+		
+		return "/userspace/blog";
+	}
+	
+	
+	/**
 	 * 获取新增博客的界面
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/{username}/blogs/edit")
 	public ModelAndView createBlog(@PathVariable("username") String username, Model model) {
+		// 获取用户分类列表
+		User user = (User)userDetailsService.loadUserByUsername(username);
+		List<Catalog> catalogs = catalogService.listCatalogs(user);
+
+	    model.addAttribute("catalogs", catalogs);
 		model.addAttribute("blog", new Blog(null, null, null));
 		model.addAttribute("fileServerUrl", fileServerUrl);// 文件服务器的地址返回给客户端
 		return new ModelAndView("/userspace/blogedit", "blogModel", model);
@@ -250,6 +270,11 @@ public class UserspaceController {
 	 */
 	@GetMapping("/{username}/blogs/edit/{id}")
 	public ModelAndView editBlog(@PathVariable("username") String username, @PathVariable("id") Long id, Model model) {
+		// 获取用户分类列表
+		User user = (User)userDetailsService.loadUserByUsername(username);
+		List<Catalog> catalogs = catalogService.listCatalogs(user);
+
+	    model.addAttribute("catalogs", catalogs);
 		model.addAttribute("blog", blogService.getBlogById(id));
 		model.addAttribute("fileServerUrl", fileServerUrl);// 文件服务器的地址返回给客户端
 		return new ModelAndView("/userspace/blogedit", "blogModel", model);
@@ -264,7 +289,11 @@ public class UserspaceController {
 	@PostMapping("/{username}/blogs/edit")
 	@PreAuthorize("authentication.name.equals(#username)") 
 	public ResponseEntity<Response> saveBlog(@PathVariable("username") String username, @RequestBody Blog blog) {
-
+		// 对 Catalog 进行空处理
+		if (blog.getCatalog().getId() == null) {
+			return ResponseEntity.ok().body(new Response(false,"未选择分类"));
+		}
+		
 		try {
 
 			// 判断是修改还是新增	
@@ -273,6 +302,8 @@ public class UserspaceController {
 				orignalBlog.setTitle(blog.getTitle());
 				orignalBlog.setContent(blog.getContent());
 				orignalBlog.setSummary(blog.getSummary());
+				orignalBlog.setCatalog(blog.getCatalog());
+				orignalBlog.setTags(blog.getTags());
 				blogService.saveBlog(orignalBlog);
 	        } else {
 	    		User user = (User)userDetailsService.loadUserByUsername(username);

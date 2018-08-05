@@ -26,6 +26,8 @@ import com.github.rjeschke.txtmark.Processor;
 /**
  * Blog 实体
  * 
+ * @since 1.0.0 2017年4月7日
+ * @author <a href="https://waylau.com">Way Lau</a>
  */
 @Entity // 实体
 public class Blog implements Serializable {
@@ -84,10 +86,16 @@ public class Blog implements Serializable {
 	    inverseJoinColumns = @JoinColumn(name = "comment_id", referencedColumnName = "id"))
 	private List<Comment> comments;
 	
+	//点赞
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "blog_vote", joinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "vote_id", referencedColumnName = "id"))
 	private List<Vote> votes;
+	
+	//分类
+	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+	@JoinColumn(name="catalog_id")
+	private Catalog catalog;
 	
 	protected Blog() {
 		// TODO Auto-generated constructor stub
@@ -246,5 +254,12 @@ public class Blog implements Serializable {
 		}
 		
 		this.voteSize = this.votes.size();
+	}
+	
+	public Catalog getCatalog() {
+		return catalog;
+	}
+	public void setCatalog(Catalog catalog) {
+		this.catalog = catalog;
 	}
 }
