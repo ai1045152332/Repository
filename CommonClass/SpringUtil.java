@@ -1,34 +1,24 @@
-package com.honghe.dmanager.common.util;
+package com.honghe.managerTool.util;
 
-import com.alibaba.druid.sql.SQLUtils;
-import com.honghe.dmanager.serviceManager.SQLFileAnnotation;
-import com.honghe.dmanager.serviceManager.ServiceAnnotation;
-import com.honghe.dmanager.serviceManager.ServiceManager;
-import org.apache.commons.collections.comparators.ComparableComparator;
+
+import com.honghe.managerTool.config.annotation.SQLFileAnnotation;
+import com.honghe.managerTool.controller.CommandController;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
-/**
- * @Description 获取bean
- * @Author sunchao
- * @Date: 2017-12-22 9:49
- * @Mender:
- */
 @Component
+@SQLFileAnnotation(SQLFileName = "managerTool.sql")
 public class SpringUtil {
 
     private static ApplicationContext applicationContext = null;
-    static org.slf4j.Logger logger = LoggerFactory.getLogger(ServiceManager.class);
+    static org.slf4j.Logger logger = LoggerFactory.getLogger(CommandController.class);
 
     public static void setApplicationContext(ApplicationContext applicationContext) {
         if(SpringUtil.applicationContext == null){
@@ -58,14 +48,7 @@ public class SpringUtil {
     }
 
     public static void scannerBeans(){
-        //扫描服务注解
-        String[] serviceNames = applicationContext.getBeanNamesForAnnotation(ServiceAnnotation.class);
-        for(String string:serviceNames){
-            Object service = applicationContext.getBean(string);
-            String serviceName = service.getClass().getAnnotation(ServiceAnnotation.class).ServiceName();
-            logger.debug("添加服务-------" + serviceName);
-            ServiceManager.getInstance().register(serviceName,service);
-        }
+
         //扫描SQL文件注解
         String[] sqlFiles = applicationContext.getBeanNamesForAnnotation(SQLFileAnnotation.class);
         List<String> sqlFileNameList = new ArrayList<>();
@@ -76,7 +59,6 @@ public class SpringUtil {
         }
         executeSql(sqlFileNameList);
 
-        ServiceManager.getInstance().run();
     }
 
     private static void executeSql(List<String> sqlFileNameList){
@@ -103,8 +85,8 @@ public class SpringUtil {
             boolean isSuccess = false;
             try {
                 //读取sql文件
-                String content = IOUtils.toString(new FileInputStream(System.getProperty("user.dir") + "/config/" + name),"utf-8");
-                isSuccess = SQLExecuteUtils.geInstance().executeUserSQLFile(content,"hht_dmanager",";");//注意：sql脚本中以##（替换;）表示一句完整语句
+                String content = IOUtils.toString(new FileInputStream(PathUtil.getPath(PathUtil.PathType.CONFIG)+ name),"utf-8");
+                isSuccess = SQLExecuteUtils.geInstance().executeUserSQLFile(content,"managerTool",";");//注意：sql脚本中以##（替换;）表示一句完整语句
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -147,43 +129,34 @@ public class SpringUtil {
 
     }
 
-    /**
-     * 获取请求的ip地址
-     * 获取用户真实IP地址，不使用request.getRemoteAddr();的原因是有可能用户使用了代理软件方式避免真实IP地址,
-     *
-     * 可是，如果通过了多级反向代理的话，X-Forwarded-For的值并不止一个，而是一串IP值，究竟哪个才是真正的用户端的真实IP呢？
-     * 答案是取X-Forwarded-For中第一个非unknown的有效IP字符串。
-     *
-     * 如：X-Forwarded-For：192.168.1.110
 
-     , 192.168.1.120
 
-     , 192.168.1.130
+    public static void getPath() throws IOException {
+        String path = SpringUtil.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        System.out.println("path: "+path+"/config");
+        JarFile localJarFile = null;
+        try {
+            localJarFile = new JarFile(new File(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-     ,
-     * 192.168.1.100
-
-     * @param request
-     * @return
-     */
-    public static String getIpAddress(HttpServletRequest request) {
-        String ip = request.getHeader("x-forwarded-for");
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("Proxy-Client-IP");
+        Enumeration<JarEntry> entries = localJarFile.entries();
+        while (entries.hasMoreElements()) {
+            JarEntry jarEntry = entries.nextElement();
+            System.out.println(jarEntry.getName());
+            String innerPath = jarEntry.getName();
+            if(innerPath.startsWith("conf")){
+                InputStream inputStream = SpringUtil.class.getClassLoader().getResourceAsStream(innerPath);
+                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+                String line="";
+                while((line=br.readLine())!=null){
+                    System.out.println(innerPath+"内容为:"+line);
+                }
+            }
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("WL-Proxy-Client-IP");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_CLIENT_IP");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
-        }
-        return ip;
     }
+
+
 
 }

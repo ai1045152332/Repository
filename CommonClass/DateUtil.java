@@ -1,4 +1,4 @@
-package com.honghe.dmanager.common.util;
+package com.honghe.managerTool.util;
 
 
 import org.slf4j.Logger;
@@ -6,16 +6,14 @@ import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Locale;
+import java.util.*;
 
 /** 
  * 日期时间工具类 
  *  
  * @author zhaowj
- *  
+ * @mender libing
+ * @Date 2018年2月6日 11点29分
  */  
 public class DateUtil {
 
@@ -26,10 +24,10 @@ public class DateUtil {
     private static final SimpleDateFormat timeFormat = new SimpleDateFormat(
             "HH:mm:ss");  
     
-    private static final SimpleDateFormat datetimeShortFormat = new SimpleDateFormat(
-    		"yyyyMMddHHmmss");  
-    private static final SimpleDateFormat dateShortFormat = new SimpleDateFormat(
-    		"yyyyMMdd");  
+    private static final SimpleDateFormat datetimeShortFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+
+    private static final SimpleDateFormat dateShortFormat = new SimpleDateFormat("yyyyMMdd");
+
     private static final SimpleDateFormat timeShortFormat = new SimpleDateFormat(
     		"HHmmss");
 
@@ -88,7 +86,7 @@ public class DateUtil {
     /**
      * 获得当前日期 (短)
      * <p>
-     * 日期格式yyyy-MM-dd
+     * 日期格式yyyyMMdd
      *
      * @return
      */
@@ -155,7 +153,7 @@ public class DateUtil {
     }
 
     /**
-     * 获得当前时间的<code>java.util.Date</code>对象
+     * 获得当前时间的<code>java.com.honghe.dmanager.util.Date</code>对象
      *
      * @return
      */
@@ -341,7 +339,7 @@ public class DateUtil {
     }
 
     /**
-     * 将字符串日期时间转换成java.util.Date类型
+     * 将字符串日期时间转换成java.com.honghe.dmanager.util.Date类型
      * <p>
      * 日期时间格式yyyy-MM-dd HH:mm:ss
      *
@@ -353,7 +351,7 @@ public class DateUtil {
     }
 
     /**
-     * 将字符串日期转换成java.util.Date类型
+     * 将字符串日期转换成java.com.honghe.dmanager.util.Date类型
      *<p>
      * 日期时间格式yyyy-MM-dd
      *
@@ -366,7 +364,7 @@ public class DateUtil {
     }
 
     /**
-     * 将字符串日期转换成java.util.Date类型
+     * 将字符串日期转换成java.com.honghe.dmanager.util.Date类型
      *<p>
      * 时间格式 HH:mm:ss
      *
@@ -379,7 +377,7 @@ public class DateUtil {
     }
 
     /**
-     * 根据自定义pattern将字符串日期转换成java.util.Date类型
+     * 根据自定义pattern将字符串日期转换成java.com.honghe.dmanager.util.Date类型
      *
      * @param datetime
      * @param pattern
@@ -391,21 +389,19 @@ public class DateUtil {
         SimpleDateFormat format = (SimpleDateFormat) datetimeFormat.clone();  
         format.applyPattern(pattern);  
         return format.parse(datetime);  
-    }  
-    
-    
-    public static String getDateAfter(String date,int day){
+    }
+
+    /**
+     * 传入日期，之前或之后的日期
+     * @param date 日期
+     * @param day  之后、之前的天数
+     * @return yyyy-MM-dd
+     */
+    public static Date getDateAfterOrBefore(Date date,int day){
 		Calendar now = Calendar.getInstance();
-		
-		
-		try {
-			now.setTime(dateShortFormat.parse(date));
-		} catch (ParseException e) {
-            logger.error("获取时间失败",e);
-		}
-		now.set(Calendar.DATE, now.get(Calendar.DATE)+day);
-		dateShortFormat.format(now.getTime());
-		return dateShortFormat.format(now.getTime());
+	    now.setTime(date);
+		now.add(Calendar.DAY_OF_MONTH,day);
+		return now.getTime();
 	}
     
     /**
@@ -430,6 +426,69 @@ public class DateUtil {
 		}
 		return cha;
 	}
-    
-    
+
+    /**
+     * 获取两个日期之间的天数  yyyy-MM-dd
+     * @param beginDate 开始日期
+     * @param endDate 结束日期
+     * @return 日期set
+     */
+	public static List<String> getSetBetweenDate(Date beginDate, Date endDate){
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(beginDate);
+        List<String> dateList = new ArrayList<>() ;
+        while (calendar.getTime().getTime()<=endDate.getTime()) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String dateStr = sdf.format(calendar.getTime());
+            dateList.add(dateStr);
+            calendar.add(Calendar.DAY_OF_MONTH, 1);//进行当前日期月份加1
+        }
+        return dateList;
+    }
+
+
+    /**
+     * 排列排列周的次序(1,2,3,4,5,6,7)
+     * @param weekNum
+     * @return 按升序排列
+     */
+    public static String sortWeek(String weekNum) {
+
+        String[] strs = weekNum.split(",");// 使用正则表达式进行分割
+        int[] is = new int[strs.length];
+        for (int i = 0; i < strs.length; i++) {// 遍历String数组，赋值给int数组
+            is[i] = Integer.parseInt(strs[i]);
+        }
+
+        Arrays.sort(is);// 使用数组工具类进行排序，也可以自己使用冒泡或选择排序来进行排序
+
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < is.length; i++) {// 遍历进行拼接
+            if (i == is.length - 1) {
+                sb.append(is[i]);
+            } else {
+                sb.append(is[i] + ",");
+            }
+        }
+        return sb.toString();
+    }
+
+    public static int getWeekOfDate() {
+        Date dt=new Date();
+        SimpleDateFormat dateFm = new SimpleDateFormat("EEEE");
+        dateFm.format(dt);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dt);
+        int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
+        if (w < 0){
+            w = 0;
+        }
+        else if(w == 0){
+            w = 7;
+        }
+        return w;
+    }
+
+
 }  

@@ -1,4 +1,4 @@
-package com.honghe.dmanager.common.util;
+package com.honghe.managerTool.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -37,7 +37,7 @@ public class SQLExecuteUtils {
     private static void loadProperties() {
         Properties pro = new Properties();
         try {
-            pro.load(new FileInputStream(PathUtil.getPath(PathUtil.PathType.CONFIG) + "application.properties"));
+            pro.load(new FileInputStream(PathUtil.getPath(PathUtil.PathType.CONFIG) + "/application.properties"));
             url = pro.getProperty("spring.datasource.url"); //数据库连接地址
             userName = pro.getProperty("spring.datasource.username"); //数据库用户名
             password = pro.getProperty("spring.datasource.password");//数据库密码
@@ -66,7 +66,7 @@ public class SQLExecuteUtils {
      */
     public boolean executeUserSQLFile(String sqlContent, String dbName, String sqlDelimiter) {
         SQLExecutor sqlExecutor;
-
+        loadProperties();
         String temp = "";
         if (params != null && params.length > 0) {
             StringBuilder stringBuilder = new StringBuilder();

@@ -1,16 +1,9 @@
-package com.honghe.dmanager.common.util;
+package com.honghe.managerTool.util;
 
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.SQLExec;
 import org.apache.tools.ant.types.EnumeratedAttribute;
 
-
-/**
- * sql执行信息
- *
- * @auther yuk
- * @Time 2017/9/16 14:14
- */
 public class SQLExecutor {
     private String type;
     private String url;
@@ -41,8 +34,11 @@ public class SQLExecutor {
         sqlExec.setOnerror((SQLExec.OnError)((SQLExec.OnError) EnumeratedAttribute.getInstance(SQLExec.OnError.class, "abort")));
         sqlExec.setPrint(true);
         sqlExec.setProject(new Project());
-
-        sqlExec.execute();
+        try{
+            sqlExec.execute();
+        }catch (Exception e){
+            System.out.println(e);
+        }
 
 
     }
