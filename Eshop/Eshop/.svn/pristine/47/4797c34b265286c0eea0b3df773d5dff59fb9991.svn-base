@@ -1,0 +1,6 @@
+#base upload path,end with '/'
+baseUpload=d:/software/workspace/dwj-web-wap/src/main/webapp/upload/
+
+#base show path, end with '/'
+baseShow=http://localhost:8085/dwj-web-wap/upload/
+
