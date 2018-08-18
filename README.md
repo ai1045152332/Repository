@@ -2,7 +2,7 @@
 myRepository
 
 
-thanks for looking
+thanks for watching
 
 something valuable:
 
