@@ -17,6 +17,7 @@ public class SecurityConfig extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins("*") ; // 允许跨域请求
+		// 允许跨域请求
+		registry.addMapping("/**").allowedOrigins("*") ;
 	}
 }
