@@ -8,21 +8,31 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * File 文档类.
- * 
- * @since 1.0.0 2017年3月28日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ *
  */
 @Document
 public class File {
-	@Id  // 主键
+	@Id
 	private String id;
-    private String name; // 文件名称
-    private String contentType; // 文件类型
+	/**
+	 * 文件名称
+	 */
+    private String name;
+	/**
+	 * 文件类型
+	 */
+    private String contentType;
     private long size;
     private Date uploadDate;
     private String md5;
-    private Binary content; // 文件内容
-    private String path; // 文件路径
+	/**
+	 * 文件内容
+	 */
+    private Binary content;
+	/**
+	 * 文件路径
+	 */
+    private String path;
     
     public String getPath() {
 		return path;

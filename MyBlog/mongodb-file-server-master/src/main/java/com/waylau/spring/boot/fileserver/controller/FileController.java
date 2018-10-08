@@ -29,7 +29,13 @@ import com.waylau.spring.boot.fileserver.domain.File;
 import com.waylau.spring.boot.fileserver.service.FileService;
 import com.waylau.spring.boot.fileserver.util.MD5Util;
 
-@CrossOrigin(origins = "*", maxAge = 3600) // 允许所有域名访问
+/**
+ * 文件上传控制器
+ * @author 赵健宇
+ * 18/09/21
+ * 允许所有域名访问
+ */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 public class FileController {
 
@@ -126,14 +132,14 @@ public class FileController {
 					new Binary(file.getBytes()));
 			f.setMd5(MD5Util.getMD5(file.getInputStream()));
 			fileService.saveFile(f);
-		} catch (IOException | NoSuchAlgorithmException ex) {
+		} catch (IOException || NoSuchAlgorithmException ex) {
 			ex.printStackTrace();
 			redirectAttributes.addFlashAttribute("message", "Your " + file.getOriginalFilename() + " is wrong!");
 			return "redirect:/";
 		}
 
 		redirectAttributes.addFlashAttribute("message",
-				"You successfully uploaded " + file.getOriginalFilename() + "!");
+				"上传成功,文件名: " + file.getOriginalFilename() + "!");
 
 		return "redirect:/";
 	}
@@ -155,7 +161,6 @@ public class FileController {
 			returnFile = fileService.saveFile(f);
 			String path = "//" + serverAddress + ":" + serverPort + "/view/" + returnFile.getId();
 			return ResponseEntity.status(HttpStatus.OK).body(path);
-
 		} catch (IOException | NoSuchAlgorithmException ex) {
 			ex.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
