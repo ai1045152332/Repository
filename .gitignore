@@ -132,3 +132,5 @@ MyBlog/blog_zjy/target/elastic/data/elasticsearch/nodes/0/indices/blog/4/index/s
 MyBlog/blog_zjy/src/main/resources/application.properties
 cloudNoteProject/.idea/workspace.xml
 cloudNoteProject/.idea/workspace.xml
+Security/.classpath
+Security/.project
