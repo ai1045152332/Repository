@@ -24,10 +24,10 @@ public interface SeckillDao{
 
     /**
      * 根据偏移量查询秒杀商品列表
-     * @param off
+     * @param offset
      * @param limit
      * @return
      */
-    List<Seckill> queryAll(int off, int limit);
+    List<Seckill> queryAll(int offset, int limit);
 
 }

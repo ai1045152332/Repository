@@ -9,7 +9,7 @@
 		<spring.version>4.1.7.RELEASE</spring.version>
 	</properties>
 
-	<name>Seckill</name>
+	<name>Seckill-SSM</name>
 	<groupId>com.zjy</groupId>
 	<artifactId>Seckill</artifactId>
 	<version>1.0-SNAPSHOT</version>
