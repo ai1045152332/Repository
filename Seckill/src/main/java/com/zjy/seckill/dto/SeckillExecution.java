@@ -1,6 +1,7 @@
 package com.zjy.seckill.dto;
 
 import com.zjy.seckill.entity.SuccessKilled;
+import com.zjy.seckill.enums.SeckillStatEnum;
 
 /**
  * 封装执行秒杀后的结果:是否秒杀成功

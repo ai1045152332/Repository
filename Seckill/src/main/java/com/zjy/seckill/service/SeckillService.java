@@ -1,7 +1,11 @@
 package com.zjy.seckill.service;
 
 import com.zjy.seckill.dto.Exposer;
+import com.zjy.seckill.dto.SeckillExecution;
 import com.zjy.seckill.entity.Seckill;
+import com.zjy.seckill.exception.RepeatKillException;
+import com.zjy.seckill.exception.SeckillCloseException;
+import com.zjy.seckill.exception.SeckillException;
 
 import java.util.List;
 
