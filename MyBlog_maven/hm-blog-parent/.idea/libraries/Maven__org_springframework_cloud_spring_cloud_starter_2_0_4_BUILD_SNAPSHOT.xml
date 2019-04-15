@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.cloud:spring-cloud-starter:2.0.4.BUILD-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/cloud/spring-cloud-starter/2.0.4.BUILD-SNAPSHOT/spring-cloud-starter-2.0.4.BUILD-20190414.011054-391.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/cloud/spring-cloud-starter/2.0.4.BUILD-SNAPSHOT/spring-cloud-starter-2.0.4.BUILD-20190415.101048-402.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/cloud/spring-cloud-starter/2.0.4.BUILD-SNAPSHOT/spring-cloud-starter-2.0.4.BUILD-20190414.011054-391-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/cloud/spring-cloud-starter/2.0.4.BUILD-SNAPSHOT/spring-cloud-starter-2.0.4.BUILD-20190415.101048-402-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/cloud/spring-cloud-starter/2.0.4.BUILD-SNAPSHOT/spring-cloud-starter-2.0.4.BUILD-20190414.011054-391-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/cloud/spring-cloud-starter/2.0.4.BUILD-SNAPSHOT/spring-cloud-starter-2.0.4.BUILD-20190415.101048-402-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
