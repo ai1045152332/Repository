@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: hm-blog-user # github上配置文件名
+      profile: app1 # 本次访问的配置项
+      label: master
+      uri: http://localhost:3344 # 连接server

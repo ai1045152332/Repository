@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="blog_zjy" />
+        <module name="eureka-server" />
+        <module name="hm-blog-admin" />
+        <module name="hm-blog-common" />
+        <module name="hm-blog-config-server" />
+        <module name="hm-blog-filesystem" />
+        <module name="hm-blog-user" />
+        <module name="hm-blog-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="blog_zjy" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="hm-blog-admin" target="1.8" />
+      <module name="hm-blog-common" target="1.8" />
+      <module name="hm-blog-config-server" target="1.8" />
+      <module name="hm-blog-filesystem" target="1.8" />
+      <module name="hm-blog-parent" target="1.8" />
+      <module name="hm-blog-user" target="1.8" />
+      <module name="hm-blog-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

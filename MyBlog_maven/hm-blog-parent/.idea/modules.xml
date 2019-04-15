@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hm-blog-admin/hm-blog-admin.iml" filepath="$PROJECT_DIR$/hm-blog-admin/hm-blog-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hm-blog-common/hm-blog-common.iml" filepath="$PROJECT_DIR$/hm-blog-common/hm-blog-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hm-blog-config-server/hm-blog-config-server.iml" filepath="$PROJECT_DIR$/hm-blog-config-server/hm-blog-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hm-blog-filesystem/hm-blog-filesystem.iml" filepath="$PROJECT_DIR$/hm-blog-filesystem/hm-blog-filesystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hm-blog-parent.iml" filepath="$PROJECT_DIR$/hm-blog-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hm-blog-user/hm-blog-user.iml" filepath="$PROJECT_DIR$/hm-blog-user/hm-blog-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hm-blog-web/hm-blog-web.iml" filepath="$PROJECT_DIR$/hm-blog-web/hm-blog-web.iml" />
+    </modules>
+  </component>
+</project>
