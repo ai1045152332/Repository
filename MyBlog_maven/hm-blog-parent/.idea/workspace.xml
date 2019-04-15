@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43bcf5c1-c5fb-4203-8e1c-c96f2d913341" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_archaius_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_archaius_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_core_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_core_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_server_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_server_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_ribbon_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_ribbon_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_archaius_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_archaius_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_server_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_server_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_ribbon_2_0_4_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_ribbon_2_0_4_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hm-blog-filesystem/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cache/hm-blog-filesystem.yml" beforeDir="false" />
     </list>
@@ -26,12 +14,14 @@
     <ignored path="$PROJECT_DIR$/hm-blog-config-server/target/" />
     <ignored path="$PROJECT_DIR$/hm-blog-filesystem/target/" />
     <ignored path="$PROJECT_DIR$/hm-blog-web/target/" />
+    <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FUSProjectUsageTrigger">
     <session id="629543834">
       <usages-collector id="statistics.lifecycle.project">
@@ -82,24 +72,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="51" />
+          <entry key="gitignore" value="59" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="51" />
+          <entry key="PLAIN_TEXT" value="59" />
         </counts>
       </usages-collector>
     </session>
@@ -138,6 +128,7 @@
         <option value="$PROJECT_DIR$/hm-blog-filesystem/pom.xml" />
         <option value="$PROJECT_DIR$/hm-blog-filesystem/src/main/java/com/zjy/filesystem/FilesystemApplication.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/hm-blog-filesystem/.gitignore" />
       </list>
     </option>
   </component>
@@ -184,6 +175,17 @@
               <item name="hm-blog-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="hm-blog-parent" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hm-blog-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hm-blog-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hm-blog-filesystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hm-blog-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hm-blog-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hm-blog-filesystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -197,17 +199,19 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="version&#9;ACTION&#9;ActivateVersionControlToolWindow" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555323332473" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555323776552" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ai1045152332\MyBlog_maven\hm-blog-parent\hm-blog-filesystem" />
       <recent name="D:\ai1045152332\MyBlog_maven\hm-blog-parent" />
     </key>
   </component>
@@ -304,15 +308,16 @@
       <updated>1555253682474</updated>
       <workItem from="1555253683888" duration="579000" />
       <workItem from="1555288761515" duration="1949000" />
-      <workItem from="1555322900920" duration="427000" />
+      <workItem from="1555322900920" duration="941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2955000" />
+    <option name="totallyTimeSpent" value="3469000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-149" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -335,8 +340,8 @@
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32899022" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run Dashboard" order="14" visible="true" weight="0.5038002" />
+      <window_info anchor="bottom" id="Version Control" order="13" visible="true" weight="0.38219327" />
+      <window_info anchor="bottom" id="Run Dashboard" order="14" weight="0.5038002" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -426,6 +431,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hm-blog-config-server/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hm-blog-filesystem/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
