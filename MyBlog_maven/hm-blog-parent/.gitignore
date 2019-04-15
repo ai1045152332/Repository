@@ -16,3 +16,6 @@
 /eureka-server/.mvn/
 /hm-blog-user/target/
 /hm-blog-user/hm-blog-user.iml
+/eureka-server/eureka-server.iml
+/eureka-server/mvnw
+/eureka-server/mvnw.cmd
