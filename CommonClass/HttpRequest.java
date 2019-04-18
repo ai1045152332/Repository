@@ -9,6 +9,11 @@ import java.util.Map;
 @Component
 public class HttpRequest {
 
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
+
     @Resource
     private RestTemplate restTemplate;
 
