@@ -12,3 +12,16 @@ spring:
           password: 1045152332zjy
           # 缓存位置
           basedir: D:\gitproject2\hm-blog-parent\cache
+
+eureka:
+  instance:
+    # 设置应用实例id
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${server.port}}
+    # 设置心跳和续约时间,开发环境将值设小,以便于及时剔除client
+    # 发送心跳的时间间隔,单位s
+    lease-expiration-duration-in-seconds: 10
+    # 2秒没收到心跳包 剔除该服务
+    lease-renewal-interval-in-seconds: 20
+  client:
+    service-url:
+      defaultZone: http://localhost:8760/eureka

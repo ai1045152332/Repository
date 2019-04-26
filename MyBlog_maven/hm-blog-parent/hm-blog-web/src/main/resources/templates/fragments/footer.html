@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        body{ padding-bottom:50px;}
+        .fixed{ position:fixed; left:0px; bottom:0px; width:100%; height:50px; background-color:#000; z-index:9999;}
+    </style>
 </head>
 <body>
 
-<footer class="blog-footer bg-inverse" data-th-fragment="footer">
+<footer class="blog-footer bg-inverse fixed" data-th-fragment="footer">
 	<a id="goToTop" href="#">
 		<i class="fa fa-chevron-up fa-3x" aria-hidden="true"></i>
 	</a>

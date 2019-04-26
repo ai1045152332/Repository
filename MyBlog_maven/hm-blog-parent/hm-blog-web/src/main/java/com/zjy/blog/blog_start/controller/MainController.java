@@ -40,6 +40,11 @@ public class MainController {
 	    return "redirect:/blogs";
 	}
 
+	@GetMapping("/logout")
+	public String logout() {
+		return "redirect:/blogs";
+	}
+
 	@GetMapping("/login")
 	public String login() {
 		return "login";

@@ -1,4 +1,4 @@
-package com.zjy.blog.blog_start.config;
+package com.zjy.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -52,9 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// 都可以访问
 	    http.authorizeRequests().antMatchers("/css/**", "/js/**", "/fonts/**", "/index").permitAll()
 				// 都可以访问
-	            .antMatchers("/h2-console/**").permitAll()
-				// 需要相应的角色才能访问
-	            .antMatchers("/admins/**").hasRole("ADMIN")
+	            .antMatchers("/").permitAll()
 	            .and()
 	            .formLogin()   //基于 Form 表单登录验证
 				// 自定义登录界面

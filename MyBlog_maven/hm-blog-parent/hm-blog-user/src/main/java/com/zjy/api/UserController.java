@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.ConstraintViolationException;
+import java.util.List;
 
 /**
  * user controller
@@ -50,23 +51,22 @@ public class UserController {
 
     /**
      * 查询所有用户
+     *
      * @param async
      * @param pageIndex
      * @param pageSize
      * @param name
-     * @param model
      * @return
      */
     @GetMapping("/")
-    public Page list(@RequestParam(value="async",required=false) boolean async,
-                             @RequestParam(value="pageIndex",required=false,defaultValue="0") int pageIndex,
-                             @RequestParam(value="pageSize",required=false,defaultValue="10") int pageSize,
-                             @RequestParam(value="name",required=false,defaultValue="") String name,
-                             Model model) {
+    public List list(@RequestParam(value="async",required=false) boolean async,
+                     @RequestParam(value="pageIndex",required=false,defaultValue="0") int pageIndex,
+                     @RequestParam(value="pageSize",required=false,defaultValue="10") int pageSize,
+                     @RequestParam(value="name",required=false,defaultValue="") String name) {
 
         Pageable pageable = new PageRequest(pageIndex, pageSize);
         Page<User> page = userService.listUsersByNameLike(name, pageable);
-        return page;
+        return page.getContent();
     }
 
 
@@ -116,9 +116,9 @@ public class UserController {
      * @return
      */
     @GetMapping(value = "/edit/{id}")
-    public Result modifyForm(@PathVariable("id") Long id, Model model) {
+    public User modifyForm(@PathVariable("id") Long id, Model model) {
         User user = userService.getUserById(id);
-        return null;
+        return user;
     }
 
 }

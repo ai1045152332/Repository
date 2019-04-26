@@ -8,6 +8,9 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,11 +24,11 @@ import java.util.Optional;
  *
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements  UserService, UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Transactional
 	@Override
 	public User saveOrUpateUser(User user) {
@@ -38,30 +41,31 @@ public class UserServiceImpl implements UserService {
 		return userRepository.save(user);
 	}
 
+	@Transactional(rollbackOn = Exception.class)
 	@Override
 	public void removeUser(Long id) {
-        userRepository.deleteById(id);
+//		userRepository.delete(id);
+		userRepository.deleteById(id);
 	}
 
 	@Override
 	public User getUserById(Long id) {
-        Optional<User> optionalUser =userRepository.findById(id);
-        if (!optionalUser.isPresent()){
-            return null;
-        }else{
-            return optionalUser.get();
-        }
+		return userRepository.findById(id).orElse(null);
+//		return userRepository.findOne(id);
 	}
-
 
 	@Override
 	public Page<User> listUsersByNameLike(String name, Pageable pageable) {
-        // 模糊查询
-        name = "%" + name + "%";
-        Page<User> users = userRepository.findByNameLike(name, pageable);
-        return users;
+		// 模糊查询
+		name = "%" + name + "%";
+		Page<User> users = userRepository.findByNameLike(name, pageable);
+		return users;
 	}
 
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		return userRepository.findByUsername(username);
+	}
 
 	@Override
 	public List<User> listUsersByUsernames(Collection<String> usernames) {

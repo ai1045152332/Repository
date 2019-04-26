@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: header}">
+
 </head>
     <body>
-
     <div class="container blog-content-container">
  
 		<form th:action="@{~/login}" method="post">
@@ -27,8 +27,9 @@
  
 		</form>
     </div> <!-- /container -->
- 
-	
-	<div th:replace="~{fragments/footer :: footer}">...</div>
+
+	<td th:text="${errorMsg}"></td><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <!--底部显示-->
+    <div th:replace="~{fragments/footer :: footer}">...</div>
     </body>
 </html>

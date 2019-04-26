@@ -1,12 +1,19 @@
 package com.zjy.blog.blog_start.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.validation.ConstraintViolationException;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.zjy.blog.blog_start.util.HttpUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +34,8 @@ import com.zjy.blog.blog_start.service.UserService;
 import com.zjy.blog.blog_start.util.ConstraintViolationExceptionHandler;
 import com.zjy.blog.blog_start.vo.Response;
 
+import static com.alibaba.fastjson.JSON.parseObject;
+
 /**
  * User 控制器.
  * 
@@ -35,20 +44,25 @@ import com.zjy.blog.blog_start.vo.Response;
  */
 @RestController
 @RequestMapping("/users")
+@Slf4j
 public class UserController {
 	@Autowired
 	private UserService userService;
 	
 	@Autowired
 	private AuthorityService authorityService;
-	
-	/**
+
+	@Autowired
+    private HttpUtils httpUtils;
+
+    /**
      * 查询所有用户
-     * @param async
-     * @param pageIndex
-     * @param pageSize
-     * @param name
-     * @param model
+     *
+     * @param async 同步/异步
+     * @param pageIndex 起始
+     * @param pageSize 每页size
+     * @param name 姓名
+     * @param model model
      * @return
      */
     @GetMapping
@@ -59,15 +73,41 @@ public class UserController {
             Model model) {
 
         Pageable pageable = new PageRequest(pageIndex, pageSize);
+        /**
+         *
+         *  注释掉过去调用本地服务
         Page<User> page = userService.listUsersByNameLike(name, pageable);
 
-        /**
-         *当前所在页面数据列表
-         */
         List<User> list = page.getContent();
 
         model.addAttribute("page", page);
         model.addAttribute("userList", list);
+        return new ModelAndView(async==true?"users/list :: #mainContainerRepleace":"users/list", "userModel", model);
+        **/
+
+
+        String resultJson = (String) httpUtils.get("http://localhost:9001?" +
+                "pageIndex="+pageIndex
+                +"&pageSize="+pageSize+
+                "&name="+name);
+        JSONArray page2 = JSONArray.parseArray(resultJson);
+        List contentList = new ArrayList();
+        for (int i = 0; i < page2.size(); i++) {
+            JSONObject json = (JSONObject) page2.get(i);
+            User user = json.toJavaObject(User.class);
+            List auth = (List) json.get("authorities");
+
+            //设置权限
+            user.setAuthorities(handlerAuth(auth));
+
+            contentList.add(user);
+        }
+        Page<User> userPage = new PageImpl<User>(contentList,pageable,contentList.size());
+        /**
+         * 当前所在页面数据列表
+         */
+        model.addAttribute("page", userPage);
+        model.addAttribute("userList", contentList);
         return new ModelAndView(async==true?"users/list :: #mainContainerRepleace":"users/list", "userModel", model);
     }
 	
@@ -85,6 +125,7 @@ public class UserController {
 	
     /**
      * 保存或者修改用户
+     *
      * @param user
      * @return
      */
@@ -92,12 +133,15 @@ public class UserController {
     public ResponseEntity<Response> saveOrUpateUser(User user, Long authorityId) {
 
         List<Authority> authorities = new ArrayList<>();
+
         authorities.add(authorityService.getAuthorityById(authorityId));
         user.setAuthorities(authorities);
         
         try {
-            userService.saveOrUpateUser(user);
+
+            User result = userService.saveOrUpateUser(user);
         }  catch (ConstraintViolationException e)  {
+            log.warn("保存或者修改用户失败",e);
             return ResponseEntity.ok().body(new Response(false, ConstraintViolationExceptionHandler.getMessage(e)));
         }
 
@@ -129,8 +173,33 @@ public class UserController {
      */
     @GetMapping(value = "edit/{id}")
     public ModelAndView modifyForm(@PathVariable("id") Long id, Model model) {
-        User user = userService.getUserById(id);
+
+        String resultJson = (String) httpUtils.get("http://localhost:9001/edit/"+id);
+        User user = JSON.parseObject(resultJson,User.class);
+
+        List auth = (List) JSONObject.parseObject(resultJson).get("authorities");
+
+        user.setAuthorities(handlerAuth(auth));
+
         model.addAttribute("user", user);
         return new ModelAndView("users/edit", "userModel", model);
+
+    }
+
+    /**
+     * 对权限进行二次处理
+     *
+     * @param auth 权限列表
+     * @return 权限list
+     */
+    public List<Authority> handlerAuth(List auth){
+        List<Authority> array = new ArrayList<>();
+        for (int j = 0; j < auth.size(); j++) {
+            Authority authority = new Authority();
+            authority.setId((long) (j+1));
+            authority.setName((String) ((JSONObject)auth.get(j)).get("authority"));
+            array.add(authority);
+        }
+        return array;
     }
 }
