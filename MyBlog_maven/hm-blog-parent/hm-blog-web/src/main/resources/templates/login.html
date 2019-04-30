@@ -1,35 +1,180 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: header}">
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../../css/logincss/animate.css">
+    <link rel="stylesheet" href="../../css/logincss/icomoon.css">
+    <link rel="stylesheet" href="../../css/logincss/themify-icons.css">
+    <link rel="stylesheet" href="../../css/logincss/bootstrap.css">
+    <link rel="stylesheet" href="../../css/logincss/magnific-popup.css">
+    <link rel="stylesheet" href="../../css/logincss/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../css/logincss/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../css/logincss/style.css">
+
+    <script src="../../js/loginjs/modernizr-2.6.2.min.js"></script>
 
 </head>
-    <body>
-    <div class="container blog-content-container">
- 
-		<form th:action="@{~/login}" method="post">
-			<h2 >请登录</h2>
-			
-			<div class="form-group col-md-5">
-				<label for="username" class="col-form-label">账号</label>
-				<input type="text" class="form-control" id="username" name="username" maxlength="50" placeholder="请输入账号">
-			</div>
-			<div class="form-group col-md-5">
-				<label for="password" class="col-form-label">密码</label>
-				<input type="password" class="form-control" id="password" name="password" maxlength="30" placeholder="请输入密码" >
-			</div>
-			<div class="form-group col-md-5">
-				 <input type="checkbox" name="remember-me"> 记住我
-			</div>
-			<div class="form-group col-md-5">
-				<button type="submit" class="btn btn-primary">登录</button>
-			</div>
- 
-		</form>
-    </div> <!-- /container -->
+<body>
 
-	<td th:text="${errorMsg}"></td><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <!--底部显示-->
-    <div th:replace="~{fragments/footer :: footer}">...</div>
-    </body>
+<div class="gtco-loader"></div>
+
+<div id="page">
+
+
+    <nav class="gtco-nav" role="navigation">
+        <div class="gtco-container">
+
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <div id="gtco-logo"><a href="index.html">黑猫博客 <em>HM-BLOG</em></a></div>
+                </div>
+                <div class="col-xs-8 text-right menu-1">
+                    <ul>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="tour.html">Tour</a></li>
+                        <li class="has-dropdown">
+                            <a href="#">Dropdown</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Web Design</a></li>
+                                <li><a href="#">eCommerce</a></li>
+                                <li><a href="#">Branding</a></li>
+                                <li><a href="#">API</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li class="btn-cta"><a href="#"><span>Get started</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url(../../images/img_3.jpg)">
+        <div class="overlay"></div>
+        <div class="gtco-container">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-0 text-left">
+
+
+                    <div class="row row-mt-15em">
+                        <!--左侧显示效果-->
+                        <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+                            <span class="intro-text-small">Welcome to HM-BLOG</span>
+                            <h1>Sharing your knowledge system<em>.</em></h1>
+                        </div>
+                        <!--右侧显示效果-->
+                        <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
+                            <div class="form-wrap">
+                                <div class="tab">
+
+                                    <!--  登录注册选择标签 -->
+                                    <ul class="tab-menu">
+                                        <li class="active gtco-first"><a href="#" data-tab="login">登录</a></li>
+                                        <li class="gtco-second"><a href="#"  data-tab="signup">注册</a></li>
+                                    </ul>
+
+                                    <!--  登录注册选择表单 -->
+                                    <div class="tab-content">
+
+                                        <div class="tab-content-inner active" data-content="login">
+                                            <form th:action="@{~/login}" method="post">
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="username">用户名</label>
+                                                        <input type="text" class="form-control" id="username" name="username" maxlength="50" placeholder="请输入账号">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="password">密码</label>
+                                                        <input type="password" class="form-control" id="password" name="password" maxlength="30" placeholder="请输入密码" >
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-6">
+                                                        <input type="checkbox" name="remember-me"/> 记住我
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="submit" class="btn btn-primary" value="登录">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <div class="tab-content-inner" data-content="signup">
+                                            <form th:action="@{~/register}" method="post">
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="username">Username or Email</label>
+                                                        <input type="text" class="form-control" id="username">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="password">Password</label>
+                                                        <input type="password" class="form-control" id="password">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="password2">Repeat Password</label>
+                                                        <input type="password" class="form-control" id="password2">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <input type="submit" class="btn btn-primary"
+                                                               value="Sign up">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+    </div>
+</div>
+<!-- jQuery -->
+<script src="../../js/loginjs/jquery.min.js"></script>
+<script src="../../js/loginjs/jquery.easing.1.3.js"></script>
+<script src="../../js/loginjs/bootstrap.min.js"></script>
+<script src="../../js/loginjs/jquery.waypoints.min.js"></script>
+<script src="../../js/loginjs/owl.carousel.min.js"></script>
+<script src="../../js/loginjs/jquery.countTo.js"></script>
+<script src="../../js/loginjs/jquery.magnific-popup.min.js"></script>
+<script src="../../js/loginjs/magnific-popup-options.js"></script>
+<script src="../../js/loginjs/main.js"></script>
+
+</body>
 </html>
+
