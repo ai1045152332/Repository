@@ -47,7 +47,7 @@
             <div>
                 <!-- 热门标签 -->
                 <div class="card ">
-                    <h5 class="card-header"><i class="fa fa-tags" aria-hidden="true"></i> 热门标签</h5>
+                    <h5 class="card-header"><img src="/images/i/label.png" width="25px"> 热门标签</h5>
                     <div class="card-block">
                         <div class="row">
                             <div class="col-lg-12">
@@ -60,7 +60,7 @@
 
                 <!-- 热门用户 -->
                 <div class="card my-4">
-                    <h5 class="card-header"><i class="fa fa-users" aria-hidden="true"></i> 热门用户</h5>
+                    <h5 class="card-header"><img src="/images/i/user.png" width="25px"> 热门用户</h5>
                     <div class="card-block">
                         <div class="row">
                             <div class="col-lg-12">
@@ -76,7 +76,7 @@
 
                 <!-- 热门文章 -->
                 <div class="card my-4">
-                    <h5 class="card-header"><i class="fa fa-fire" aria-hidden="true"></i> 热门文章</h5>
+                    <h5 class="card-header"><img src="/images/i/document.png" width="25px"> 热门文章</h5>
 
                     <ul class="list-group" th:each="hotblog , hotblogStat : ${hotest}" th:object="${hotblog}">
 					    <a  th:href="'/u/'+*{username} +'/blogs/'+ *{blogId}" class="list-group-item">
@@ -88,7 +88,7 @@
 
                 <!-- 最新发布 -->
                 <div class="card my-4">
-                    <h5 class="card-header"><i class="fa fa-line-chart" aria-hidden="true"></i> 最新发布</h5>
+                    <h5 class="card-header"><img src="/images/i/publish.png" width="25px">  最新发布</h5>
                     <div class="list-group">
                         <ul class="list-group" th:each="newblog : ${newest}" th:object="${newblog}">
 						    <a  th:href="'/u/'+*{username} +'/blogs/'+ *{blogId}" class="list-group-item" th:text="*{title}">
