@@ -17,7 +17,7 @@
 			<div class="row">
 			    <div class="col-md-12">
 			        <span>
-			          <a href="/u/waylau" th:href="'/u/' + ${user.username}" title="zhaojianyu" th:title="${user.username}" >
+			          <a href="/u/zjy" th:href="'/u/' + ${user.username}" title="zhaojianyu" th:title="${user.username}" >
 			            <img th:src="${user.avatar} == null ? '/images/avatar-defualt.jpg' : ${user.avatar} " 
 			             class="blog-avatar-230">
 			          </a>
@@ -29,8 +29,12 @@
 			<div class="row">
 			
 			    <div class="col-md-12">
-			        <h2 class="card-text" th:text="${user.name}">用户名</h2>
-			        <h4 class="card-text" th:text="${user.username}">userName</h4>
+			        <h2 class="card-text" th:text="${user.name}" id="user-a">用户名</h2>
+			        <h4 class="card-text" th:text="${user.username}" id="user-b">userName</h4>
+					<div id="isAdmin">
+                        <a class="btn btn-default" href="/admins" role="button">进入后台管理</a>
+                        <a class="btn btn-default" href="http://localhost:8081/" role="button">进入文件系统</a>
+					</div>
 			    </div>
 			</div>
 			
@@ -38,7 +42,7 @@
 			<div class="row ">
 			    <div class="col-md-12">
 			        <h5><img src="/images/i/email.png" width="20px">
-			            <a href="mailto:waylau521@gmail.com" th:href="'mailto:'+ ${user.email}" th:text="${user.email}">waylau521@gmail.com</a></h5>
+			            <a href="mailto:zjy521@gmail.com" th:href="'mailto:'+ ${user.email}" th:text="${user.email}">zjy521@gmail.com</a></h5>
 			    </div>
 			</div>
 			
@@ -47,7 +51,8 @@
 	     	<!-- 分类 -->
 			<div id="catalogMain">
 				<div class="card my-4" id="catalogRepleace">
-				   <h5 class="card-header"><img src="/images/i/list.png" width="25px"> 分类 <a href="javascript:void(0)" th:if="${isCatalogsOwner}" class="blog-add-catalog blog-right" data-toggle="modal"
+				   <h5 class="card-header"><img src="/images/i/list.png" width="25px"> 分类
+                       <a href="javascript:void(0)" th:if="${isCatalogsOwner}" class="blog-add-catalog blog-right" data-toggle="modal"
 						data-target="#flipFlop" role="button">+</a>
 					</h5>
 				
@@ -105,7 +110,7 @@
 			        <div class="card mb-4" th:each="blog : ${blogList}">
 			            <div class="card-block">
 			                <h2 class="card-title">
-			                    <a href="/u/waylau/blogs/1" class="card-link" title="waylau" 
+			                    <a href="/u/zjy/blogs/1" class="card-link" title="zjy"
 			                        th:href="'/u/' + ${blog.user.username} + '/blogs/'+ ${blog.id}"  th:title="${blog.user.username}" th:text="${blog.title}">
 			                        OAuth 2.0 认证的原理与实践
 			                    </a>
@@ -155,7 +160,24 @@
 
 <!-- JavaScript -->
 <script th:inline="javascript">
-var username = [[${user.username}]];
+	var username = [[${user.username}]];
+    var isAdmin = document.getElementById("isAdmin");
+
+    var profile = document.getElementById("profile")+'';
+    //判断权限
+    if (profile.indexOf("admin/profile") != -1){
+        if (username=='admin'){
+            isAdmin.style.display="inline";
+            document.getElementById("user-a").style.display="none";
+            document.getElementById("user-b").style.display="none";
+        }else{
+            isAdmin.style.display="none";
+        }
+    }else{
+        isAdmin.style.display="none";
+    }
+
+
 </script>
 <script src="../../js/userspace/u.js" th:src="@{/js/userspace/u.js}"></script>
 

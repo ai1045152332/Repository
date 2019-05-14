@@ -35,7 +35,7 @@ import com.zjy.blog.blog_start.vo.TagVO;
  * EsBlog 服务.
  * 
  * @since 1.0.0 2017年4月12日
- * @author <a href="https://waylau.com">Way Lau</a>
+ * @author <a href="https://zjy.com">zhaojianyu</a>
  */
 @Service
 public class EsBlogServiceImpl implements EsBlogService {

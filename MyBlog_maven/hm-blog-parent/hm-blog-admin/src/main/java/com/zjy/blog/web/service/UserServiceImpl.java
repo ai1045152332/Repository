@@ -21,7 +21,7 @@ import com.zjy.blog.web.repository.UserRepository;
  * 用户服务接口实现.
  *
  * @since 1.0.0 2017年5月29日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ * @author <a href="https://zjy.com">zhaojianyu</a>
  */
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {

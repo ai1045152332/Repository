@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Tag 值对象.
  * 
  * @since 1.0.0 2017年4月13日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ * @author <a href="https://zjy.com">zhaojianyu</a>
  */
 public class TagVO implements Serializable {
  

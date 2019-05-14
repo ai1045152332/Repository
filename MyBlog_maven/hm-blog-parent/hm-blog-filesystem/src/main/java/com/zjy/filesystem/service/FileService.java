@@ -12,7 +12,7 @@ import java.util.Optional;
  * File 服务接口.
  * 
  * @since 1.0.0 2017年3月28日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ * @author <a href="https://zjy.com">zhaojianyu</a>
  */
 public interface FileService {
 	/**

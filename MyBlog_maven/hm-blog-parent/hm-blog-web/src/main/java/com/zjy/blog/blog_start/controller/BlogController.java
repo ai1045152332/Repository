@@ -24,7 +24,7 @@ import com.zjy.blog.blog_start.vo.TagVO;
  * Blog 控制器.
  * 
  * @since 1.0.0 2017年5月28日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ * @author <a href="https://zjy.com">zhaojianyu</a>
  */
 @Controller
 @RequestMapping("/blogs")

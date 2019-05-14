@@ -13,7 +13,7 @@ import com.zjy.blog.web.domain.User;
  * 用户服务接口.
  * 
  * @since 1.0.0 2017年5月29日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ * @author <a href="https://zjy.com">zhaojianyu</a>
  */
 public interface UserService {
 	 /**
