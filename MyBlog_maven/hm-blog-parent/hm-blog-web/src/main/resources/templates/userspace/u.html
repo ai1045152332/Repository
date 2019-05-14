@@ -32,15 +32,17 @@
 			        <h2 class="card-text" th:text="${user.name}" id="user-a">用户名</h2>
 			        <h4 class="card-text" th:text="${user.username}" id="user-b">userName</h4>
 					<div id="isAdmin">
-                        <a class="btn btn-default" href="/admins" role="button">进入后台管理</a>
-                        <a class="btn btn-default" href="http://localhost:8081/" role="button">进入文件系统</a>
+                        <hr>
+                        <a class="btn-default btn-sm" href="/admins" role="button" style="font-size:'14px;'">进入后台管理</a>
+                        
+                        <a class="btn-default btn-sm" href="http://localhost:8081/" role="button" style="font-size:'14px;'">进入文件系统</a>
 					</div>
 			    </div>
 			</div>
 			
 			
-			<div class="row ">
-			    <div class="col-md-12">
+			<div class="row">
+			    <div class="col-md-12" id="email">
 			        <h5><img src="/images/i/email.png" width="20px">
 			            <a href="mailto:zjy521@gmail.com" th:href="'mailto:'+ ${user.email}" th:text="${user.email}">zjy521@gmail.com</a></h5>
 			    </div>
@@ -168,6 +170,7 @@
     if (profile.indexOf("admin/profile") != -1){
         if (username=='admin'){
             isAdmin.style.display="inline";
+            document.getElementById("email").style.display="none";
             document.getElementById("user-a").style.display="none";
             document.getElementById("user-b").style.display="none";
         }else{
