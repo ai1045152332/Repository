@@ -7,9 +7,9 @@ thanks for watching
 
 something valuable:
 
-  1.springboot+mybatis框架
+  1.
   
-  2.springboot+hibernate博客
+  2.
   
   3.note项目
   
