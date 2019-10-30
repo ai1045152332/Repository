@@ -7,9 +7,9 @@ thanks for watching
 
 something valuable:
 
-  1.
+  1. null
   
-  2.
+  2. null
   
   3.note项目
   
