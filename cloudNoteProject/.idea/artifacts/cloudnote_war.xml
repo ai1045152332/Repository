@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="cloudnote:war">
-    <output-path>$PROJECT_DIR$/Dao/target</output-path>
-    <root id="archive" name="cloudnote-0.0.1-SNAPSHOT.war">
-      <element id="artifact" artifact-name="cloudnote:war exploded" />
-    </root>
-  </artifact>
-</component>
